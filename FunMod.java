@@ -378,7 +378,7 @@ public class FunMod {
 		EntityRegistry.registerGlobalEntityID(EntityThrowing.class, "Throwing", 126 );
 		EntityRegistry.registerModEntity(EntityThrowing.class, "Throwing" ,126, this, 64, 1, true);
 		EntityRegistry.registerGlobalEntityID(EntityLink.class,"Link",100,8510747, 2551400); 
-		EntityRegistry.addSpawn(EntityLink.class, 100, 2, 3, EnumCreatureType.creature,  new BiomeGenBase[] {BiomeGenBase.forest , FunMod.FantasyBiome , FunMod.FantasyBiome}); 
+		EntityRegistry.addSpawn(EntityLink.class, 100, 2, 3, EnumCreatureType.creature,  new BiomeGenBase[] {FunMod.FantasyBiome , FunMod.FantasyBiome , FunMod.FantasyBiome}); 
 		
 		EntityRegistry.registerGlobalEntityID(EntityNess.class,"Ness",101,25500, 30144255); 
 		EntityRegistry.addSpawn(EntityNess.class, 101, 1, 4, EnumCreatureType.creature,  new BiomeGenBase[] {FunMod.FantasyBiome}); 
@@ -417,13 +417,13 @@ public class FunMod {
 		EntityRegistry.addSpawn(EntityKirby.class, 112, 4, 8, EnumCreatureType.creature,  new BiomeGenBase[] {FunMod.FantasyBiome , FunMod.FantasyBiome , FunMod.FantasyBiome , FunMod.FantasyBiome , FunMod.FantasyBiome});
 		
 		EntityRegistry.registerGlobalEntityID(EntityHomemAranha.class,"Spider Man",113, 60807090, 152152);
-		EntityRegistry.addSpawn(EntityHomemAranha.class, 113, 1, 4, EnumCreatureType.creature,  new BiomeGenBase[] {BiomeGenBase.forest , FunMod.FantasyBiome , FunMod.FantasyBiome , FunMod.FantasyBiome , FunMod.FantasyBiome});
+		EntityRegistry.addSpawn(EntityHomemAranha.class, 113, 1, 4, EnumCreatureType.creature,  new BiomeGenBase[] {FunMod.FantasyBiome , FunMod.FantasyBiome , FunMod.FantasyBiome , FunMod.FantasyBiome , FunMod.FantasyBiome});
 		
 		EntityRegistry.registerGlobalEntityID(EntityVenom.class,"Venom",114, 9090706, 152152);
-		EntityRegistry.addSpawn(EntityVenom.class, 114, 3, 5, EnumCreatureType.monster,  new BiomeGenBase[] {BiomeGenBase.forest , FunMod.FantasyBiome , FunMod.FantasyBiome , FunMod.FantasyBiome , FunMod.FantasyBiome});
+		EntityRegistry.addSpawn(EntityVenom.class, 114, 3, 5, EnumCreatureType.monster,  new BiomeGenBase[] {FunMod.FantasyBiome , FunMod.FantasyBiome , FunMod.FantasyBiome , FunMod.FantasyBiome , FunMod.FantasyBiome});
 		
 		EntityRegistry.registerGlobalEntityID(EntityPikachu.class,"Pikachu",115, 80807060, 1515151 );
-		EntityRegistry.addSpawn(EntityPikachu.class, 115, 1, 3, EnumCreatureType.creature,  new BiomeGenBase[] {BiomeGenBase.forest , FunMod.FantasyBiome , FunMod.FantasyBiome , FunMod.FantasyBiome});
+		EntityRegistry.addSpawn(EntityPikachu.class, 115, 1, 3, EnumCreatureType.creature,  new BiomeGenBase[] {FunMod.FantasyBiome , FunMod.FantasyBiome , FunMod.FantasyBiome , FunMod.FantasyBiome});
 		
 		EntityRegistry.registerGlobalEntityID(EntityChaos.class,"Chaos",116, 3636363, 1515151 );
 		EntityRegistry.addSpawn(EntityChaos.class, 116, 5, 5, EnumCreatureType.monster,  new BiomeGenBase[] {FunMod.FantasyBiome , FunMod.FantasyBiome , FunMod.FantasyBiome , FunMod.FantasyBiome , FunMod.FantasyBiome});
