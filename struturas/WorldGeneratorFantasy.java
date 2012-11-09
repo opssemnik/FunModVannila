@@ -61,7 +61,7 @@ break; }
 if (world == null || rand == null){
 return;
 }
-if (rand.nextInt(1000) < 150){
+if (rand.nextInt(1000) < 100){
 for (int i = 0; i < 15; ++i){
 int RandPosX2 = x + rand.nextInt(16);
 int RandPosY2 = rand.nextInt(150);
@@ -75,7 +75,7 @@ break; }
 if (world == null || rand == null){
 return;
 }
-if (rand.nextInt(1000) < 150){
+if (rand.nextInt(1000) < 100){
 for (int i = 0; i < 15; ++i){
 int RandPosX2 = x + rand.nextInt(16);
 int RandPosY2 = rand.nextInt(150);

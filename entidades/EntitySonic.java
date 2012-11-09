@@ -5,6 +5,7 @@ import net.minecraft.src.EntityAILookIdle;
 import net.minecraft.src.EntityAIPanic;
 import net.minecraft.src.EntityAIWander;
 import net.minecraft.src.EntityAIWatchClosest;
+import net.minecraft.src.EntityAgeable;
 import net.minecraft.src.EntityAnimal;
 import net.minecraft.src.NBTTagCompound;
 import net.minecraft.src.World;
@@ -81,6 +82,12 @@ public class EntitySonic extends EntityAnimal
     {
         return null; 
     }
+
+	@Override
+	public EntityAgeable func_90011_a(EntityAgeable var1) {
+		// TODO Auto-generated method stub
+		return null;
+	}
     
     
 

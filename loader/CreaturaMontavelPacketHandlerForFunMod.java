@@ -2,6 +2,7 @@ package FunMod.loader;
 
 import net.minecraft.src.Block;
 import net.minecraft.src.BlockCloth;
+import net.minecraft.src.EntityAgeable;
 import net.minecraft.src.EntityAnimal;
 import net.minecraft.src.EntityClientPlayerMP;
 import net.minecraft.src.EntityPlayer;
@@ -519,10 +520,11 @@ public class CreaturaMontavelPacketHandlerForFunMod extends EntityAnimal
     {
         return 15;
     }
-
 	@Override
-	public EntityAnimal spawnBabyAnimal(EntityAnimal var1) {
+	public EntityAgeable func_90011_a(EntityAgeable var1) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
 }

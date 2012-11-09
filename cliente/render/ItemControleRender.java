@@ -57,12 +57,12 @@ public class ItemControleRender implements IItemRenderer
 		      ForgeHooksClient.bindTexture("/FunMod/cliente/texturas/modelos/controle.png", 0);
 		      GL11.glScalef(1.8F, 1.8F, 1.8F);
 		      GL11.glRotatef(-110.0F, 0.0F, 1.0F, 0.0F);
-		      GL11.glRotatef(60.0F, 1.0F, -0.0F, 0.0F);
+		      GL11.glRotatef(55.0F, 1.0F, -0.0F, 0.0F);
 		      GL11.glRotatef(201.0F, 0.0F, 0.0F, 1.0F);
 
 		      this.staffModel.render((Entity)data[1], 0.0F, 0.0F, 0.1F, 0.0F, 0.0F, 0.0625F);
 		      ForgeHooksClient.unbindTexture();
-		      GL11.glPopMatrix();}	   
+	 }   
 	 switch (type)
   {
   case ENTITY: renderItem(type, item, data);
@@ -79,13 +79,7 @@ public class ItemControleRender implements IItemRenderer
      GL11.glTranslatef(0.5F, 0.5F, 0.5F);
      float var4 = 0.6F;
 
-     if (var2 != Minecraft.getMinecraft().renderViewEntity || Minecraft.getMinecraft().gameSettings.thirdPersonView != 0 || Minecraft.getMinecraft().currentScreen instanceof GuiInventory && RenderManager.instance.playerViewY == 180.0F)
-     {
-         GL11.glScalef(var4, var4, var4);
-         GL11.glRotatef(80.0F, 1.0F, 0.0F, 1.0F);
-         float var5 = 0.55F;
-         GL11.glTranslatef(var5, 0.25F, -var5);
-     }
+   
 
      this.renderInventoryItem(var1, var3);
      GL11.glPopMatrix();

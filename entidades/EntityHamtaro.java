@@ -15,6 +15,7 @@ import net.minecraft.src.EntityAISwimming;
 import net.minecraft.src.EntityAITargetNonTamed;
 import net.minecraft.src.EntityAIWander;
 import net.minecraft.src.EntityAIWatchClosest;
+import net.minecraft.src.EntityAgeable;
 import net.minecraft.src.EntityAnimal;
 import net.minecraft.src.EntityArrow;
 import net.minecraft.src.EntityLiving;
@@ -513,4 +514,10 @@ public class EntityHamtaro extends EntityTameable
     {
         return this.dataWatcher.getWatchableObjectByte(19) == 1;
     }
+
+	@Override
+	public EntityAgeable func_90011_a(EntityAgeable var1) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

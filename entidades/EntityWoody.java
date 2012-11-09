@@ -6,6 +6,7 @@ import net.minecraft.src.EntityAIMate;
 import net.minecraft.src.EntityAIPanic;
 import net.minecraft.src.EntityAIWander;
 import net.minecraft.src.EntityAIWatchClosest;
+import net.minecraft.src.EntityAgeable;
 import net.minecraft.src.EntityAnimal;
 import net.minecraft.src.EnumCreatureAttribute;
 import net.minecraft.src.Item;
@@ -86,5 +87,11 @@ public class EntityWoody extends EntityAnimal
     {
         return EnumCreatureAttribute.UNDEAD;
     }
+
+	@Override
+	public EntityAgeable func_90011_a(EntityAgeable var1) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 } 
