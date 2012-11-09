@@ -255,7 +255,7 @@ int i10 = i3 + k7;
 int j11 = l3 + (j6 - 1) * j4;
 int j20 = 0;
 boolean flag1 = j6 == 0 || j6 == 3 || k7 == -1 || k7 == 3;
-world.setBlockWithNotify(l8, i10, j11, flag1 ? FunMod.tv.blockID : 0);
+world.setBlockWithNotify(j20, j20, j20, flag1 ? FunMod.tv.blockID : 0);
 }
 }
 
