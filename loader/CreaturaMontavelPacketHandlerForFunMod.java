@@ -1,16 +1,16 @@
 package FunMod.loader;
 
-import net.minecraft.src.Block;
-import net.minecraft.src.BlockCloth;
-import net.minecraft.src.EntityAgeable;
-import net.minecraft.src.EntityAnimal;
-import net.minecraft.src.EntityClientPlayerMP;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.ItemDye;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.MathHelper;
-import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.World;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockCloth;
+import net.minecraft.client.entity.EntityClientPlayerMP;
+import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemDye;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.World;
 import FunMod.FunMod;
 import FunMod.enums.EnumFunMod;
 
@@ -520,8 +520,9 @@ public class CreaturaMontavelPacketHandlerForFunMod extends EntityAnimal
     {
         return 15;
     }
+	
 	@Override
-	public EntityAgeable func_90011_a(EntityAgeable var1) {
+	public EntityAgeable createChild(EntityAgeable var1) {
 		// TODO Auto-generated method stub
 		return null;
 	}

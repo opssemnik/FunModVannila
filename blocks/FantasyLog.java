@@ -2,12 +2,10 @@ package FunMod.blocks;
 
 import java.util.Random;
 
-import net.minecraft.src.Block;
-import net.minecraft.src.BlockLog;
-import net.minecraft.src.CreativeTabs;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.Material;
-import net.minecraft.src.World;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.world.World;
 import FunMod.FunMod;
 public class FantasyLog extends Block
 {

@@ -3,19 +3,16 @@ package FunMod.items;
 
 import java.util.Random;
 
-import net.minecraft.src.Block;
-import net.minecraft.src.EntityLightningBolt;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.EnumMovingObjectType;
-import net.minecraft.src.EnumToolMaterial;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.ItemSword;
-import net.minecraft.src.Material;
-import net.minecraft.src.MathHelper;
-import net.minecraft.src.MovingObjectPosition;
-import net.minecraft.src.Vec3;
-import net.minecraft.src.World;
-import FunMod.FunMod; 
+import net.minecraft.entity.effect.EntityLightningBolt;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.EnumToolMaterial;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
+import net.minecraft.util.EnumMovingObjectType;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.Vec3;
+import net.minecraft.world.World;
 public class ThunderSword extends ItemSword
 {
 	

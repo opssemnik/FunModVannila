@@ -1,14 +1,13 @@
 package FunMod.entidades;
 
-import net.minecraft.src.EntityAIAttackOnCollide;
-import net.minecraft.src.EntityAINearestAttackableTarget;
-import net.minecraft.src.EntityAIPanic;
-import net.minecraft.src.EntityAIWander;
-import net.minecraft.src.EntityAnimal;
-import net.minecraft.src.EntityMob;
-import net.minecraft.src.Item;
-import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.World;
+import net.minecraft.entity.ai.EntityAIAttackOnCollide;
+import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
+import net.minecraft.entity.ai.EntityAIPanic;
+import net.minecraft.entity.ai.EntityAIWander;
+import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.item.Item;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.world.World;
 
 public class EntityHomemAranha extends EntityMobFun
 {
@@ -86,7 +85,7 @@ public class EntityHomemAranha extends EntityMobFun
     
     protected int getDropItemId()
     {
-        return Item.silk.shiftedIndex;
+        return Item.silk.itemID;
     }
     
 }

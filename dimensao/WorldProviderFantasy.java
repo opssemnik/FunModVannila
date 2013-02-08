@@ -1,18 +1,17 @@
 package FunMod.dimensao;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.src.Entity;
-import net.minecraft.src.EntityPlayerMP;
-import net.minecraft.src.IChunkProvider;
-import net.minecraft.src.MathHelper;
-import net.minecraft.src.ServerConfigurationManager;
-import net.minecraft.src.Vec3;
-import net.minecraft.src.World;
-import net.minecraft.src.WorldChunkManagerHell;
-import net.minecraft.src.WorldProvider;
-import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
+import net.minecraft.server.management.ServerConfigurationManager;
+import net.minecraft.util.Vec3;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldProvider;
+import net.minecraft.world.biome.WorldChunkManagerHell;
+import net.minecraft.world.chunk.IChunkProvider;
 import FunMod.FunMod;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 public class WorldProviderFantasy extends WorldProvider
 {
 	 

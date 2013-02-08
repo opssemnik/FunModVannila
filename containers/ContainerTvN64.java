@@ -1,7 +1,7 @@
 package FunMod.containers;
 
-import net.minecraft.src.Container;
-import net.minecraft.src.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.Container;
 
 public class ContainerTvN64 extends Container{
 

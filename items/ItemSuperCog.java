@@ -1,13 +1,11 @@
 package FunMod.items;
 
-import net.minecraft.src.CreativeTabs;
-import net.minecraft.src.EnumRarity;
-import net.minecraft.src.ItemFood;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.ModLoader;
-import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
+import net.minecraft.item.EnumRarity;
+import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemStack;
 import FunMod.FunMod;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 	public class ItemSuperCog extends ItemFood
 	{
 	        public ItemSuperCog(int i, int j, boolean b)

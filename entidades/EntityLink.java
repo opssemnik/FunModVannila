@@ -1,16 +1,15 @@
 package FunMod.entidades;
 
-import net.minecraft.src.EntityAINearestAttackableTarget;
-import net.minecraft.src.EntityAIPanic;
-import net.minecraft.src.EntityAIWander;
-import net.minecraft.src.EntityAnimal;
-import net.minecraft.src.EntityMob;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.EnumCreatureAttribute;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.World;
+import net.minecraft.entity.EnumCreatureAttribute;
+import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
+import net.minecraft.entity.ai.EntityAIPanic;
+import net.minecraft.entity.ai.EntityAIWander;
+import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.world.World;
 import FunMod.FunMod;
 public class EntityLink extends EntityMobFun
 {
@@ -81,7 +80,7 @@ public class EntityLink extends EntityMobFun
     
     protected int getDropItemId()
     {
-        return Item.swordStone.shiftedIndex; 
+        return Item.swordStone.itemID; 
     }
     
     public EnumCreatureAttribute getCreatureAttribute()

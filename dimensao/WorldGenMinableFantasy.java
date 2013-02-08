@@ -2,9 +2,9 @@ package FunMod.dimensao;
 
 import java.util.Random;
 
-import net.minecraft.src.MathHelper;
-import net.minecraft.src.World;
-import net.minecraft.src.WorldGenerator;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenerator;
 import FunMod.FunMod;
 public class WorldGenMinableFantasy extends WorldGenerator
 {

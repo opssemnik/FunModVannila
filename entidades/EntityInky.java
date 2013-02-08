@@ -1,10 +1,9 @@
 package FunMod.entidades;
 
-import net.minecraft.src.EntityAIAttackOnCollide;
-import net.minecraft.src.EntityAINearestAttackableTarget;
-import net.minecraft.src.EntityMob;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.World;
+import net.minecraft.entity.ai.EntityAIAttackOnCollide;
+import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.world.World;
 
 public class EntityInky extends EntityMobFun
 {

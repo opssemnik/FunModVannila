@@ -2,11 +2,11 @@ package FunMod.biomas;
 
 import java.util.Random;
 
-import net.minecraft.src.BiomeGenBase;
-import net.minecraft.src.SpawnListEntry;
-import net.minecraft.src.WorldGenShrub;
-import net.minecraft.src.WorldGenTrees;
-import net.minecraft.src.WorldGenerator;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.SpawnListEntry;
+import net.minecraft.world.gen.feature.WorldGenShrub;
+import net.minecraft.world.gen.feature.WorldGenTrees;
+import net.minecraft.world.gen.feature.WorldGenerator;
 import FunMod.FunMod;
 import FunMod.dimensao.WorldGenFantasy;
 import FunMod.entidades.EntityClyde;

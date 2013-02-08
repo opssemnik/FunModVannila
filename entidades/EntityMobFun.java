@@ -1,14 +1,14 @@
 package FunMod.entidades;
 
-import net.minecraft.src.DamageSource;
-import net.minecraft.src.Entity;
-import net.minecraft.src.EntityCreature;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.EnumSkyBlock;
-import net.minecraft.src.IMob;
-import net.minecraft.src.MathHelper;
-import net.minecraft.src.Potion;
-import net.minecraft.src.World;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityCreature;
+import net.minecraft.entity.monster.IMob;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.potion.Potion;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.EnumSkyBlock;
+import net.minecraft.world.World;
 
 public abstract class EntityMobFun extends EntityCreature implements IMob
 {

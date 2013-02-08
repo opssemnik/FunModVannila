@@ -6,9 +6,9 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.EntityPlayerMP;
-import net.minecraft.src.Packet3Chat;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.network.packet.Packet3Chat;
 import FunMod.FunMod;
 import FunMod.enums.EnumColor;
 import cpw.mods.fml.server.FMLServerHandler;
@@ -31,64 +31,7 @@ public class FunModHooks
 	}
 
 	
-	public static String getDisplayedEnergyNoColor(int energy)
-	{
-		if(energy < 1000)
-		{
-			return energy + " u";
-		}
-		else if(energy >= 1000 && energy < 10000)
-		{
-			return energy/10 + " kU";
-		}
-		else if(energy >= 10000 && energy < 100000)
-		{
-			return energy/100 + " mU";
-		}
-		else if(energy >= 100000 && energy < 1000000)
-		{
-			return energy/1000 + " gU";
-		}
-		else if(energy >= 1000000)
-		{
-			return energy/100000 + " tU";
-		}
-		else {
-			return null;
-		}
-	}
 
-
-	public static String getDisplayedEnergy(int energy)
-	{
-		if(energy == 0)
-		{
-			return EnumColor.DARK_RED.code + energy + " u" + EnumColor.DARK_GREY.code;
-		}
-		else if(energy < 1000)
-		{
-			return energy + " u";
-		}
-		else if(energy >= 1000 && energy < 10000)
-		{
-			return energy/10 + " kU";
-		}
-		else if(energy >= 10000 && energy < 100000)
-		{
-			return energy/100 + " mU";
-		}
-		else if(energy >= 100000 && energy < 1000000)
-		{
-			return energy/1000 + " gU";
-		}
-		else if(energy >= 1000000)
-		{
-			return energy/100000 + " tU";
-		}
-		else {
-			return null;
-		}
-	}
 
 	
 	public static String getLatestVersion()

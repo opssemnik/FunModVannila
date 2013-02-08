@@ -3,26 +3,26 @@ package FunMod.dimensao;
 import java.util.List;
 import java.util.Random;
 
-import net.minecraft.src.BiomeGenBase;
-import net.minecraft.src.Block;
-import net.minecraft.src.BlockSand;
-import net.minecraft.src.Chunk;
-import net.minecraft.src.ChunkPosition;
-import net.minecraft.src.EnumCreatureType;
-import net.minecraft.src.IChunkProvider;
-import net.minecraft.src.IProgressUpdate;
-import net.minecraft.src.MapGenBase;
-import net.minecraft.src.MapGenCaves;
-import net.minecraft.src.MapGenMineshaft;
-import net.minecraft.src.MapGenRavine;
-import net.minecraft.src.MapGenScatteredFeature;
-import net.minecraft.src.MapGenStronghold;
-import net.minecraft.src.MapGenVillage;
-import net.minecraft.src.MathHelper;
-import net.minecraft.src.NoiseGeneratorOctaves;
-import net.minecraft.src.SpawnerAnimals;
-import net.minecraft.src.World;
-import net.minecraft.src.WorldGenLakes;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockSand;
+import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.util.IProgressUpdate;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.ChunkPosition;
+import net.minecraft.world.SpawnerAnimals;
+import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.chunk.Chunk;
+import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.gen.MapGenBase;
+import net.minecraft.world.gen.MapGenCaves;
+import net.minecraft.world.gen.MapGenRavine;
+import net.minecraft.world.gen.NoiseGeneratorOctaves;
+import net.minecraft.world.gen.feature.MapGenScatteredFeature;
+import net.minecraft.world.gen.feature.WorldGenLakes;
+import net.minecraft.world.gen.structure.MapGenMineshaft;
+import net.minecraft.world.gen.structure.MapGenStronghold;
+import net.minecraft.world.gen.structure.MapGenVillage;
 import FunMod.FunMod;
 public class ChunkProviderFantasy implements IChunkProvider
 {
@@ -613,8 +613,10 @@ public class ChunkProviderFantasy implements IChunkProvider
         return 0;
     }
 
+	
+
 	@Override
-	public void func_82695_e(int var1, int var2) {
+	public void recreateStructures(int var1, int var2) {
 		// TODO Auto-generated method stub
 		
 	}

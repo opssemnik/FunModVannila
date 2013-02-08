@@ -1,21 +1,21 @@
 package FunMod.tileentidades;
 
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.FurnaceRecipes;
-import net.minecraft.src.IInventory;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.NBTTagList;
-import net.minecraft.src.TileEntity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.ISidedInventory;
 import FunMod.FunMod;
 import FunMod.blocks.FantasyFurnace;
 import FunMod.recipes.FantasyFurnacesRecipes;
-import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class EntidadeFantasyFurnace extends TileEntity implements IInventory, ISidedInventory
 {
@@ -341,9 +341,9 @@ public class EntidadeFantasyFurnace extends TileEntity implements IInventory, IS
         }
         else
         {
-            int var1 = par0ItemStack.getItem().shiftedIndex;
+            int var1 = par0ItemStack.getItem().itemID;
             Item var2 = par0ItemStack.getItem();
-            if (var1 == FunMod.coal.shiftedIndex) return 2100;
+            if (var1 == FunMod.coal.itemID) return 2100;
             return GameRegistry.getFuelValue(par0ItemStack);
         }
     }

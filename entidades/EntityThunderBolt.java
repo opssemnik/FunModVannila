@@ -3,16 +3,15 @@ package FunMod.entidades;
 import java.util.Iterator;
 import java.util.List;
 
-import net.minecraft.src.AxisAlignedBB;
-import net.minecraft.src.Entity;
-import net.minecraft.src.EntityLightningBolt;
-import net.minecraft.src.EntityLiving;
-import net.minecraft.src.MathHelper;
-import net.minecraft.src.MovingObjectPosition;
-import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.Vec3;
-import net.minecraft.src.Vec3Pool;
-import net.minecraft.src.World;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.effect.EntityLightningBolt;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.Vec3;
+import net.minecraft.world.World;
 
 public class EntityThunderBolt extends Entity
 {
@@ -170,15 +169,15 @@ public class EntityThunderBolt extends Entity
             ++this.ticksInAir;
         }
 
-        Vec3 var15 = Vec3.field_82592_a.getVecFromPool(this.posX, this.posY, this.posZ);
-        Vec3 var2 = Vec3.field_82592_a.getVecFromPool(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
+        Vec3 var15 = Vec3.vec3dPool.getVecFromPool(this.posX, this.posY, this.posZ);
+        Vec3 var2 = Vec3.vec3dPool.getVecFromPool(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
         MovingObjectPosition var3 = this.worldObj.rayTraceBlocks(var15, var2);
-        var15 = Vec3.field_82592_a.getVecFromPool(this.posX, this.posY, this.posZ);
-        var2 = Vec3.field_82592_a.getVecFromPool(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
+        var15 = Vec3.vec3dPool.getVecFromPool(this.posX, this.posY, this.posZ);
+        var2 = Vec3.vec3dPool.getVecFromPool(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
 
         if (var3 != null)
         {
-            var2 = Vec3.field_82592_a.getVecFromPool(var3.hitVec.xCoord, var3.hitVec.yCoord, var3.hitVec.zCoord);
+            var2 = Vec3.vec3dPool.getVecFromPool(var3.hitVec.xCoord, var3.hitVec.yCoord, var3.hitVec.zCoord);
         }
 
         if (!this.worldObj.isRemote)

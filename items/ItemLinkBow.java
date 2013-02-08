@@ -1,18 +1,17 @@
 package FunMod.items;
 
-import net.minecraft.src.CreativeTabs;
-import net.minecraft.src.Enchantment;
-import net.minecraft.src.EnchantmentHelper;
-import net.minecraft.src.Entity;
-import net.minecraft.src.EntityArrow;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemBow;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.World;
-import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntityArrow;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBow;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 import FunMod.FunMod;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 public class ItemLinkBow extends ItemBow
 {
     public ItemLinkBow(int par1)
@@ -31,7 +30,7 @@ public class ItemLinkBow extends ItemBow
     {
         boolean var5 = par3EntityPlayer.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, par1ItemStack) > 0;
 
-        if (var5 || par3EntityPlayer.inventory.hasItem(Item.arrow.shiftedIndex))
+        if (var5 || par3EntityPlayer.inventory.hasItem(Item.arrow.itemID))
         {
             int var6 = this.getMaxItemUseDuration(par1ItemStack) - par4;
             float var7 = (float)var6 / 20.0F;
@@ -85,7 +84,7 @@ public class ItemLinkBow extends ItemBow
             }
             else
             {
-             par3EntityPlayer.inventory.consumeInventoryItem(Item.arrow.shiftedIndex);
+             par3EntityPlayer.inventory.consumeInventoryItem(Item.arrow.itemID);
             }
 
             if (!par2World.isRemote)
@@ -115,7 +114,7 @@ public class ItemLinkBow extends ItemBow
      */
     public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
     {
-        if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItem(Item.arrow.shiftedIndex))
+        if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItem(Item.arrow.itemID))
         {
          par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
          }
@@ -136,7 +135,7 @@ public class ItemLinkBow extends ItemBow
     {
             EntityPlayer entityplayer = (EntityPlayer)entity;
             ItemStack itemstack1 = entityplayer.inventory.getCurrentItem();
-            if(entityplayer.isUsingItem() && itemstack1.itemID == FunMod.LinkBow.shiftedIndex)
+            if(entityplayer.isUsingItem() && itemstack1.itemID == FunMod.LinkBow.itemID)
             {
                     int k = itemstack1.getMaxItemUseDuration() - entityplayer.getItemInUseCount();
                     if (k >= 18) {

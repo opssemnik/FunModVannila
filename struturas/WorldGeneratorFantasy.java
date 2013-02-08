@@ -2,9 +2,9 @@ package FunMod.struturas;
 
 import java.util.Random;
 
-import net.minecraft.src.Block;
-import net.minecraft.src.IChunkProvider;
-import net.minecraft.src.World;
+import net.minecraft.block.Block;
+import net.minecraft.world.World;
+import net.minecraft.world.chunk.IChunkProvider;
 import FunMod.dimensao.WorldGenMinableFantasy;
 import cpw.mods.fml.common.IWorldGenerator;
 

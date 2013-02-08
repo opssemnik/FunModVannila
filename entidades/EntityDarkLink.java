@@ -1,13 +1,12 @@
 package FunMod.entidades;
 
+import net.minecraft.entity.ai.EntityAIAttackOnCollide;
+import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
+import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.world.World;
 import FunMod.FunMod;
-import net.minecraft.src.EntityAIAttackOnCollide;
-import net.minecraft.src.EntityAINearestAttackableTarget;
-import net.minecraft.src.EntityAnimal;
-import net.minecraft.src.EntityMob;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.World;
 
 public class EntityDarkLink extends EntityMobFun
 {
@@ -75,7 +74,7 @@ public class EntityDarkLink extends EntityMobFun
     
     protected int getDropItemId()
     {
-        return FunMod.PearlOfLink.shiftedIndex; 
+        return FunMod.PearlOfLink.itemID; 
     }
 
     public EntityAnimal spawnBabyAnimal(EntityAnimal par1EntityAnimal)

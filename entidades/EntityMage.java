@@ -1,15 +1,14 @@
 package FunMod.entidades;
 
-import net.minecraft.src.Entity;
-import net.minecraft.src.EntityAIAttackOnCollide;
-import net.minecraft.src.EntityAINearestAttackableTarget;
-import net.minecraft.src.EntityAnimal;
-import net.minecraft.src.EntityLiving;
-import net.minecraft.src.EntityMob;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.Potion;
-import net.minecraft.src.PotionEffect;
-import net.minecraft.src.World;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.ai.EntityAIAttackOnCollide;
+import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
+import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.world.World;
 import FunMod.FunMod;
 public class EntityMage extends EntityMobFun
 {
@@ -99,7 +98,7 @@ public class EntityMage extends EntityMobFun
  
     protected int getDropItemId()
     {
-        return FunMod.MarioCoin.shiftedIndex; 
+        return FunMod.MarioCoin.itemID; 
     }
 
     protected void dropFewItems(boolean par1, int par2)
@@ -108,7 +107,7 @@ public class EntityMage extends EntityMobFun
 
         if (par1 && (this.rand.nextInt(3) == 0 || this.rand.nextInt(1 + par2) > 0))
         {
-            this.dropItem(FunMod.ObsidianStick.shiftedIndex, 1);
+            this.dropItem(FunMod.ObsidianStick.itemID, 1);
         }
     }
     public EntityAnimal spawnBabyAnimal(EntityAnimal par1EntityAnimal)

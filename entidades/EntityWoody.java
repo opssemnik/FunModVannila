@@ -1,17 +1,18 @@
 package FunMod.entidades;
 
-import net.minecraft.src.EntityAIFollowParent;
-import net.minecraft.src.EntityAILookIdle;
-import net.minecraft.src.EntityAIMate;
-import net.minecraft.src.EntityAIPanic;
-import net.minecraft.src.EntityAIWander;
-import net.minecraft.src.EntityAIWatchClosest;
-import net.minecraft.src.EntityAgeable;
-import net.minecraft.src.EntityAnimal;
-import net.minecraft.src.EnumCreatureAttribute;
-import net.minecraft.src.Item;
-import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.World;
+import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.EnumCreatureAttribute;
+import net.minecraft.entity.ai.EntityAIFollowParent;
+import net.minecraft.entity.ai.EntityAILookIdle;
+import net.minecraft.entity.ai.EntityAIMate;
+import net.minecraft.entity.ai.EntityAIPanic;
+import net.minecraft.entity.ai.EntityAIWander;
+import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.world.World;
 
 public class EntityWoody extends EntityAnimal 
 {
@@ -24,7 +25,7 @@ public class EntityWoody extends EntityAnimal
         tasks.addTask(2, new EntityAIMate(this, 0.2F));
         tasks.addTask(4, new EntityAIFollowParent(this, 0.25F));
         tasks.addTask(5, new EntityAIWander(this, 0.2F));
-        tasks.addTask(6, new EntityAIWatchClosest(this, net.minecraft.src.EntityPlayer.class, 6F));
+        tasks.addTask(6, new EntityAIWatchClosest(this, EntityPlayer.class, 6F));
         tasks.addTask(7, new EntityAILookIdle(this));
     }
 
@@ -74,7 +75,7 @@ public class EntityWoody extends EntityAnimal
  
     protected int getDropItemId()
     {
-        return Item.appleRed.shiftedIndex; 
+        return Item.appleRed.itemID; 
     }
 
     public EntityAnimal spawnBabyAnimal(EntityAnimal par1EntityAnimal)
@@ -89,9 +90,11 @@ public class EntityWoody extends EntityAnimal
     }
 
 	@Override
-	public EntityAgeable func_90011_a(EntityAgeable var1) {
+	public EntityAgeable createChild(EntityAgeable var1) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
 
 } 

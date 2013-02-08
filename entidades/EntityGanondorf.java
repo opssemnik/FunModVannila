@@ -1,12 +1,12 @@
 package FunMod.entidades;
 
+import net.minecraft.entity.ai.EntityAIAttackOnCollide;
+import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
+import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.world.World;
 import FunMod.FunMod;
-import net.minecraft.src.EntityAIAttackOnCollide;
-import net.minecraft.src.EntityAINearestAttackableTarget;
-import net.minecraft.src.EntityAnimal;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.World;
 
 public class EntityGanondorf extends EntityMobFun
 {
@@ -72,7 +72,7 @@ public class EntityGanondorf extends EntityMobFun
  
     protected int getDropItemId()
     {
-        return FunMod.MarioCoin.shiftedIndex; 
+        return FunMod.MarioCoin.itemID; 
     }
 
    
@@ -84,7 +84,7 @@ public class EntityGanondorf extends EntityMobFun
 
         if (par1 && (this.rand.nextInt(3) == 0 || this.rand.nextInt(1 + par2) > 0))
         {
-            this.dropItem(FunMod.Blade.shiftedIndex, 1);
+            this.dropItem(FunMod.Blade.itemID, 1);
         }
     }
     

@@ -1,14 +1,15 @@
 package FunMod.entidades;
 
+import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.ai.EntityAILookIdle;
+import net.minecraft.entity.ai.EntityAIPanic;
+import net.minecraft.entity.ai.EntityAIWander;
+import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.world.World;
 import FunMod.FunMod;
-import net.minecraft.src.EntityAILookIdle;
-import net.minecraft.src.EntityAIPanic;
-import net.minecraft.src.EntityAIWander;
-import net.minecraft.src.EntityAIWatchClosest;
-import net.minecraft.src.EntityAgeable;
-import net.minecraft.src.EntityAnimal;
-import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.World;
 
 public class EntitySonic extends EntityAnimal
 {
@@ -19,7 +20,7 @@ public class EntitySonic extends EntityAnimal
         setSize(1F*1F, 0.8F*0.8F);       
         tasks.addTask(1, new EntityAIPanic(this, 0.15F));
         tasks.addTask(5, new EntityAIWander(this, 0.5F));
-        tasks.addTask(6, new EntityAIWatchClosest(this, net.minecraft.src.EntityPlayer.class, 6F));
+        tasks.addTask(6, new EntityAIWatchClosest(this, EntityPlayer.class, 6F));
         tasks.addTask(7, new EntityAILookIdle(this));
     }
 
@@ -75,7 +76,7 @@ public class EntitySonic extends EntityAnimal
 
         if (par1 && (this.rand.nextInt(3) == 0 || this.rand.nextInt(1 + par2) > 0))
         {
-            this.dropItem(FunMod.SonicBoots.shiftedIndex, 1);
+            this.dropItem(FunMod.SonicBoots.itemID, 1);
         }
     }
     public EntityAnimal spawnBabyAnimal(EntityAnimal par1EntityAnimal)
@@ -84,10 +85,12 @@ public class EntitySonic extends EntityAnimal
     }
 
 	@Override
-	public EntityAgeable func_90011_a(EntityAgeable var1) {
+	public EntityAgeable createChild(EntityAgeable var1) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
     
     
 

@@ -1,8 +1,8 @@
 package FunMod.proxy;
 
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.TileEntity;
-import net.minecraft.src.World;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 import FunMod.containers.ContainerFantasyFurnace;
 import FunMod.tileentidades.EntidadeFantasyFurnace;
 import FunMod.tileentidades.EntidadeN64;

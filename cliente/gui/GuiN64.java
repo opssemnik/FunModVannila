@@ -1,10 +1,10 @@
 package FunMod.cliente.gui;
-import org.lwjgl.opengl.GL11;
+import net.minecraft.client.gui.GuiButton;
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 
-import net.minecraft.src.Entity;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.GuiButton;
-import net.minecraft.src.GuiScreen;
+import org.lwjgl.opengl.GL11;
 public class GuiN64 extends GuiScreen
 {
 	public final int xSizeOfTexture = 176;

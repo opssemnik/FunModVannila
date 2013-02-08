@@ -1,12 +1,10 @@
 /*    */ package FunMod.items;
 /*    */ 
-/*    */ import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.EnumArmorMaterial;
-/*    */ import net.minecraft.src.Item;
-/*    */ import net.minecraft.src.ItemArmor;
-/*    */ import net.minecraft.src.ItemStack;
-/*    */ import net.minecraftforge.common.IArmorTextureProvider;
-/*    */ import FunMod.FunMod;
+/*    */ import net.minecraft.item.EnumArmorMaterial;
+import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.IArmorTextureProvider;
+import FunMod.FunMod;
 /*    */ public class SonicBoots extends ItemArmor
 /*    */   implements IArmorTextureProvider
 /*    */ {
@@ -33,7 +31,7 @@ import net.minecraft.src.EnumArmorMaterial;
 
 @Override
 public String getArmorTextureFile(ItemStack par1) {
-	 if (par1.itemID == FunMod.SonicBoots.shiftedIndex)
+	 if (par1.itemID == FunMod.SonicBoots.itemID)
 		        return "/FunMod/cliente/texturas/armaduras/sonic_2.png";
 	 return "/FunMod/cliente/texturas/armaduras/sonic_2.png";
 }

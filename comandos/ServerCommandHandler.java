@@ -1,6 +1,6 @@
 package FunMod.comandos;
 
-import net.minecraft.src.ServerCommandManager;
+import net.minecraft.command.ServerCommandManager;
 import cpw.mods.fml.common.FMLCommonHandler;
 
 

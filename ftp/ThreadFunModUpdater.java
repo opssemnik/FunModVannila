@@ -7,7 +7,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.src.ICommandSender;
+import net.minecraft.command.ICommandSender;
 import net.minecraft.src.ModLoader;
 import FunMod.FunMod;
 import FunMod.enums.EnumColor;

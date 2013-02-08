@@ -1,11 +1,10 @@
 /*    */ package FunMod.items;
 /*    */ 
-/*    */ import net.minecraft.src.EnumArmorMaterial;
-/*    */ import net.minecraft.src.Item;
-/*    */ import net.minecraft.src.ItemArmor;
-/*    */ import net.minecraft.src.ItemStack;
-/*    */ import net.minecraftforge.common.IArmorTextureProvider;
-/*    */ import FunMod.FunMod;
+/*    */ import net.minecraft.item.EnumArmorMaterial;
+import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.IArmorTextureProvider;
+import FunMod.FunMod;
 /*    */ public class MegaManHelm extends ItemArmor
 /*    */   implements IArmorTextureProvider
 /*    */ {
@@ -18,10 +17,10 @@
 /*    */ 
 /*    */   public String getArmorTextureFile(ItemStack par1)
 /*    */   {
-/* 21 */     if ((par1.itemID == FunMod.MegaManHelmet.shiftedIndex) || (par1.itemID == FunMod.MegaManHelmet.shiftedIndex) || 
-/* 22 */       (par1.itemID == FunMod.MegaManHelmet.shiftedIndex))
+/* 21 */     if ((par1.itemID == FunMod.MegaManHelmet.itemID) || (par1.itemID == FunMod.MegaManHelmet.itemID) || 
+/* 22 */       (par1.itemID == FunMod.MegaManHelmet.itemID))
 /* 23 */       return "/FunMod/cliente/texturas/armaduras/mega_1.png";
-/* 24 */     if (par1.itemID == FunMod.MegaManHelmet.shiftedIndex)
+/* 24 */     if (par1.itemID == FunMod.MegaManHelmet.itemID)
 /* 25 */       return "/FunMod/cliente/texturas/armaduras/mega_1.png";
 /* 26 */     return "/FunMod/cliente/texturas/armaduras/mega_2.png";
 /*    */   }

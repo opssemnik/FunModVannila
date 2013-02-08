@@ -1,30 +1,26 @@
 package FunMod.blocks;
 import java.util.Random;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockContainer;
+import net.minecraft.block.material.Material;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemCoal;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.src.Block;
-import net.minecraft.src.BlockContainer;
-import net.minecraft.src.EntityLiving;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.EntityPlayerMP;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemCoal;
-import net.minecraft.src.ItemSign;
-import net.minecraft.src.Material;
-import net.minecraft.src.MathHelper;
-import net.minecraft.src.ModLoader;
-import net.minecraft.src.TileEntity;
-import net.minecraft.src.World;
-import net.minecraft.src.WorldServer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
 import FunMod.FunMod;
-import FunMod.cliente.gui.GuiN64;
 import FunMod.cliente.proxy.clproxy;
 import FunMod.dimensao.FantasyTeleporter;
 import FunMod.items.ItemControle;
-import FunMod.tileentidades.EntidadeFantasyFurnace;
 import FunMod.tileentidades.EntidadeN64;
-import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 public class BlockTv extends BlockContainer  
 
 {

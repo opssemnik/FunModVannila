@@ -2,15 +2,15 @@
        
         package FunMod.entidades;
 
-import net.minecraft.src.Chunk;
-import net.minecraft.src.DamageSource;
-import net.minecraft.src.EntityLiving;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.IMob;
-import net.minecraft.src.MathHelper;
-import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.World;
-import net.minecraft.src.WorldType;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.monster.IMob;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldType;
+import net.minecraft.world.chunk.Chunk;
 
         public class EntityKirby extends EntityLiving implements IMob
         {

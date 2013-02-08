@@ -2,18 +2,18 @@ package FunMod.blocks;
 
 import java.util.Random;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockPortal;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.src.AxisAlignedBB;
-import net.minecraft.src.Block;
-import net.minecraft.src.BlockPortal;
-import net.minecraft.src.Entity;
-import net.minecraft.src.EntityPlayerMP;
-import net.minecraft.src.IBlockAccess;
-import net.minecraft.src.ItemMonsterPlacer;
-import net.minecraft.src.World;
-import net.minecraft.src.WorldServer;
-import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
+import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockFantasyPortal extends BlockPortal
 {
@@ -302,7 +302,7 @@ public class BlockFantasyPortal extends BlockPortal
     {
         if (par5Random.nextInt(100) == 0)
         {
-            par1World.playSound((double)par2 + 0.5D, (double)par3 + 0.5D, (double)par4 + 0.5D, "portal.portal", 0.5F, par5Random.nextFloat() * 0.4F + 0.8F);
+            par1World.playSound((double)par2 + 0.5D, (double)par3 + 0.5D, (double)par4 + 0.5D, "portal.portal", 0.5F, par5Random.nextFloat() * 0.4F + 0.8F, true);
         }
 
         for (int var6 = 0; var6 < 4; ++var6)

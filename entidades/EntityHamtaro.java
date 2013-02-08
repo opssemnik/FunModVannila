@@ -1,34 +1,34 @@
 package FunMod.entidades;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.ai.EntityAIAttackOnCollide;
+import net.minecraft.entity.ai.EntityAIFollowOwner;
+import net.minecraft.entity.ai.EntityAIHurtByTarget;
+import net.minecraft.entity.ai.EntityAILeapAtTarget;
+import net.minecraft.entity.ai.EntityAILookIdle;
+import net.minecraft.entity.ai.EntityAIMate;
+import net.minecraft.entity.ai.EntityAIOwnerHurtByTarget;
+import net.minecraft.entity.ai.EntityAIOwnerHurtTarget;
+import net.minecraft.entity.ai.EntityAISwimming;
+import net.minecraft.entity.ai.EntityAITargetNonTamed;
+import net.minecraft.entity.ai.EntityAIWander;
+import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.passive.EntitySheep;
+import net.minecraft.entity.passive.EntityTameable;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntityArrow;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.pathfinding.PathEntity;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.World;
 import FunMod.FunMod;
-import net.minecraft.src.DamageSource;
-import net.minecraft.src.Entity;
-import net.minecraft.src.EntityAIAttackOnCollide;
-import net.minecraft.src.EntityAIFollowOwner;
-import net.minecraft.src.EntityAIHurtByTarget;
-import net.minecraft.src.EntityAILeapAtTarget;
-import net.minecraft.src.EntityAILookIdle;
-import net.minecraft.src.EntityAIMate;
-import net.minecraft.src.EntityAIOwnerHurtByTarget;
-import net.minecraft.src.EntityAIOwnerHurtTarget;
-import net.minecraft.src.EntityAISwimming;
-import net.minecraft.src.EntityAITargetNonTamed;
-import net.minecraft.src.EntityAIWander;
-import net.minecraft.src.EntityAIWatchClosest;
-import net.minecraft.src.EntityAgeable;
-import net.minecraft.src.EntityAnimal;
-import net.minecraft.src.EntityArrow;
-import net.minecraft.src.EntityLiving;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.EntitySheep;
-import net.minecraft.src.EntityTameable;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemFood;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.MathHelper;
-import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.PathEntity;
-import net.minecraft.src.World;
 
 public class EntityHamtaro extends EntityTameable
 {
@@ -363,7 +363,7 @@ public class EntityHamtaro extends EntityTameable
                 this.setPathToEntity((PathEntity)null);
             }
         }
-        else if (var2 != null && var2.itemID == FunMod.Starman.shiftedIndex && !this.isAngry())
+        else if (var2 != null && var2.itemID == FunMod.Starman.itemID && !this.isAngry())
         {
             if (!par1EntityPlayer.capabilities.isCreativeMode)
             {
@@ -516,8 +516,10 @@ public class EntityHamtaro extends EntityTameable
     }
 
 	@Override
-	public EntityAgeable func_90011_a(EntityAgeable var1) {
+	public EntityAgeable createChild(EntityAgeable var1) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
 }

@@ -1,8 +1,7 @@
 
 	package FunMod.items;
-	import FunMod.FunMod;
-import net.minecraft.src.CreativeTabs;
-import net.minecraft.src.Item;
+	import net.minecraft.item.Item;
+import FunMod.FunMod;
 
 	public class ItemThunderDust extends Item
 	{

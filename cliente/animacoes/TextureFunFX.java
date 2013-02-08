@@ -1,22 +1,14 @@
 package FunMod.cliente.animacoes;
 
-import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
 
-import javax.imageio.ImageIO;
+import net.minecraft.client.renderer.RenderEngine;
+import net.minecraft.src.ModTextureAnimation;
 
 import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.client.TextureFXManager;
-import cpw.mods.fml.client.registry.RenderingRegistry;
-
-import net.minecraft.client.Minecraft;
-import net.minecraft.src.ModLoader;
-import net.minecraft.src.ModTextureAnimation;
-import net.minecraft.src.RenderEngine;
 
 public class TextureFunFX extends ModTextureAnimation
 {

@@ -2,11 +2,11 @@ package FunMod.dimensao;
 
 import java.util.Random;
 
-import net.minecraft.src.Entity;
-import net.minecraft.src.MathHelper;
-import net.minecraft.src.Teleporter;
-import net.minecraft.src.World;
-import net.minecraft.src.WorldServer;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.Teleporter;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
 import FunMod.FunMod;
 public class FantasyTeleporter extends Teleporter
 {

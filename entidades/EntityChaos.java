@@ -1,13 +1,12 @@
 package FunMod.entidades;
 
-import net.minecraft.src.EntityAIAttackOnCollide;
-import net.minecraft.src.EntityAINearestAttackableTarget;
-import net.minecraft.src.EntityAnimal;
-import net.minecraft.src.EntityMob;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.Item;
-import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.World;
+import net.minecraft.entity.ai.EntityAIAttackOnCollide;
+import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
+import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.world.World;
 
 public class EntityChaos extends EntityMobFun
 {
@@ -73,7 +72,7 @@ public class EntityChaos extends EntityMobFun
  
     protected int getDropItemId()
     {
-        return Item.swordSteel.shiftedIndex; 
+        return Item.swordSteel.itemID; 
     }
 
    

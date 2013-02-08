@@ -2,12 +2,12 @@ package FunMod.items;
 
 import java.util.Map;
 
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.EnumRarity;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.RenderSnowball;
-import net.minecraft.src.World;
+import net.minecraft.client.renderer.entity.RenderSnowball;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.EnumRarity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 import FunMod.FunMod;
 import FunMod.entidades.EntityThrowing;
  public class ItemFireFlower extends Item

@@ -1,9 +1,8 @@
 package FunMod.blocks;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import FunMod.FunMod;
-import net.minecraft.src.Block;
-import net.minecraft.src.CreativeTabs;
-import net.minecraft.src.Material;
 
 public class BlockPlank extends Block
 {

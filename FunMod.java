@@ -3,21 +3,21 @@ package FunMod;
 import java.util.HashMap;
 import java.util.Map;
 
+import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
-import net.minecraft.src.BiomeGenBase;
-import net.minecraft.src.Block;
-import net.minecraft.src.CommandHandler;
-import net.minecraft.src.CreativeTabs;
-import net.minecraft.src.Entity;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.EnumArmorMaterial;
-import net.minecraft.src.EnumCreatureType;
-import net.minecraft.src.EnumToolMaterial;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.Packet23VehicleSpawn;
-import net.minecraft.src.Potion;
-import net.minecraft.src.World;
+import net.minecraft.command.CommandHandler;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.EnumArmorMaterial;
+import net.minecraft.item.EnumToolMaterial;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.network.packet.Packet23VehicleSpawn;
+import net.minecraft.potion.Potion;
+import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.EnumHelper;
@@ -110,9 +110,7 @@ import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.Mod.PostInit;
 import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.Mod.ServerStarting;
-import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.asm.SideOnly;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -122,6 +120,9 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import cpw.mods.fml.common.registry.TickRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 @Mod(modid = "FunMod", name = "FunMod", version = "Beta 1.1.0")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 
@@ -189,7 +190,7 @@ public class FunMod {
 	public static int ticksPassed = 0;
     public static HashMap playerStats = new HashMap();
 	public static boolean FlyingEnabled = true;
-	@Instance
+	@Instance("FunMod")
 	public static
 	FunMod instance;
 	
@@ -550,7 +551,7 @@ public class FunMod {
 	 //Dimensao
       DimensionManager.registerProviderType(10, WorldProviderFantasy.class, false);
       DimensionManager.registerDimension(10, 10);
-	  
+	  TickRegistry.registerTickHandler(new TickHandlerForArmor(), Side.SERVER);
 	
       System.out.println("[FunMod] Finished FunMod Init Phase Without Any Errors");
       new ThreadGetData();

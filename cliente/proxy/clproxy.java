@@ -2,11 +2,11 @@ package FunMod.cliente.proxy;
 
 import java.io.IOException;
 
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.ModelBiped;
-import net.minecraft.src.RenderBiped;
-import net.minecraft.src.TileEntity;
-import net.minecraft.src.World;
+import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.renderer.entity.RenderBiped;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 import net.minecraftforge.client.MinecraftForgeClient;
 import FunMod.FunMod;
 import FunMod.cliente.animacoes.TextureFunFX;
@@ -82,10 +82,10 @@ import FunMod.tileentidades.EntidadeSofa;
 import cpw.mods.fml.client.TextureFXManager;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
-import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
 import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.registry.TickRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 public class clproxy extends proxy implements IGuiHandler
 {
 
@@ -138,7 +138,7 @@ public class clproxy extends proxy implements IGuiHandler
 	    	 public void rendercontrole(){
 	    	 
 	    	
-	    	  MinecraftForgeClient.registerItemRenderer(FunMod.controle.shiftedIndex, new ItemControleRender());  
+	    	  MinecraftForgeClient.registerItemRenderer(FunMod.controle.itemID, new ItemControleRender());  
 	    	 
 	    }
 

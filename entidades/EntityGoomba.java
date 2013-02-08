@@ -1,11 +1,10 @@
 package FunMod.entidades;
 
+import net.minecraft.entity.ai.EntityAIAttackOnCollide;
+import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.world.World;
 import FunMod.FunMod;
-import net.minecraft.src.EntityAIAttackOnCollide;
-import net.minecraft.src.EntityAINearestAttackableTarget;
-import net.minecraft.src.EntityMob;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.World;
 
 public class EntityGoomba extends EntityMobFun
 {
@@ -75,7 +74,7 @@ public class EntityGoomba extends EntityMobFun
     
     protected int getDropItemId()
     {
-        return FunMod.MarioCoin.shiftedIndex ;
+        return FunMod.MarioCoin.itemID ;
     }
     
     protected void dropFewItems(boolean par1, int par2)
@@ -84,7 +83,7 @@ public class EntityGoomba extends EntityMobFun
 
         if (par1 && (this.rand.nextInt(3) == 0 || this.rand.nextInt(1 + par2) > 0))
         {
-            this.dropItem(FunMod.FireFlower.shiftedIndex, 1);
+            this.dropItem(FunMod.FireFlower.itemID, 1);
         }
     }
 }

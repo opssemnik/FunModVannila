@@ -1,6 +1,6 @@
 package FunMod.items;
 
-import net.minecraft.src.Item;
+import net.minecraft.item.Item;
 import FunMod.FunMod;
 	public class ItemBattery extends Item
 	{

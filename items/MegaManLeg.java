@@ -1,10 +1,10 @@
 /*    */ package FunMod.items;
 /*    */ 
-/*    */ import net.minecraft.src.EnumArmorMaterial;
-import net.minecraft.src.ItemArmor;
-import net.minecraft.src.ItemStack;
+/*    */ import net.minecraft.item.EnumArmorMaterial;
+import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.IArmorTextureProvider;
-/*    */ import FunMod.FunMod;
+import FunMod.FunMod;
 /*    */ 
 /*    */ 
 /*    */ 
@@ -21,10 +21,10 @@ import net.minecraftforge.common.IArmorTextureProvider;
 /*    */ 
 /*    */   public String getArmorTextureFile(ItemStack par1)
 /*    */   {
-/* 21 */     if ((par1.itemID == FunMod.MegaManPants.shiftedIndex) || (par1.itemID == FunMod.MegaManPants.shiftedIndex) || 
-/* 22 */       (par1.itemID == FunMod.MegaManPants.shiftedIndex))
+/* 21 */     if ((par1.itemID == FunMod.MegaManPants.itemID) || (par1.itemID == FunMod.MegaManPants.itemID) || 
+/* 22 */       (par1.itemID == FunMod.MegaManPants.itemID))
 /* 23 */       return "/FunMod/cliente/texturas/armaduras/mega_1.png";
-/* 24 */     if (par1.itemID == FunMod.MegaManPants.shiftedIndex)
+/* 24 */     if (par1.itemID == FunMod.MegaManPants.itemID)
 /* 25 */       return "/FunMod/cliente/texturas/armaduras/mega_1.png";
 /* 26 */     return "/FunMod/cliente/texturas/armaduras/mega_2.png";
 /*    */   }

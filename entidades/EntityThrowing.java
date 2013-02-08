@@ -1,11 +1,11 @@
 package FunMod.entidades;
 
-import net.minecraft.src.DamageSource;
-import net.minecraft.src.Entity;
-import net.minecraft.src.EntityLiving;
-import net.minecraft.src.EntityThrowable;
-import net.minecraft.src.MovingObjectPosition;
-import net.minecraft.src.World;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.projectile.EntityThrowable;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.world.World;
 
 public class EntityThrowing extends EntityThrowable
 {

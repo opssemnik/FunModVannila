@@ -4,9 +4,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import net.minecraft.src.Block;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 public class FantasyFurnacesRecipes
 {
@@ -31,12 +31,12 @@ public class FantasyFurnacesRecipes
         this.addSmelting(Block.oreGold.blockID, new ItemStack(Item.ingotGold), 1.4F);
         this.addSmelting(Block.oreDiamond.blockID, new ItemStack(Item.diamond), 0.1F);
         this.addSmelting(Block.sand.blockID, new ItemStack(Block.glass), 0.5F);
-        this.addSmelting(Item.porkRaw.shiftedIndex, new ItemStack(Item.porkCooked), 0.7F);
-        this.addSmelting(Item.beefRaw.shiftedIndex, new ItemStack(Item.beefCooked), 0.7F);
-        this.addSmelting(Item.chickenRaw.shiftedIndex, new ItemStack(Item.chickenCooked), 0.4F);
-        this.addSmelting(Item.fishRaw.shiftedIndex, new ItemStack(Item.fishCooked), 0.8F);
+        this.addSmelting(Item.porkRaw.itemID, new ItemStack(Item.porkCooked), 0.7F);
+        this.addSmelting(Item.beefRaw.itemID, new ItemStack(Item.beefCooked), 0.7F);
+        this.addSmelting(Item.chickenRaw.itemID, new ItemStack(Item.chickenCooked), 0.4F);
+        this.addSmelting(Item.fishRaw.itemID, new ItemStack(Item.fishCooked), 0.8F);
         this.addSmelting(Block.cobblestone.blockID, new ItemStack(Block.stone), 0.3F);
-        this.addSmelting(Item.clay.shiftedIndex, new ItemStack(Item.brick), 0.5F);
+        this.addSmelting(Item.clay.itemID, new ItemStack(Item.brick), 0.5F);
         this.addSmelting(Block.cactus.blockID, new ItemStack(Item.dyePowder, 1, 2), 0.4F);
         this.addSmelting(Block.wood.blockID, new ItemStack(Item.coal, 1, 1), 0.0F);
         this.addSmelting(Block.oreEmerald.blockID, new ItemStack(Item.emerald), 1.4F);

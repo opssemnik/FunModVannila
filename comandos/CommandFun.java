@@ -2,8 +2,8 @@ package FunMod.comandos;
 import java.util.Arrays;
 import java.util.List;
 
-import net.minecraft.src.CommandBase;
-import net.minecraft.src.ICommandSender;
+import net.minecraft.command.CommandBase;
+import net.minecraft.command.ICommandSender;
 import FunMod.FunMod;
 import FunMod.enums.EnumColor;
 import FunMod.ftp.ThreadFunModUpdater;

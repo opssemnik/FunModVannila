@@ -2,17 +2,17 @@ package FunMod.containers;
 
 import java.util.Iterator;
 
-import net.minecraft.src.Container;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.FurnaceRecipes;
-import net.minecraft.src.ICrafting;
-import net.minecraft.src.InventoryPlayer;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.Slot;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.Container;
+import net.minecraft.inventory.ICrafting;
+import net.minecraft.inventory.Slot;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
 import FunMod.slots.SlotFantasyFurnace;
 import FunMod.tileentidades.EntidadeFantasyFurnace;
-import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class ContainerFantasyFurnace extends Container
 {
@@ -46,17 +46,17 @@ public class ContainerFantasyFurnace extends Container
     public void addCraftingToCrafters(ICrafting par1ICrafting)
     {
         super.addCraftingToCrafters(par1ICrafting);
-        par1ICrafting.updateCraftingInventoryInfo(this, 0, this.furnace.furnaceCookTime);
-        par1ICrafting.updateCraftingInventoryInfo(this, 1, this.furnace.furnaceBurnTime);
-        par1ICrafting.updateCraftingInventoryInfo(this, 2, this.furnace.currentItemBurnTime);
+        par1ICrafting.sendProgressBarUpdate(this, 0, this.furnace.furnaceCookTime);
+        par1ICrafting.sendProgressBarUpdate(this, 1, this.furnace.furnaceBurnTime);
+        par1ICrafting.sendProgressBarUpdate(this, 2, this.furnace.currentItemBurnTime);
     }
 
     /**
      * Updates crafting matrix; called from onCraftMatrixChanged. Args: none
      */
-    public void updateCraftingResults()
+    public void detectAndSendChanges()
     {
-        super.updateCraftingResults();
+        super.detectAndSendChanges();
         Iterator var1 = this.crafters.iterator();
 
         while (var1.hasNext())
@@ -65,17 +65,17 @@ public class ContainerFantasyFurnace extends Container
 
             if (this.lastCookTime != this.furnace.furnaceCookTime)
             {
-                var2.updateCraftingInventoryInfo(this, 0, this.furnace.furnaceCookTime);
+                var2.sendProgressBarUpdate(this, 0, this.furnace.furnaceCookTime);
             }
 
             if (this.lastBurnTime != this.furnace.furnaceBurnTime)
             {
-                var2.updateCraftingInventoryInfo(this, 1, this.furnace.furnaceBurnTime);
+                var2.sendProgressBarUpdate(this, 1, this.furnace.furnaceBurnTime);
             }
 
             if (this.lastItemBurnTime != this.furnace.currentItemBurnTime)
             {
-                var2.updateCraftingInventoryInfo(this, 2, this.furnace.currentItemBurnTime);
+                var2.sendProgressBarUpdate(this, 2, this.furnace.currentItemBurnTime);
             }
         }
 

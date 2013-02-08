@@ -1,59 +1,40 @@
 package FunMod.entidades;
 
-import java.util.Iterator;
 import java.util.List;
 
-import net.minecraft.src.AchievementList;
-import net.minecraft.src.AxisAlignedBB;
-import net.minecraft.src.BaseMod;
-import net.minecraft.src.Block;
-import net.minecraft.src.BlockBed;
-import net.minecraft.src.ChunkCoordinates;
-import net.minecraft.src.Container;
-import net.minecraft.src.ContainerPlayer;
-import net.minecraft.src.DamageSource;
-import net.minecraft.src.EnchantmentHelper;
-import net.minecraft.src.Entity;
-import net.minecraft.src.EntityArrow;
-import net.minecraft.src.EntityBoat;
-import net.minecraft.src.EntityCreeper;
-import net.minecraft.src.EntityFishHook;
-import net.minecraft.src.EntityGhast;
-import net.minecraft.src.EntityItem;
-import net.minecraft.src.EntityLiving;
-import net.minecraft.src.EntityMinecart;
-import net.minecraft.src.EntityMob;
-import net.minecraft.src.EntityPig;
-import net.minecraft.src.EntityPlayerSP;
-import net.minecraft.src.EntityWolf;
-import net.minecraft.src.EnumAction;
-import net.minecraft.src.EnumStatus;
-import net.minecraft.src.FoodStats;
-import net.minecraft.src.GuiScreen;
-import net.minecraft.src.IChunkProvider;
-import net.minecraft.src.IInventory;
-import net.minecraft.src.InventoryPlayer;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.Material;
-import net.minecraft.src.MathHelper;
-import net.minecraft.src.ModLoader;
-import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.NBTTagList;
-import net.minecraft.src.PlayerCapabilities;
-import net.minecraft.src.Potion;
-import net.minecraft.src.StatBase;
-import net.minecraft.src.StatList;
-import net.minecraft.src.TileEntityBrewingStand;
-import net.minecraft.src.TileEntityDispenser;
-import net.minecraft.src.TileEntityFurnace;
-import net.minecraft.src.TileEntitySign;
-import net.minecraft.src.Vec3;
-import net.minecraft.src.World;
-import net.minecraftforge.common.ForgeHooks;
-import net.minecraftforge.common.ISpecialArmor.ArmorProperties;
-import net.minecraftforge.common.MinecraftForge;
-import cpw.mods.fml.common.network.IGuiHandler;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.item.EntityBoat;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.item.EntityMinecart;
+import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.passive.EntityPig;
+import net.minecraft.entity.player.PlayerCapabilities;
+import net.minecraft.entity.projectile.EntityArrow;
+import net.minecraft.entity.projectile.EntityFishHook;
+import net.minecraft.inventory.Container;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.item.EnumAction;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.potion.Potion;
+import net.minecraft.stats.AchievementList;
+import net.minecraft.stats.StatBase;
+import net.minecraft.stats.StatList;
+import net.minecraft.tileentity.TileEntityBrewingStand;
+import net.minecraft.tileentity.TileEntityDispenser;
+import net.minecraft.tileentity.TileEntityFurnace;
+import net.minecraft.tileentity.TileEntitySign;
+import net.minecraft.util.ChunkCoordinates;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.FoodStats;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.World;
+import net.minecraft.world.chunk.IChunkProvider;
 
 public abstract class EntityPlayerFun extends EntityLiving
 {
@@ -1239,7 +1220,7 @@ public abstract class EntityPlayerFun extends EntityLiving
     {
         int var3 = super.getItemIcon(par1ItemStack, par2);
 
-        if (par1ItemStack.itemID == Item.fishingRod.shiftedIndex && this.fishEntity != null)
+        if (par1ItemStack.itemID == Item.fishingRod.itemID && this.fishEntity != null)
         {
             var3 = par1ItemStack.getIconIndex() + 16;
         }
@@ -1250,7 +1231,7 @@ public abstract class EntityPlayerFun extends EntityLiving
                 return par1ItemStack.getItem().getIconFromDamageForRenderPass(par1ItemStack.getItemDamage(), par2);
             }
 
-            if (this.itemInUse != null && par1ItemStack.itemID == Item.bow.shiftedIndex)
+            if (this.itemInUse != null && par1ItemStack.itemID == Item.bow.itemID)
             {
                 int var4 = par1ItemStack.getMaxItemUseDuration() - this.itemInUseCount;
 

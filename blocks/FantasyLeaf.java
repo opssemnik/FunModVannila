@@ -1,16 +1,15 @@
 package FunMod.blocks;
 import java.util.Random;
 
-import net.minecraft.src.Block;
-import net.minecraft.src.BlockLeavesBase;
-import net.minecraft.src.CreativeTabs;
-import net.minecraft.src.Entity;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.Material;
-import net.minecraft.src.StatList;
-import net.minecraft.src.World;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockLeavesBase;
+import net.minecraft.block.material.Material;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.stats.StatList;
+import net.minecraft.world.World;
 import FunMod.FunMod;
 
 public class FantasyLeaf extends BlockLeavesBase
@@ -205,7 +204,7 @@ public class FantasyLeaf extends BlockLeavesBase
 
     public void harvestBlock(World world, EntityPlayer entityplayer, int i, int j, int k, int l)
     {
-        if (!world.isRemote && entityplayer.getCurrentEquippedItem() != null && entityplayer.getCurrentEquippedItem().itemID == Item.shears.shiftedIndex)
+        if (!world.isRemote && entityplayer.getCurrentEquippedItem() != null && entityplayer.getCurrentEquippedItem().itemID == Item.shears.itemID)
         {
             entityplayer.addStat(StatList.mineBlockStatArray[blockID], 1);
             dropBlockAsItem_do(world, i, j, k, new ItemStack(Block.leaves.blockID, 1, l & 3));

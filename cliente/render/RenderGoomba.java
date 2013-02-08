@@ -1,8 +1,8 @@
 package FunMod.cliente.render;
 
-import net.minecraft.src.Entity;
-import net.minecraft.src.EntityLiving;
-import net.minecraft.src.RenderLiving;
+import net.minecraft.client.renderer.entity.RenderLiving;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import FunMod.cliente.model.ModelGoomba;
 import FunMod.entidades.EntityGoomba;
 

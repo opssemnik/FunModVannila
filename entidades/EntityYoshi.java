@@ -154,8 +154,8 @@ public class EntityYoshi extends EntityAnimal
 **/
 package FunMod.entidades;
 
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.World;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.world.World;
 import FunMod.loader.CreaturaMontavelPacketHandlerForFunMod;
 public class EntityYoshi extends CreaturaMontavelPacketHandlerForFunMod 
 {

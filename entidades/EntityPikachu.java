@@ -1,18 +1,18 @@
 package FunMod.entidades;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.ai.EntityAILookIdle;
+import net.minecraft.entity.ai.EntityAIPanic;
+import net.minecraft.entity.ai.EntityAISwimming;
+import net.minecraft.entity.ai.EntityAIWander;
+import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.World;
 import FunMod.FunMod;
-import net.minecraft.src.Entity;
-import net.minecraft.src.EntityAILookIdle;
-import net.minecraft.src.EntityAIPanic;
-import net.minecraft.src.EntityAISwimming;
-import net.minecraft.src.EntityAIWander;
-import net.minecraft.src.EntityAIWatchClosest;
-import net.minecraft.src.EntityAnimal;
-import net.minecraft.src.EntityMob;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.MathHelper;
-import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.World;
 
 /** ticks until heightOffset is randomized */
 
@@ -30,7 +30,7 @@ public class EntityPikachu extends EntityMob
         tasks.addTask(0, new EntityAISwimming(this));
         tasks.addTask(1, new EntityAIPanic(this, 0.15F));
         tasks.addTask(5, new EntityAIWander(this, 0.5F));
-        tasks.addTask(6, new EntityAIWatchClosest(this, net.minecraft.src.EntityPlayer.class, 6F));
+        tasks.addTask(6, new EntityAIWatchClosest(this, EntityPlayer.class, 6F));
         tasks.addTask(7, new EntityAILookIdle(this));
     }
 
@@ -157,7 +157,7 @@ public class EntityPikachu extends EntityMob
  
     protected int getDropItemId()
     {
-        return FunMod.ThunderDust.shiftedIndex; 
+        return FunMod.ThunderDust.itemID; 
     }
 
     public EntityAnimal spawnBabyAnimal(EntityAnimal par1EntityAnimal)

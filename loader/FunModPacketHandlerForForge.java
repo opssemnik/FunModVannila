@@ -8,16 +8,16 @@ import java.util.Map;
 import java.util.zip.GZIPOutputStream;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.src.CompressedStreamTools;
-import net.minecraft.src.EntityClientPlayerMP;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.EntityPlayerMP;
-import net.minecraft.src.Explosion;
-import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.Packet250CustomPayload;
-import net.minecraft.src.Packet60Explosion;
-import net.minecraft.src.Vec3;
-import net.minecraft.src.World;
+import net.minecraft.client.entity.EntityClientPlayerMP;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.nbt.CompressedStreamTools;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.packet.Packet250CustomPayload;
+import net.minecraft.network.packet.Packet60Explosion;
+import net.minecraft.util.Vec3;
+import net.minecraft.world.Explosion;
+import net.minecraft.world.World;
 import FunMod.enums.EnumFunMod;
 
 public class FunModPacketHandlerForForge

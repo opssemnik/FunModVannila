@@ -2,14 +2,14 @@
 package FunMod.cliente.render;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.src.Entity;
-import net.minecraft.src.EntityLiving;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.GuiInventory;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.RenderBlocks;
-import net.minecraft.src.RenderManager;
-import net.minecraft.src.Tessellator;
+import net.minecraft.client.gui.inventory.GuiInventory;
+import net.minecraft.client.renderer.RenderBlocks;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.ForgeHooksClient;
 import net.minecraftforge.client.IItemRenderer;
 
