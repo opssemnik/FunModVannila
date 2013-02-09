@@ -551,7 +551,7 @@ public class FunMod {
 	 //Dimensao
       DimensionManager.registerProviderType(10, WorldProviderFantasy.class, false);
       DimensionManager.registerDimension(10, 10);
-	  TickRegistry.registerTickHandler(new TickHandlerForArmor(), Side.SERVER);
+	 
 	
       System.out.println("[FunMod] Finished FunMod Init Phase Without Any Errors");
       new ThreadGetData();
