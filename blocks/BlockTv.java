@@ -8,7 +8,6 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemCoal;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
@@ -17,7 +16,6 @@ import net.minecraft.world.WorldServer;
 import FunMod.FunMod;
 import FunMod.cliente.proxy.clproxy;
 import FunMod.dimensao.FantasyTeleporter;
-import FunMod.items.ItemControle;
 import FunMod.tileentidades.EntidadeN64;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -124,13 +122,13 @@ EntidadeN64 tile = (EntidadeN64) world.getBlockTileEntity(i, j, k);
 
 
 
-Item equipped = entityplayer.getCurrentEquippedItem() != null ? entityplayer.getCurrentEquippedItem().getItem() : null;
+Item equipped = entityplayer.getCurrentEquippedItem().getItem() != null ? entityplayer.getCurrentEquippedItem().getItem() : null;
 if (entityplayer instanceof EntityPlayerMP)
 {
 	EntityPlayerMP playerMP = (EntityPlayerMP)entityplayer;
 playerMP.addChatMessage("You need a Remote Control to activate the Televison");}
-if (equipped instanceof ItemControle)
-
+if (equipped.itemID == FunMod.controle.itemID)
+  
 	
 		        if (entityplayer instanceof EntityPlayerMP)
 		        {
@@ -147,7 +145,7 @@ if (equipped instanceof ItemControle)
 		        	MinecraftServer.getServer().getConfigurationManager().transferPlayerToDimension(playerMP, 0, new FantasyTeleporter(server));	
 		            return true;
 		        }}
-		        if (equipped instanceof ItemCoal){
+		        if (equipped.itemID == Item.coal.itemID){
 		        	 if (entityplayer instanceof EntityPlayerMP)
 				        {        	
 		        		 EntityPlayerMP playerMP = (EntityPlayerMP)entityplayer;

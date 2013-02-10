@@ -3,6 +3,7 @@ package FunMod.items;
 
 import java.util.Random;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumToolMaterial;
@@ -24,42 +25,18 @@ public class ThunderSword extends ItemSword
         super(i, toolmaterial);
         this.iconIndex = 18;
     }
-    public void randomDisplayTick(World world, int i, int j, int k, Random random)
+    public void onUpdate(ItemStack par1ItemStack, World par2World, Entity par3Entity, int par4, boolean par5) 
     {
-        int l = world.getBlockMetadata(i, j, k);
-        double d = (float)i + 0.5F;
-        double d1 = (float)j + 0.7F;
-        double d2 = (float)k + 0.5F;
-        double d3 = 0.2199999988079071D;
-        double d4 = 0.27000001072883606D;
-        if (l == 1)
-        {
-            world.spawnParticle("smoke", d - d4, d1 + d3, d2, 0.0D, 0.0D, 0.0D);
-            world.spawnParticle("flame", d - d4, d1 + d3, d2, 0.0D, 0.0D, 0.0D);
-        }
-        else if (l == 2)
-        {
-            world.spawnParticle("smoke", d + d4, d1 + d3, d2, 0.0D, 0.0D, 0.0D);
-            world.spawnParticle("flame", d + d4, d1 + d3, d2, 0.0D, 0.0D, 0.0D);
-        }
-        else if (l == 3)
-        {
-            world.spawnParticle("smoke", d, d1 + d3, d2 - d4, 0.0D, 0.0D, 0.0D);
-            world.spawnParticle("flame", d, d1 + d3, d2 - d4, 0.0D, 0.0D, 0.0D);
-        }
-        else if (l == 4)
-        {
-            world.spawnParticle("smoke", d, d1 + d3, d2 + d4, 0.0D, 0.0D, 0.0D);
-            world.spawnParticle("flame", d, d1 + d3, d2 + d4, 0.0D, 0.0D, 0.0D);
-        }
-        else
-        {
-            world.spawnParticle("smoke", d, d1, d2, 0.0D, 0.0D, 0.0D);
-            world.spawnParticle("flame", d, d1, d2, 0.0D, 0.0D, 0.0D);
-        }
+         if(par3Entity instanceof EntityPlayer){    
+    	EntityPlayer player = (EntityPlayer)par3Entity;
+        if(player.getCurrentEquippedItem().getItem() != null && player.getCurrentEquippedItem().getItem() instanceof ThunderSword){
+    	par2World.spawnParticle("smoke", player.posX, player.posY, player.posZ, 1.0D, 1.0D, 1.0D);
+    	par2World.spawnParticle("flame", player.posX, player.posY, player.posZ, 1.0D, 1.0D, 1.0D);
+        
     }
-   
- 
+    }
+    }
+    
     public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer)
     {
         float f = 1.0F;

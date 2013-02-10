@@ -24,7 +24,7 @@ public class RenderFlor extends Render
                 GL11.glScalef(0.5F, 0.5F, 0.5F);
                 loadTexture("/FunMod/cliente/texturas/modelos/fogo.png");
                 Tessellator tessellator = Tessellator.instance;
-                int i = FunMod.throwItem.itemID;
+                int i = FunMod.FireFlower.itemID;
                 float f2 = (float)((i % 16) * 16 + 0) / 256F;
                 float f3 = (float)((i % 16) * 16 + 16) / 256F;
                 float f4 = (float)((i / 16) * 16 + 0) / 256F;

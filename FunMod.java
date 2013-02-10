@@ -67,23 +67,13 @@ import FunMod.entidades.EntityVenom;
 import FunMod.entidades.EntityWoody;
 import FunMod.entidades.EntityYoshi;
 import FunMod.ftp.ThreadGetData;
-import FunMod.items.ItemBattery;
-import FunMod.items.ItemBlade;
-import FunMod.items.ItemCoalF;
-import FunMod.items.ItemControle;
-import FunMod.items.ItemFireFlower;
+import FunMod.items.ItemFun;
 import FunMod.items.ItemLinkBow;
-import FunMod.items.ItemMarioCoin;
-import FunMod.items.ItemObsidianStick;
-import FunMod.items.ItemPearl;
-import FunMod.items.ItemStarman;
 import FunMod.items.ItemSuperCog;
 import FunMod.items.ItemThrowing;
 import FunMod.items.ItemThunderDust;
 import FunMod.items.ItemTvCima;
 import FunMod.items.ItemUpCog;
-import FunMod.items.Itemmesa;
-import FunMod.items.Itemnes;
 import FunMod.items.LinkSword;
 import FunMod.items.MegaManBot;
 import FunMod.items.MegaManChest;
@@ -120,7 +110,6 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
-import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 @Mod(modid = "FunMod", name = "FunMod", version = "Beta 1.1.0")
@@ -148,7 +137,6 @@ public class FunMod {
 	public static Item MegaManBoots;
 	public static Item SonicBoots; 
 	public static Item LinkBow;
-	public static Item throwItem; 
 	public static Item PearlOfLink;
 	public static Item Battery;
 	public static Item ThunderDust;
@@ -196,45 +184,8 @@ public class FunMod {
 	
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event){
-		  
-		System.out.println("[FunMod] Starting FunMod Pre Init Phase");
-		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
-		config.load();
-		int UpMushId = config.get("Up MushRoom", "item", 500).getInt();
-		int SuperMushId = config.get("Super MushRoom", "item", 501).getInt();
-		int FireFlowerId = config.get("Fire Flower", "item", 5000).getInt();
-		int StarManId = config.get("Starman", "item", 5001).getInt();
-		int LinkSwordId = config.get("Link Sword", "item", 5002).getInt();
-		int ThunderSwordId = config.get("Thunder Sword", "item", 5003).getInt();
-		int ThunderBladeId = config.get("Thunder Blade", "item", 5015).getInt();
-		int MarioCoinId = config.get("Mario Coin", "item", 5004).getInt();
-		int MegaManHelId = config.get("MegaMan Helmet", "item", 5007).getInt();
-		int MegaManChesId = config.get("MegaMan ChestPlate", "item", 5008).getInt();
-		int MegaManPantId = config.get("MegaMan Pants", "item", 5009).getInt();
-		int MegaManBotId = config.get("MegaMan Boots", "item", 5010).getInt();
-		int SonicBootsId = config.get("Sonic Boots", "item", 5011).getInt();
-		int LinkBowId = config.get("Link Bow", "item", 5012).getInt();
-		int throwItemId = config.get("Throwing Item", "item", 5013).getInt();
-		int PearlId = config.get("Pearl Of Link", "item", 5016).getInt();
-		int BatId = config.get("Battery", "item", 5017).getInt();
-		int ThunderDustId = config.get("Thunder Dust", "item", 5018).getInt();
-		int ObsId = config.get("Obsidian Stick", "item", 5019).getInt();
-		int BladeId = config.get("Blade", "item", 5020).getInt();
-		int QuestBlId = config.get("Question Block", "block", 225).getInt();
-		int BrickId = config.get("Brick Block", "block", 226).getInt();
-	    int tvId = config.get("Bloco Tv + N64", "block", 200).getInt();
-		int grassId = config.get("Fantasy Grass", "block", 210).getInt();
-	    int stoneID = config.get("Fantasy Stone", "block", 211).getInt();
-        int dirtID = config.get("Fantasy Dirt", "block", 212).getInt();		
-	    int leafId = config.get("Fantasy Leaf", "block", 218).getInt();
-        int logID = config.get("Fanatsy Log", "block",218).getInt();
-	    int portalId = config.get("Fantasy Portal", "block", 216).getInt();
-        int myststoneID = config.get("Mystical Stone", "block", 215).getInt();
-        int sofaID = config.get("Sofa", "block", 255).getInt();
-        int plankId = config.get("Fantasy Plank", "block", 2222).getInt();
-        int cobbleId = config.get("Fantasy Cobblestone", "block", 2223).getInt();
-        config.save();
-        funmodtab = new CTabFun(CreativeTabs.getNextID(), "FunMod");
+	
+                funmodtab = new CTabFun(CreativeTabs.getNextID(), "FunMod");
 		LanguageRegistry.instance().addStringLocalization("itemGroup.FunMod", "FunMod CreativeTabs");
 		System.out.println("[FunMod] Finished FunMod Pre Init Phase Without Any Errors");
 	}	
@@ -245,24 +196,23 @@ public class FunMod {
 		//registrando items e blocos
 		UpMushroom = new ItemUpCog(500, 4, false).setPotionEffect(Potion.heal.id , 30, 0, 1.0F).setItemName("Up Mushroom"); 	 
 		SuperMushroom = new ItemSuperCog(501, 4, false).setPotionEffect(Potion.resistance.id , 30, 0, 1.0F).setItemName("Super Mushroom"); 
-		FireFlower = (new ItemFireFlower(5000).setItemName("Fire Flower"));
-		Starman = (new ItemStarman(5001).setItemName("Starman"));
+		FireFlower = (new ItemFun(5000, 5, 1).setItemName("Fire Flower").setMaxDamage(20));
+		Starman = (new ItemFun(5001, 8, 1).setItemName("Starman"));
 		LinkSword = (new LinkSword (5002, Link)).setCreativeTab(FunMod.funmodtab).setItemName("Link Sword"); 
 		ThunderSword = (new ThunderSword (5003, Link)).setCreativeTab(FunMod.funmodtab).setItemName("Thunder Sword"); 
 		ThunderBlade = (new ThunderBlade(5015).setItemName("Thunder Blade")); 
-		MarioCoin = (new ItemMarioCoin(5004).setItemName("Mario Coin"));
+		MarioCoin = (new ItemFun(5004, 6, 16).setItemName("Mario Coin"));
 	 	MegaManHelmet = (new MegaManHelm(5007,MegaMan, 3, 0)).setItemName("MegaMan Helmet");
 	 	MegaManChest = (new MegaManChest(5008,MegaMan, 3, 1)).setItemName("MegaMan Chest");
 	 	 MegaManPants = (new MegaManLeg (5009, MegaMan, 3,2)).setItemName("MegaMan Pants");
 	 	MegaManBoots = (new MegaManBot (5010, MegaMan , 3,3)).setItemName("MegaMan Boots");
 	 	SonicBoots = (new SonicBoots (5011, Sonic ,3,3)).setItemName("Sonic Boots");
-	 	LinkBow = (new ItemLinkBow(5012).setItemName("Link Bow").setCreativeTab(FunMod.funmodtab).setItemName("Link Bow")); 
-	 	throwItem = (new ItemThrowing(5013).setItemName("Throw Item").setIconIndex(16));
-	 	PearlOfLink = (new ItemPearl(5016).setItemName("Pearl Of Link"));
-	 	Battery = (new ItemBattery(5017).setItemName("Battery"));
+	 	LinkBow = (new ItemLinkBow(5012).setItemName("Link Bow").setCreativeTab(FunMod.funmodtab).setItemName("Link Bow")); 	
+	 	PearlOfLink = (new ItemFun(5016, 10, 64).setItemName("Pearl Of Link"));
+	 	Battery = (new ItemFun(5017, 7, 64).setItemName("Battery"));
 	 	ThunderDust = (new ItemThunderDust(5018).setItemName("Thunder Dust"));
-	 	ObsidianStick = (new ItemObsidianStick(5019).setItemName("Obsidian Stick"));
-	 	Blade = (new ItemBlade(5020).setItemName("Blade"));
+	 	ObsidianStick = (new ItemFun(5019, 19, 64).setItemName("Obsidian Stick"));
+	 	Blade = (new ItemFun(5020, 20 , 64).setItemName("Blade"));
 	 	QuestionBlock = new BlockQuestionBlock(225, 0).setHardness(2F).setResistance(200F).setCreativeTab(FunMod.funmodtab).setBlockName("Question Block"); 
 	 	BrickBlock = new BlockBrickBlock(226,0, 0).setHardness(3F).setResistance(200F).setLightValue(0.2F).setCreativeTab(FunMod.funmodtab).setBlockName("Brick Block");
 	 	tv = new BlockTv(200,0, EntidadeN64.class).setResistance(.5F).setBlockName("Test").setHardness(0.5f);
@@ -276,15 +226,15 @@ public class FunMod {
 	 	FantasyPortal = (new BlockFantasyPortal(216, 0).setStepSound(Block.soundWoodFootstep).setHardness(0.5F).setResistance(1F).setBlockName("FantasyPortal"));	
 	 	MysticalStone = (new MysticalStone(215,0, 0).setHardness(5.0F).setStepSound(Block.soundStoneFootstep).setResistance(1000000.0F).setBlockName("MysticalStone"));
 	 	tvcima = (new ItemTvCima(10001).setItemName("TvCima"));
-	 	nes = (new Itemnes(10005).setItemName("Nes"));
-	 	mesa = (new Itemmesa(10004).setItemName("mesa"));
+	 	nes = (new ItemFun(10005, 36, 64).setItemName("Nes"));
+	 	mesa = (new ItemFun(10004, 37, 64).setItemName("mesa"));
 	 	plank = new BlockPlank(2222, 0).setHardness(2F).setResistance(200F).setCreativeTab(FunMod.funmodtab).setBlockName("Plank"); 
 	 	cobble = new BlocCobble(2223, 0).setHardness(2F).setResistance(200F).setCreativeTab(FunMod.funmodtab).setBlockName("Cobble"); 
 	 	//Item em 3d	 	
-	 	controle = (new ItemControle(3025).setItemName("Controle").setCreativeTab(FunMod.funmodtab));
+	 	controle = (new ItemFun(3025, 35 ,1).setItemName("Controle").setCreativeTab(FunMod.funmodtab).setFull3D());
 	 	desativada = new FantasyFurnace(2831, false).setBlockName("FantasyFurnace").setHardness(6F).setStepSound(Block.soundMetalFootstep).setCreativeTab(this.funmodtab);
 	 	ativa = new FantasyFurnace(2832, true).setBlockName("BrickFurnaceActive").setHardness(6F).setStepSound(Block.soundMetalFootstep);
-	 	coal = (new ItemCoalF(3024).setItemName("CoaL").setCreativeTab(this.funmodtab));
+	 	coal = (new ItemFun(3024 , 46 , 64).setItemName("CoaL").setCreativeTab(this.funmodtab));
 	 	
 	 	
 	 	
@@ -344,7 +294,6 @@ public class FunMod {
 	 	LanguageRegistry.addName(ObsidianStick, "Obsidian Stick");
 	 	LanguageRegistry.addName(Blade, "Blade");
 	    LanguageRegistry.addName(BrickBlock,"BrickBlock");
-	 	LanguageRegistry.addName(throwItem, "Throwing Item");
 	    LanguageRegistry.addName(QuestionBlock, "Question Block");
 	 	LanguageRegistry.addName(tv, "Tv with Nintendo 64");
 	    LanguageRegistry.addName(sofa, "Sofa");
