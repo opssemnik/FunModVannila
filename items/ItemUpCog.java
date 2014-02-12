@@ -13,16 +13,11 @@ import cpw.mods.fml.relauncher.SideOnly;
 	                super(i, i, b);
 	                maxStackSize = 64;     
 	                this.setCreativeTab(FunMod.funmodtab);
-	                this.iconIndex = 3;
 	        }
 	
 	@SideOnly(Side.CLIENT)
 	public EnumRarity getRarity(ItemStack par1ItemStack){
 	return EnumRarity.epic;
 	}
-	
-	public String getTextureFile(){
-	return "/FunMod/cliente/texturas/texturas.png";}
-	
-	
+
 	}

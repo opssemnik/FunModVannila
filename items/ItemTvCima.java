@@ -6,13 +6,10 @@ import FunMod.FunMod;
 	{
 	        public ItemTvCima(int i)
 	        {
-	                super(i);
+	                super();
 	                maxStackSize = 64;     
 	                this.setCreativeTab(FunMod.funmodtab);
-	                this.iconIndex = 34;
 	        
 	        }
-public String getTextureFile(){
-	return "/FunMod/cliente/texturas/texturas.png";}
 	
 	}

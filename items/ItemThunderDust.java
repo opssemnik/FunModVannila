@@ -7,12 +7,7 @@ import FunMod.FunMod;
 	{
 	        public ItemThunderDust(int i)
 	        {
-	                super(i);
 	                maxStackSize = 64;     
 	                this.setCreativeTab(FunMod.funmodtab);
-	                this.iconIndex = 17;
 	        }
-	public String getTextureFile(){
-	return "/FunMod/cliente/texturas/texturas.png";}
-	
 	}

@@ -8,14 +8,9 @@ import java.net.URL;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.ICommandSender;
-import net.minecraft.src.ModLoader;
+import net.minecraft.util.ChatComponentText;
 import FunMod.FunMod;
 import FunMod.enums.EnumColor;
-/**
- * Thread that downloads the latest release of Obsidian Ingots. The older file is deleted and the newly downloaded file takes it's place.
- * @author AidanBrady
- *
- */
 public class ThreadFunModUpdater extends Thread
 {
 	private ICommandSender sender;
@@ -38,29 +33,29 @@ public class ThreadFunModUpdater extends Thread
 	
 	public void run()
 	{
-		File download = new File(new StringBuilder().append(ModLoader.getMinecraftInstance().getMinecraftDir()).append("/mods/FunMod.jar").toString());
+	//	File download = new File(new StringBuilder().append(Minecraft.getMinecraft().getMinecraftDir()).append("/mods/FunMod.jar").toString());
 		try {
-			prepareForDownload();
-			download.createNewFile();
-			FileOutputStream outputStream = new FileOutputStream(download.getAbsolutePath());
+			//prepareForDownload();
+		//	download.createNewFile();
+		//	FileOutputStream outputStream = new FileOutputStream(download.getAbsolutePath());
 			InputStream stream = url.openStream();
 			
 			while((lastBytesDownloaded = stream.read(buffer)) > 0)
 			{
-				outputStream.write(buffer, 0, lastBytesDownloaded);
+				//outputStream.write(buffer, 0, lastBytesDownloaded);
 				buffer = new byte[10240];
 				bytesDownloaded += lastBytesDownloaded;
 			}
 			
-			outputStream.close();
+			//outputStream.close();
 			stream.close();
-			sender.sendChatToPlayer(EnumColor.DARK_BLUE.code + "[FunMod] " + EnumColor.GREY.code + "Successfully updated to version " + EnumColor.DARK_GREY.code + FunMod.latestVersionNumber);
+			sender.addChatMessage(new ChatComponentText(EnumColor.DARK_BLUE.code + "[FunMod] " + EnumColor.GREY.code + "Successfully updated to version " + EnumColor.DARK_GREY.code + FunMod.latestVersionNumber));
 			System.out.println("[FunMod] Successfully updated to latest version (" + FunMod.latestVersionNumber + ").");
 			finalize();
 			
 		} catch(Throwable e)
 		{
-			sender.sendChatToPlayer(EnumColor.DARK_BLUE.code + "[FunMod] " + EnumColor.GREY.code + "Unable to update to version " + EnumColor.DARK_GREY.code + FunMod.latestVersionNumber);
+			sender.addChatMessage(new ChatComponentText(EnumColor.DARK_BLUE.code + "[FunMod] " + EnumColor.GREY.code + "Unable to update to version " + EnumColor.DARK_GREY.code + FunMod.latestVersionNumber));
 			System.err.println("[FunMod] Error while finishing update thread: " + e.getMessage());
 			try {
 				finalize();
@@ -69,10 +64,10 @@ public class ThreadFunModUpdater extends Thread
 			}
 		}
 	}
-	
+	/*
 	public void prepareForDownload()
 	{
-		File download = new File(new StringBuilder().append(Minecraft.getMinecraft().getMinecraftDir()).append("/mods/FunMod.jar").toString());
+		File download = new File(new StringBuilder().append(Minecraft.getMinecraft().()).append("/mods/FunMod.jar").toString());
 		File config = new File(new StringBuilder().append(Minecraft.getMinecraft().getMinecraftDir()).append("/config/FunMod.cfg").toString());
 		
 		if(download.exists())
@@ -85,4 +80,5 @@ public class ThreadFunModUpdater extends Thread
 		}
 		System.out.println("[FunMod] Preparing to update...");
 	}
+	*/
 }
