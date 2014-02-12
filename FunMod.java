@@ -1,7 +1,6 @@
 package FunMod;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import net.minecraft.block.Block;
 import net.minecraft.command.CommandHandler;
@@ -30,8 +29,8 @@ import FunMod.blocks.FantasyLeaf;
 import FunMod.blocks.FantasyLog;
 import FunMod.blocks.FantasyStone;
 import FunMod.blocks.MysticalStone;
+import FunMod.cliente.ticks.FunModClientTickHandler;
 import FunMod.comandos.CommandFun;
-import FunMod.comandos.ServerCommandHandler;
 import FunMod.dimensao.WorldProviderFantasy;
 import FunMod.entidades.EntityAsh;
 import FunMod.entidades.EntityBlinky;
@@ -84,24 +83,19 @@ import FunMod.tabs.CTabFun;
 import FunMod.tileentidades.EntidadeFantasyFurnace;
 import FunMod.tileentidades.EntidadeN64;
 import FunMod.tileentidades.EntidadeSofa;
-
-import com.google.common.collect.Maps;
-
-import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
-import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.gameevent.TickEvent.Phase;
+import cpw.mods.fml.common.gameevent.TickEvent.Type;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 @Mod(modid = "FunMod", name = "FunMod", version = "Beta 1.1.0")
 public class FunMod {
 	@SidedProxy(clientSide = "FunMod.cliente.proxy.clproxy", serverSide = "FunMod.proxy.proxy")
@@ -145,8 +139,7 @@ public class FunMod {
 	public static Block sofa;
 	public static Item controle;
 	public static ItemThrowing itemtt;
- 	private Map<Integer, ISimpleBlockRenderingHandler> blockRenderers = Maps.newHashMap();
-    public int var1;
+ 	public int var1;
 	public static CreativeTabs funmodtab;
 	public static Block ativa;
 	public static Block desativada;
@@ -171,8 +164,8 @@ public class FunMod {
 	public void preInit(FMLPreInitializationEvent event){
 	
         funmodtab = new CTabFun(CreativeTabs.getNextID(), "FunMod");
-		LanguageRegistry.instance().addStringLocalization("itemGroup.FunMod", "FunMod CreativeTabs");
 	}	
+	
 	@EventHandler
 	 public void load(FMLInitializationEvent event) 
 	 {
@@ -199,7 +192,7 @@ public class FunMod {
 	 	Blade = (new ItemFun(5020, 20 , 64).setUnlocalizedName("Blade"));
 	 	QuestionBlock = new BlockQuestionBlock(225, 0).setHardness(2F).setResistance(200F).setCreativeTab(FunMod.funmodtab).setBlockName("Question Block"); 
 	 	BrickBlock = new BlockBrickBlock(226,0, 0).setHardness(3F).setResistance(200F).setLightValue(0.2F).setCreativeTab(FunMod.funmodtab).setBlockName("Brick Block");
-	 	tv = new BlockTv(200,0, EntidadeN64.class).setResistance(.5F).setBlockName("Test").setHardness(0.5f);
+	 	tv = new BlockTv(200,0).setResistance(.5F).setBlockName("Test").setHardness(0.5f);
 	 	sofa = new BlockSofa(255, 0, EntidadeN64.class).setResistance(.5F).setBlockName("Sofa").setHardness(0.5f);
 	 	FantasyGrass = (new FantasyGrass(210,0).setStepSound(Block.soundTypeGrass).setHardness(0.5F).setResistance(1F).setBlockName("FantasyGrass"));
 	 	FantasyStone = (new FantasyStone(211, 0).setHardness((float) 5.0).setStepSound(Block.soundTypeStone).setResistance(1.0F).setBlockName("FantasyStone"));
@@ -225,66 +218,25 @@ public class FunMod {
 	 	//geracao de ore
 	 	 GameRegistry.registerWorldGenerator(new WorldGeneratorFantasy(), 15);
 		 	//registrando blocos
-	 	GameRegistry.registerBlock(plank);
-	 	GameRegistry.registerBlock(cobble);
-	 	GameRegistry.registerBlock(QuestionBlock);
-	 	GameRegistry.registerBlock(BrickBlock);
-	 	GameRegistry.registerBlock(FantasyGrass);
-	 	GameRegistry.registerBlock(FantasyStone);
-	 	GameRegistry.registerBlock(FantasyDirt);
-	 	GameRegistry.registerBlock(FantasyLeaf);
-	 	GameRegistry.registerBlock(FantasyLog);
-	 	GameRegistry.registerBlock(FantasyPortal);
-	 	GameRegistry.registerBlock(MysticalStone);
-	 	GameRegistry.registerBlock(tv);
-	 	GameRegistry.registerBlock(sofa);
-	 	GameRegistry.registerBlock(desativada);
-	 	 NetworkRegistry.instance().registerGuiHandler(instance, proxy);
-	 	//nomes
-	 	
 	 	 
-	 	LanguageRegistry.addName(plank,"Fantasy Plank");
-	 	LanguageRegistry.addName(cobble,"Fantasy Cobblestone");
-	 	LanguageRegistry.addName(controle,"Control");
-	 	LanguageRegistry.addName(mesa,"Desk");
-	 	LanguageRegistry.addName(nes, "Nintendo 64");
-	 	LanguageRegistry.addName(tvcima, "A Little Tv");	
-	 	LanguageRegistry.addName(coal, "Fantasy Coal");
-	 	LanguageRegistry.addName(desativada, "Fantasy Furnace");
-	 	LanguageRegistry.addName(FantasyGrass, "Fantasy Grass");
-	 	LanguageRegistry.addName(FantasyStone, "Fantasy Stone");
-	 	LanguageRegistry.addName(FantasyDirt, "Fantasy Dirt");
-	 	LanguageRegistry.addName(FantasyLeaf, "Fantasy Leaf");
-	 	LanguageRegistry.addName(FantasyLog, "Fantasy Log");
-	 	LanguageRegistry.addName(FantasyPortal, "Fantasy Portal");
-	 	LanguageRegistry.addName(MysticalStone, "Mystical Stone");
-	 	LanguageRegistry.addName(UpMushroom, "Up Mushroom");
-	 	LanguageRegistry.addName(SuperMushroom, "Super Mushroom");
-	 	LanguageRegistry.addName(FireFlower, "Fire Flower");
-	 	LanguageRegistry.addName(Starman, "Starman");
-	 	LanguageRegistry.addName(LinkSword, "Link Sword");
-	 	LanguageRegistry.addName(ThunderSword, "Thunder Sword");
-	 	LanguageRegistry.addName(ThunderBlade, "Thunder Blade");
-	 	LanguageRegistry.addName(MarioCoin, "Mario Coin");
-	 	LanguageRegistry.addName(LinkBow, "Link Bow");
-	 	LanguageRegistry.addName(MegaManHelmet, "MegaMan Helmet");
-	 	LanguageRegistry.addName(MegaManChest, "MegaMan Chestplate");
-	 	LanguageRegistry.addName(MegaManPants, "MegaMan Pants");
-	 	LanguageRegistry.addName(MegaManBoots, "MegaMan Shoes");
-	 	LanguageRegistry.addName(SonicBoots, "Sonic Shoes");
-	 	LanguageRegistry.addName(PearlOfLink, "Pearl Of Link");
-	 	LanguageRegistry.addName(Battery, "Battery");
-	 	LanguageRegistry.addName(ThunderDust, "ThunderDust");
-	 	LanguageRegistry.addName(ObsidianStick, "Obsidian Stick");
-	 	LanguageRegistry.addName(Blade, "Blade");
-	    LanguageRegistry.addName(BrickBlock,"BrickBlock");
-	    LanguageRegistry.addName(QuestionBlock, "Question Block");
-	 	LanguageRegistry.addName(tv, "Tv with Nintendo 64");
-	    LanguageRegistry.addName(sofa, "Sofa");
+	 	GameRegistry.registerBlock(plank, "FMPlank");
+	 	GameRegistry.registerBlock(cobble,"FMCobble");
+	 	GameRegistry.registerBlock(QuestionBlock,"FMQuestionBlock");
+	 	GameRegistry.registerBlock(BrickBlock,"FMBrick");
+	 	GameRegistry.registerBlock(FantasyGrass,"FMGras");
+	 	GameRegistry.registerBlock(FantasyStone,"FMStone");
+	 	GameRegistry.registerBlock(FantasyDirt,"FMDirt");
+	 	GameRegistry.registerBlock(FantasyLeaf,"FMLeaf");
+	 	GameRegistry.registerBlock(FantasyLog,"FMLLog");
+	 	GameRegistry.registerBlock(FantasyPortal,"FMPortal");
+	 	GameRegistry.registerBlock(MysticalStone,"FMMStone");
+	 	GameRegistry.registerBlock(tv,"FMTv");
+	 	GameRegistry.registerBlock(sofa,"FMSofa");
+	 	GameRegistry.registerBlock(desativada,"FMFurnace");
 	 	//recipes
 	    GameRegistry.addRecipe(new ItemStack(controle, 1), (new Object[] {" XY","XZX","HX ", Character.valueOf('X'), ObsidianStick,Character.valueOf('Y'), Item.redstone,Character.valueOf('Z'), Block.stoneButton,Character.valueOf('H'), Item.ingotIron }));  
-	    GameRegistry.addSmelting(FantasyLog.blockID, new ItemStack(coal,1), 1f);
-	    GameRegistry.addSmelting(cobble.blockID, new ItemStack(FantasyStone,1), 1f);
+	    GameRegistry.addSmelting(FantasyLog, new ItemStack(coal,1), 1f);
+	    GameRegistry.addSmelting(cobble, new ItemStack(FantasyStone,1), 1f);
 	    GameRegistry.addRecipe(new ItemStack(sofa, 1), (new Object[] {" X ","XXX","XXX", Character.valueOf('X'), Block.cloth}));  
 	    GameRegistry.addRecipe(new ItemStack(desativada, 1), (new Object[] {"XXX","X X","XXX", Character.valueOf('X'), FantasyStone}));  
 	    GameRegistry.addRecipe(new ItemStack (UpMushroom, 1), (new Object[] {"&&&", "&A&","&&&", Character.valueOf('&'),  Block.mushroomBrown , Character.valueOf('A'), Starman}));
@@ -396,91 +348,8 @@ public class FunMod {
 	proxy.renderItemComModelos(var1);
 	proxy.loadTickHandler();
 	proxy.rendercontrole();
+	FMLCommonHandler.instance().bus().register(new FunModClientTickHandler(Type.WORLD, Side.CLIENT, Phase.START));
 	GameRegistry.registerTileEntity(EntidadeFantasyFurnace.class, "EntidadeFantasyFurnace");
-	//nome dos mobs
-	  LanguageRegistry.instance().addStringLocalization("entity.Link.name","pt_BR","Link"); 
-      LanguageRegistry.instance().addStringLocalization("entity.Link.name","Link");
-		
-      LanguageRegistry.instance().addStringLocalization("entity.Ness.name","pt_BR","Ness"); 
-      LanguageRegistry.instance().addStringLocalization("entity.Ness.name","Ness");
-      
-      LanguageRegistry.instance().addStringLocalization("entity.Mega Man.name","pt_BR","Mega Man"); 
-      LanguageRegistry.instance().addStringLocalization("entity.Mega Man.name","Mega Man");
-      
-      LanguageRegistry.instance().addStringLocalization("entity.Woody.name","pt_BR","Woody"); 
-      LanguageRegistry.instance().addStringLocalization("entity.Woody.name","Woody");
-      
-      LanguageRegistry.instance().addStringLocalization("entity.Ichigo.name","pt_BR","Ichigo"); 
-      LanguageRegistry.instance().addStringLocalization("entity.Ichigo.name","Ichigo");
-      
-      LanguageRegistry.instance().addStringLocalization("entity.Clyde.name","pt_BR","Clyde"); 
-      LanguageRegistry.instance().addStringLocalization("entity.Clyde.name","Clyde");
-      
-      LanguageRegistry.instance().addStringLocalization("entity.Goomba.name","pt_BR","Goomba"); 
-      LanguageRegistry.instance().addStringLocalization("entity.Goomba.name","Goomba");
-      
-      LanguageRegistry.instance().addStringLocalization("entity.Naruto.name","pt_BR","Naruto"); 
-      LanguageRegistry.instance().addStringLocalization("entity.Naruto.name","Naruto");
-      
-      LanguageRegistry.instance().addStringLocalization("entity.Blinky.name","pt_BR","Blinky"); 
-      LanguageRegistry.instance().addStringLocalization("entity.Blinky.name","Blinky");
-      
-      LanguageRegistry.instance().addStringLocalization("entity.Inky.name","pt_BR","Inky"); 
-      LanguageRegistry.instance().addStringLocalization("entity.Inky.name","Inky");
-      
-	  LanguageRegistry.instance().addStringLocalization("entity.Pinky.name","pt_BR","Pinky"); 
-      LanguageRegistry.instance().addStringLocalization("entity.Pinky.name","Pinky");
-      
-      LanguageRegistry.instance().addStringLocalization("entity.Ash.name","pt_BR","Ash"); 
-      LanguageRegistry.instance().addStringLocalization("entity.Ash.name","Ash");
-      
-      LanguageRegistry.instance().addStringLocalization("entity.Kirby.name","pt_BR","Kirby"); 
-      LanguageRegistry.instance().addStringLocalization("entity.Kirby.name","Kirby");
-	
-      
-      LanguageRegistry.instance().addStringLocalization("entity.Spider Man.name","pt_BR","Spider Man"); 
-      LanguageRegistry.instance().addStringLocalization("entity.Spider Man.name","Spider Man");
-      
-      
-      LanguageRegistry.instance().addStringLocalization("entity.Venom.name","pt_BR","Venom"); 
-      LanguageRegistry.instance().addStringLocalization("entity.Venom.name","Venom"); 
-	
-      
-      LanguageRegistry.instance().addStringLocalization("entity.Pikachu.name","pt_BR","Pikachu"); 
-      LanguageRegistry.instance().addStringLocalization("entity.Pikachu.name","Pikachu"); 
-	
-      
-      LanguageRegistry.instance().addStringLocalization("entity.Chaos.name","pt_BR","Chaos"); 
-      LanguageRegistry.instance().addStringLocalization("entity.Chaos.name","Chaos"); 
-	
-      LanguageRegistry.instance().addStringLocalization("entity.Mage.name","pt_BR","Mage"); 
-      LanguageRegistry.instance().addStringLocalization("entity.Mage.name","Mage"); 
-
-      
-      LanguageRegistry.instance().addStringLocalization("entity.Dark Link.name","pt_BR","Dark Link"); 
-      LanguageRegistry.instance().addStringLocalization("entity.Dark Link.name","Dark Link"); 
-      
-      LanguageRegistry.instance().addStringLocalization("entity.Ganondorf.name","pt_BR","Ganondorf"); 
-      LanguageRegistry.instance().addStringLocalization("entity.Ganondorf.name","Ganondorf"); 
-      
-      
-      LanguageRegistry.instance().addStringLocalization("entity.Sephiroth.name","pt_BR","Sephiroth"); 
-      LanguageRegistry.instance().addStringLocalization("entity.Sephiroth.name","Sephiroth"); 
-	
-      LanguageRegistry.instance().addStringLocalization("entity.Koopa Troopa.name","pt_BR","Koopa Troopa"); 
-      LanguageRegistry.instance().addStringLocalization("entity.Koopa Troopa.name","Koopa Troopa"); 
-	
-      LanguageRegistry.instance().addStringLocalization("entity.Sonic.name","pt_BR","Sonic"); 
-      LanguageRegistry.instance().addStringLocalization("entity.Sonic.name","Sonic"); 
-	
-      LanguageRegistry.instance().addStringLocalization("entity.Yoshi.name","pt_BR","Yoshi"); 
-      LanguageRegistry.instance().addStringLocalization("entity.Yoshi.name","Yoshi"); 
-	
-      LanguageRegistry.instance().addStringLocalization("entity.Doctor Willy.name","pt_BR","Doctor Willy"); 
-      LanguageRegistry.instance().addStringLocalization("entity.Doctor Willy.name","Doctor Willy"); 
-	
-      LanguageRegistry.instance().addStringLocalization("entity.Hamtaro.name","pt_BR","Hamtaro"); 
-      LanguageRegistry.instance().addStringLocalization("entity.Hamtaro.name","Hamtaro"); 
 	 //Dimensao
       DimensionManager.registerProviderType(10, WorldProviderFantasy.class, false);
       DimensionManager.registerDimension(10, 10);

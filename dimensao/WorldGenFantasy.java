@@ -3,6 +3,7 @@ package FunMod.dimensao;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import FunMod.FunMod;
@@ -57,9 +58,9 @@ public class WorldGenFantasy extends WorldGenerator
                 {
                     if (j >= 0 && j < 256)
                     {
-                        int j2 = par1World.getBlockId(l, j, j1);
+                        Block j2 = par1World.getBlock(l, j, j1);
 
-                        if (j2 != 0 && j2 != FunMod.FantasyLeaf.blockID && j2 != FunMod.FantasyGrass.blockID && j2 != FunMod.FantasyDirt.blockID && j2 != FunMod.FantasyLog.blockID)
+                        if (j2 != Blocks.air && j2 != FunMod.FantasyLeaf && j2 != FunMod.FantasyGrass && j2 != FunMod.FantasyDirt && j2 != FunMod.FantasyLog)
                         {
                             flag = false;
                         }
@@ -77,14 +78,14 @@ public class WorldGenFantasy extends WorldGenerator
             return false;
         }
 
-        int k = par1World.getBlockId(par3, par4 - 1, par5);
+        Block k = par1World.getBlock(par3, par4 - 1, par5);
 
-        if (k != FunMod.FantasyGrass.blockID && k != FunMod.FantasyDirt.blockID || par4 >= 256 - i - 1)
+        if (k != FunMod.FantasyGrass && k != FunMod.FantasyDirt || par4 >= 256 - i - 1)
         {
             return false;
         }
 
-        par1World.setBlock(par3, par4 - 1, par5, FunMod.FantasyDirt.blockID);
+        par1World.setBlock(par3, par4 - 1, par5, FunMod.FantasyDirt);
         byte byte1 = 3;
         int i1 = 0;
 
@@ -101,9 +102,9 @@ public class WorldGenFantasy extends WorldGenerator
                 {
                     int i5 = l4 - par5;
 
-                    if ((Math.abs(j4) != j3 || Math.abs(i5) != j3 || par2Random.nextInt(2) != 0 && k2 != 0) && !Block.opaqueCubeLookup[par1World.getBlockId(l3, k1, l4)])
+                    if ((Math.abs(j4) != j3 || Math.abs(i5) != j3 || par2Random.nextInt(2) != 0 && k2 != 0))
                     {
-                        setBlockAndMetadata(par1World, l3, k1, l4, FunMod.FantasyLeaf.blockID, field_48199_d);
+                    	setBlockAndNotifyAdequately(par1World, l3, k1, l4, FunMod.FantasyLeaf, field_48199_d);
                     }
                 }
             }
@@ -111,14 +112,14 @@ public class WorldGenFantasy extends WorldGenerator
 
         for (int l1 = 0; l1 < i; l1++)
         {
-            int l2 = par1World.getBlockId(par3, par4 + l1, par5);
+            Block l2 = par1World.getBlock(par3, par4 + l1, par5);
 
-            if (l2 != 0 && l2 != FunMod.FantasyLeaf.blockID)
+            if (l2 != Blocks.air && l2 != FunMod.FantasyLeaf)
             {
                 continue;
             }
 
-            setBlockAndMetadata(par1World, par3, par4 + l1, par5, 	FunMod.FantasyLog.blockID, 1);
+            setBlockAndNotifyAdequately(par1World, par3, par4 + l1, par5, 	FunMod.FantasyLog, 1);
 
             if (!field_48200_b || l1 <= 0)
             {
@@ -127,22 +128,22 @@ public class WorldGenFantasy extends WorldGenerator
 
             if (par2Random.nextInt(3) > 0 && par1World.isAirBlock(par3 - 1, par4 + l1, par5))
             {
-                setBlockAndMetadata(par1World, par3 - 1, par4 + l1, par5, Block.vine.blockID, 8);
+            	setBlockAndNotifyAdequately(par1World, par3 - 1, par4 + l1, par5, Blocks.vine, 8);
             }
 
             if (par2Random.nextInt(3) > 0 && par1World.isAirBlock(par3 + 1, par4 + l1, par5))
             {
-                setBlockAndMetadata(par1World, par3 + 1, par4 + l1, par5, Block.vine.blockID, 2);
+                setBlockAndNotifyAdequately(par1World, par3 + 1, par4 + l1, par5, Blocks.vine, 2);
             }
 
             if (par2Random.nextInt(3) > 0 && par1World.isAirBlock(par3, par4 + l1, par5 - 1))
             {
-                setBlockAndMetadata(par1World, par3, par4 + l1, par5 - 1, Block.vine.blockID, 1);
+                setBlockAndNotifyAdequately(par1World, par3, par4 + l1, par5 - 1, Blocks.vine, 1);
             }
 
             if (par2Random.nextInt(3) > 0 && par1World.isAirBlock(par3, par4 + l1, par5 + 1))
             {
-                setBlockAndMetadata(par1World, par3, par4 + l1, par5 + 1, Block.vine.blockID, 4);
+                setBlockAndNotifyAdequately(par1World, par3, par4 + l1, par5 + 1, Blocks.vine, 4);
             }
         }
 
@@ -157,27 +158,27 @@ public class WorldGenFantasy extends WorldGenerator
                 {
                     for (int k4 = par5 - k3; k4 <= par5 + k3; k4++)
                     {
-                        if (par1World.getBlockId(i4, i2, k4) != FunMod.FantasyLeaf.blockID)
+                        if (par1World.getBlock(i4, i2, k4) != FunMod.FantasyLeaf)
                         {
                             continue;
                         }
 
-                        if (par2Random.nextInt(4) == 0 && par1World.getBlockId(i4 - 1, i2, k4) == 0)
+                        if (par2Random.nextInt(4) == 0 && par1World.getBlock(i4 - 1, i2, k4) == Blocks.air)
                         {
                             func_48198_a(par1World, i4 - 1, i2, k4, 8);
                         }
 
-                        if (par2Random.nextInt(4) == 0 && par1World.getBlockId(i4 + 1, i2, k4) == 0)
+                        if (par2Random.nextInt(4) == 0 && par1World.getBlock(i4 + 1, i2, k4) == Blocks.air)
                         {
                             func_48198_a(par1World, i4 + 1, i2, k4, 2);
                         }
 
-                        if (par2Random.nextInt(4) == 0 && par1World.getBlockId(i4, i2, k4 - 1) == 0)
+                        if (par2Random.nextInt(4) == 0 && par1World.getBlock(i4, i2, k4 - 1) == Blocks.air)
                         {
                             func_48198_a(par1World, i4, i2, k4 - 1, 1);
                         }
 
-                        if (par2Random.nextInt(4) == 0 && par1World.getBlockId(i4, i2, k4 + 1) == 0)
+                        if (par2Random.nextInt(4) == 0 && par1World.getBlock(i4, i2, k4 + 1)== Blocks.air)
                         {
                             func_48198_a(par1World, i4, i2, k4 + 1, 4);
                         }
@@ -191,11 +192,11 @@ public class WorldGenFantasy extends WorldGenerator
 
     private void func_48198_a(World par1World, int par2, int par3, int par4, int par5)
     {
-        par1World.setBlockAndMetadataWithNotify(par2, par3, par4, Block.vine.blockID, par5);
+        par1World.setBlock(par2, par3, par4, Blocks.vine, par5,2);
 
-        for (int i = 4; par1World.getBlockId(par2, --par3, par4) == 0 && i > 0; i--)
+        for (int i = 4; par1World.getBlock(par2, --par3, par4) == Blocks.air && i > 0; i--)
         {
-            par1World.setBlockAndMetadataWithNotify(par2, par3, par4, Block.vine.blockID, par5);
+            par1World.setBlock(par2, par3, par4, Blocks.vine, par5,2);
         }
     }
 }

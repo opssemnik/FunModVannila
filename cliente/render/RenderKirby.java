@@ -15,10 +15,10 @@ public class RenderKirby extends RenderLiving
 
     public void renderKirby(EntityKirby par1EntityKirby, double par2, double par4, double par6, float par8, float par9)
     {
-        super.doRenderLiving(par1EntityKirby, par2, par4, par6, par8, par9);
+        super.doRender(par1EntityKirby, par2, par4, par6, par8, par9);
     }
 
-    public void doRenderLiving(EntityLiving par1EntityLiving, double par2, double par4, double par6, float par8, float par9)
+    public void doRender(EntityLiving par1EntityLiving, double par2, double par4, double par6, float par8, float par9)
     {
         renderKirby((EntityKirby)par1EntityLiving, par2, par4, par6, par8, par9);
     }

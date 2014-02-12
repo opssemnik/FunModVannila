@@ -3,6 +3,7 @@ package FunMod.cliente.render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
@@ -18,10 +19,10 @@ public class RenderGanondorf extends RenderLiving
 
     public void renderGanondorf(EntityGanondorf par1EntityGanondorf, double par2, double par4, double par6, float par8, float par9)
     {
-        super.doRenderLiving(par1EntityGanondorf, par2, par4, par6, par8, par9);
+        super.doRender(par1EntityGanondorf, par2, par4, par6, par8, par9);
     }
 
-    public void doRenderLiving(EntityLiving par1EntityLiving, double par2, double par4, double par6, float par8, float par9)
+    public void doRender(EntityLiving par1EntityLiving, double par2, double par4, double par6, float par8, float par9)
     {
         renderGanondorf((EntityGanondorf)par1EntityLiving, par2, par4, par6, par8, par9);
     }
@@ -39,6 +40,12 @@ public class RenderGanondorf extends RenderLiving
     protected void preRenderCallback(EntityLiving par1EntityLiving, float par2)
     {
         preRenderScale((EntityGanondorf)par1EntityLiving, par2);
-    } 
+    }
+
+	@Override
+	protected ResourceLocation getEntityTexture(Entity var1) {
+		// TODO Auto-generated method stub
+		return null;
+	} 
     
 } 

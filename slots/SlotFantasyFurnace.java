@@ -7,11 +7,9 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import FunMod.recipes.FantasyFurnacesRecipes;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public class SlotFantasyFurnace extends Slot
 {
-    /** The player that is using the GUI where this slot resides. */
     private EntityPlayer thePlayer;
     private int field_75228_b;
 
@@ -20,19 +18,10 @@ public class SlotFantasyFurnace extends Slot
         super(par2IInventory, par3, par4, par5);
         this.thePlayer = par1EntityPlayer;
     }
-
-    /**
-     * Check if the stack is a valid item for this slot. Always true beside for the armor slots.
-     */
     public boolean isItemValid(ItemStack par1ItemStack)
     {
         return false;
     }
-
-    /**
-     * Decrease the size of the stack in slot (first int arg) by the amount of the second int arg. Returns the new
-     * stack.
-     */
     public ItemStack decrStackSize(int par1)
     {
         if (this.getHasStack())
@@ -42,29 +31,16 @@ public class SlotFantasyFurnace extends Slot
 
         return super.decrStackSize(par1);
     }
-
-    /**
-     * Called when the player picks up an item from an inventory slot
-     */
     public void onPickupFromSlot(ItemStack par1ItemStack)
     {
         this.onCrafting(par1ItemStack);
         super.onSlotChange(par1ItemStack, par1ItemStack);
     }
-
-    /**
-     * the itemStack passed in is the output - ie, iron ingots, and pickaxes, not ore and wood. Typically increases an
-     * internal count then calls onCrafting(item).
-     */
     protected void onCrafting(ItemStack par1ItemStack, int par2)
     {
         this.field_75228_b += par2;
         this.onCrafting(par1ItemStack);
     }
-
-    /**
-     * the itemStack passed in is the output - ie, iron ingots, and pickaxes, not ore and wood.
-     */
     protected void onCrafting(ItemStack par1ItemStack)
     {
         par1ItemStack.onCrafting(this.thePlayer.worldObj, this.thePlayer, this.field_75228_b);
@@ -72,7 +48,7 @@ public class SlotFantasyFurnace extends Slot
         if (!this.thePlayer.worldObj.isRemote)
         {
             int var2 = this.field_75228_b;
-            float var3 = FantasyFurnacesRecipes.smelting().func_77601_c(par1ItemStack.itemID);
+            float var3 = FantasyFurnacesRecipes.smelting().func_77601_c(par1ItemStack);
             int var4;
 
             if (var3 == 0.0F)
@@ -87,10 +63,8 @@ public class SlotFantasyFurnace extends Slot
                 {
                     ++var4;
                 }
-
                 var2 = var4;
             }
-
             while (var2 > 0)
             {
                 var4 = EntityXPOrb.getXPSplit(var2);
@@ -98,10 +72,6 @@ public class SlotFantasyFurnace extends Slot
                 this.thePlayer.worldObj.spawnEntityInWorld(new EntityXPOrb(this.thePlayer.worldObj, this.thePlayer.posX, this.thePlayer.posY + 0.5D, this.thePlayer.posZ + 0.5D, var4));
             }
         }
-
-
         this.field_75228_b = 0;
-
-        GameRegistry.onItemSmelted(thePlayer, par1ItemStack);
     }
 }

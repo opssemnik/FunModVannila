@@ -5,6 +5,7 @@ import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.projectile.EntityPotion;
 import net.minecraft.potion.PotionHelper;
+import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
@@ -15,30 +16,19 @@ import cpw.mods.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RenderFireBall extends Render
 {
-    /**
-     * Have the icon index (in items.png) that will be used to render the image. Currently, eggs and snowballs uses this
-     * classes.
-     */
     private int itemIconIndex;
 
     public RenderFireBall(int par1)
     {
         this.itemIconIndex = par1;
     }
-
-    /**
-     * Actually renders the given argument. This is a synthetic bridge method, always casting down its argument and then
-     * handing it off to a worker function which does the actual work. In all probabilty, the class Render is generic
-     * (Render<T extends Entity) and this method has signature public void doRender(T entity, double d, double d1,
-     * double d2, float f, float f1). But JAD is pre 1.5 so doesn't do that.
-     */
     public void doRender(Entity par1Entity, double par2, double par4, double par6, float par8, float par9)
     {
         GL11.glPushMatrix();
         GL11.glTranslatef((float)par2, (float)par4, (float)par6);
         GL11.glEnable(GL12.GL_RESCALE_NORMAL);
         GL11.glScalef(0.5F, 0.5F, 0.5F);
-        this.loadTexture("/FunMod/cliente/texturas/texturas.png");
+      //  this.loadTexture("/FunMod/cliente/texturas/texturas.png");
         Tessellator var10 = Tessellator.instance;
 
         if (this.itemIconIndex == 17)
@@ -78,6 +68,11 @@ public class RenderFireBall extends Render
         par1Tessellator.addVertexWithUV((double)(0.0F - var8), (double)(var7 - var9), 0.0D, (double)var3, (double)var5);
         par1Tessellator.draw();
     }
+	@Override
+	protected ResourceLocation getEntityTexture(Entity var1) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	
 }

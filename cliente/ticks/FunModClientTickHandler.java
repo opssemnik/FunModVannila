@@ -1,37 +1,19 @@
 package FunMod.cliente.ticks;
 
-import java.util.EnumSet;
-
+import net.minecraft.client.Minecraft;
 import FunMod.FunMod;
 import FunMod.loader.FunModHooks;
-/**
- * Client-side tick handler for Obsidian Ingots. Used mainly for the update check upon startup.
- * @author AidanBrady
- *
- */
-public class FunModClientTickHandler implements ITickHandler
+import cpw.mods.fml.common.gameevent.TickEvent;
+import cpw.mods.fml.relauncher.Side;
+public class FunModClientTickHandler extends TickEvent
 {
-	public void tickStart(EnumSet<TickType> type, Object... tickData)
-	{
-		if(FunMod.ticksPassed == 0 && ModLoader.getMinecraftInstance().theWorld != null && ModLoader.getMinecraftInstance().thePlayer != null)
+	public FunModClientTickHandler(Type type, Side side, Phase phase) {
+		super(type, side, phase);
+		if(FunMod.ticksPassed == 0 && Minecraft.getMinecraft().theWorld != null && Minecraft.getMinecraft().thePlayer != null)
 		{
-			FunModHooks.checkForUpdates(ModLoader.getMinecraftInstance().thePlayer);
+			FunModHooks.checkForUpdates(Minecraft.getMinecraft().thePlayer);
 			FunMod.ticksPassed++;
 		}
 	}
-	
-	public void tickEnd(EnumSet<TickType> type, Object... tickData)
-	{
-		
-	}
 
-	public EnumSet<TickType> ticks() 
-	{
-		return EnumSet.of(TickType.CLIENT);
-	}
-
-	public String getLabel()
-	{
-		return "FunMod";
-	}
 }

@@ -1,108 +1,75 @@
 package FunMod.recipes;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public class FantasyFurnacesRecipes
 {
     private static final FantasyFurnacesRecipes smeltingBase = new FantasyFurnacesRecipes();
-
-    /** The list of smelting results. */
-    private Map smeltingList = new HashMap();
-    private Map experienceList = new HashMap();
-    private Map metaSmeltingList = new HashMap();
-
-    /**
-     * Used to call methods addSmelting and getSmeltingResult.
-     */
+    private Map<ItemStack,ItemStack> smeltingList = new HashMap<ItemStack,ItemStack>();
+    private Map<ItemStack,Float> experienceList = new HashMap<ItemStack,Float>();
+    private Map<ItemStack,ItemStack> metaSmeltingList = new HashMap<ItemStack,ItemStack>();
     public static final FantasyFurnacesRecipes smelting()
     {
         return smeltingBase;
     }
-
     private FantasyFurnacesRecipes()
     {
-        this.addSmelting(Block.oreIron.blockID, new ItemStack(Item.ingotIron), 1.1F);
-        this.addSmelting(Block.oreGold.blockID, new ItemStack(Item.ingotGold), 1.4F);
-        this.addSmelting(Block.oreDiamond.blockID, new ItemStack(Item.diamond), 0.1F);
-        this.addSmelting(Block.sand.blockID, new ItemStack(Block.glass), 0.5F);
-        this.addSmelting(Item.porkRaw.itemID, new ItemStack(Item.porkCooked), 0.7F);
-        this.addSmelting(Item.beefRaw.itemID, new ItemStack(Item.beefCooked), 0.7F);
-        this.addSmelting(Item.chickenRaw.itemID, new ItemStack(Item.chickenCooked), 0.4F);
-        this.addSmelting(Item.fishRaw.itemID, new ItemStack(Item.fishCooked), 0.8F);
-        this.addSmelting(Block.cobblestone.blockID, new ItemStack(Block.stone), 0.3F);
-        this.addSmelting(Item.clay.itemID, new ItemStack(Item.brick), 0.5F);
-        this.addSmelting(Block.cactus.blockID, new ItemStack(Item.dyePowder, 1, 2), 0.4F);
-        this.addSmelting(Block.wood.blockID, new ItemStack(Item.coal, 1, 1), 0.0F);
-        this.addSmelting(Block.oreEmerald.blockID, new ItemStack(Item.emerald), 1.4F);
-        this.addSmelting(Block.oreCoal.blockID, new ItemStack(Item.coal), 0.0F);
-        this.addSmelting(Block.oreRedstone.blockID, new ItemStack(Item.redstone), 1.1F);
-        this.addSmelting(Block.oreLapis.blockID, new ItemStack(Item.dyePowder, 1, 4), 0.2F);
+        this.addSmelting(Blocks.iron_ore, new ItemStack(Items.iron_ingot), 1.1F);
+        this.addSmelting(Blocks.gold_ore, new ItemStack(Items.gold_ingot), 1.4F);
+        this.addSmelting(Blocks.diamond_ore, new ItemStack(Items.diamond), 0.1F);
+        this.addSmelting(Blocks.sand, new ItemStack(Blocks.glass), 0.5F);
+        this.addSmelting(Items.porkchop, new ItemStack(Items.cooked_porkchop), 0.7F);
+        this.addSmelting(Items.beef, new ItemStack(Items.cooked_beef), 0.7F);
+        this.addSmelting(Items.chicken, new ItemStack(Items.cooked_chicken), 0.4F);
+        this.addSmelting(Items.fish, new ItemStack(Items.cooked_fished), 0.8F);
+        this.addSmelting(Blocks.cobblestone, new ItemStack(Blocks.stone), 0.3F);
+        this.addSmelting(Items.clay_ball, new ItemStack(Items.brick), 0.5F);
+        this.addSmelting(Blocks.cactus, new ItemStack(Items.gunpowder, 1, 2), 0.4F);
+        this.addSmelting(Blocks.log, new ItemStack(Items.coal, 1, 1), 0.0F);
+        this.addSmelting(Blocks.emerald_ore, new ItemStack(Items.emerald), 1.4F);
+        this.addSmelting(Blocks.coal_ore, new ItemStack(Items.coal), 0.0F);
+        this.addSmelting(Blocks.redstone_ore, new ItemStack(Items.redstone), 1.1F);
+        this.addSmelting(Blocks.lapis_ore, new ItemStack(Items.gunpowder, 1, 4), 0.2F);
            
     
     }
-
-    /**
-     * Adds a smelting recipe.
-     */
-    public void addSmelting(int par1, ItemStack par2ItemStack, float par3)
+    public void addSmelting(Block par1, ItemStack par2ItemStack, float par3)
     {
-        this.smeltingList.put(Integer.valueOf(par1), par2ItemStack);
-        this.experienceList.put(Integer.valueOf(par2ItemStack.itemID), Float.valueOf(par3));
+    	 this.smeltingList.put(new ItemStack(par1), par2ItemStack);
+        this.experienceList.put(par2ItemStack, Float.valueOf(par3));
     }
-
-    /**
-     * Returns the smelting result of an item.
-     * Deprecated in favor of a metadata sensitive version
-     */
-    @Deprecated
-    public ItemStack getSmeltingResult(int par1)
+    public void addSmelting(Item par1, ItemStack par2ItemStack, float par3)
     {
-        return (ItemStack)this.smeltingList.get(Integer.valueOf(par1));
+        this.smeltingList.put(new ItemStack(par1), par2ItemStack);
+        this.experienceList.put(par2ItemStack, Float.valueOf(par3));
     }
-
-    public Map getSmeltingList()
+    public Map<ItemStack,ItemStack> getSmeltingList()
     {
         return this.smeltingList;
     }
-
-    public float func_77601_c(int par1)
+    public float func_77601_c(ItemStack par1ItemStack)
     {
-        return this.experienceList.containsKey(Integer.valueOf(par1)) ? ((Float)this.experienceList.get(Integer.valueOf(par1))).floatValue() : 0.0F;
+        return this.experienceList.containsKey(par1ItemStack) ? ((Float)this.experienceList.get(par1ItemStack)).floatValue() : 0.0F;
     }
-
-    /**
-     * Add a metadata-sensitive furnace recipe
-     * @param itemID The Item ID
-     * @param metadata The Item Metadata
-     * @param itemstack The ItemStack for the result
-     */
-    public void addSmelting(int itemID, int metadata, ItemStack itemstack)
-    {
-        metaSmeltingList.put(Arrays.asList(itemID, metadata), itemstack);
-    }
-    
-    /**
-     * Used to get the resulting ItemStack form a source ItemStack
-     * @param item The Source ItemStack
-     * @return The result ItemStack
-     */
+ 
     public ItemStack getSmeltingResult(ItemStack item) 
     {
         if (item == null)
         {
             return null;
         }
-        ItemStack ret = (ItemStack)metaSmeltingList.get(Arrays.asList(item.itemID, item.getItemDamage()));
+        ItemStack ret = (ItemStack)metaSmeltingList.get(item);
         if (ret != null) 
         {
             return ret;
         }
-        return (ItemStack)smeltingList.get(Integer.valueOf(item.itemID));
+        return (ItemStack)smeltingList.get(item);
     }
 }

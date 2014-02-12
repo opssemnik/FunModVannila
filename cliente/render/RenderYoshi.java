@@ -18,14 +18,14 @@ public class RenderYoshi extends RenderLiving
 
     public void func_77098_a(EntityYoshi par1EntityYoshi, double par2, double par4, double par6, float par8, float par9)
     {
-        super.doRenderLiving(par1EntityYoshi, par2, par4, par6, par8, par9);
+        super.doRender(par1EntityYoshi, par2, par4, par6, par8, par9);
     }
 
     /**
      * Queries whether should render the specified pass or not.
      */
  
-    public void doRenderLiving(EntityLiving par1EntityLiving, double par2, double par4, double par6, float par8, float par9)
+    public void doRender(EntityLiving par1EntityLiving, double par2, double par4, double par6, float par8, float par9)
     {
         this.func_77098_a((EntityYoshi)par1EntityLiving, par2, par4, par6, par8, par9);
     }

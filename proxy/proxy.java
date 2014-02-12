@@ -17,20 +17,18 @@ public class proxy implements IGuiHandler
     {
     }
 	public void renderBlocoComModelo() {
-		// TODO Auto-generated method stub
-		
 	}
 	@Override
     public Object getServerGuiElement(int id, EntityPlayer player, World world,
                     int x, int y, int z) {
         switch(id){
         case 0:
-		TileEntity tileEntity = world.getBlockTileEntity(x, y, z);
+		TileEntity tileEntity = world.getTileEntity(x, y, z);
             if(tileEntity instanceof EntidadeFantasyFurnace){
                     return new ContainerFantasyFurnace(player.inventory, (EntidadeFantasyFurnace) tileEntity);
             }
         case 2:
-        	TileEntity tileEntity2 = world.getBlockTileEntity(x, y, z);
+        	TileEntity tileEntity2 = world.getTileEntity(x, y, z);
         	 if(tileEntity2 instanceof EntidadeN64){
                  return null;}
         }      
@@ -46,25 +44,18 @@ public class proxy implements IGuiHandler
 	}
 	
 	public void init() {
-		// TODO Auto-generated method stub
-
-
 }
  
-	public void renderItemComModelos(int var1){
-	      
-        
+	public void renderItemComModelos(int var1){          
        
 }
 	@Override
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world,
 			int x, int y, int z) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	public void rendercontrole() {
-		
-		
+	
 	}
 
     

@@ -1,15 +1,7 @@
 package FunMod.cliente.animacoes;
 
-import java.io.IOException;
 
-import net.minecraft.client.renderer.RenderEngine;
-import net.minecraft.src.ModTextureAnimation;
-
-import org.lwjgl.opengl.GL11;
-
-import cpw.mods.fml.client.FMLClientHandler;
-import cpw.mods.fml.client.TextureFXManager;
-
+/*
 public class TextureFunFX extends ModTextureAnimation
 {
 	public TextureFunFX(String texture, int index) throws IOException
@@ -21,4 +13,4 @@ public class TextureFunFX extends ModTextureAnimation
     {
         GL11.glBindTexture(3553,renderengine.getTexture("/FunMod/cliente/texturas/texturas.png"));
     }
-}
+}*/

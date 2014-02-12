@@ -22,7 +22,7 @@ public class RenderChaos extends RenderLiving
         super.doRender(par1EntityChaos, par2, par4, par6, par8, par9);
     }
 
-    public void doRenderLiving(EntityLiving par1EntityLiving, double par2, double par4, double par6, float par8, float par9)
+    public void doRender(EntityLiving par1EntityLiving, double par2, double par4, double par6, float par8, float par9)
     {
         renderChaos((EntityChaos)par1EntityLiving, par2, par4, par6, par8, par9);
     }

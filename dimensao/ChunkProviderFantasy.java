@@ -3,6 +3,7 @@ package FunMod.dimensao;
 import java.util.List;
 import java.util.Random;
 
+import cpw.mods.fml.common.eventhandler.Event.Result;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSand;
 import net.minecraft.entity.EnumCreatureType;
@@ -24,6 +25,8 @@ import net.minecraft.world.gen.structure.MapGenMineshaft;
 import net.minecraft.world.gen.structure.MapGenScatteredFeature;
 import net.minecraft.world.gen.structure.MapGenStronghold;
 import net.minecraft.world.gen.structure.MapGenVillage;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.terraingen.ChunkProviderEvent;
 import FunMod.FunMod;
 public class ChunkProviderFantasy implements IChunkProvider
 {
@@ -68,7 +71,8 @@ public class ChunkProviderFantasy implements IChunkProvider
         this.noiseGen6 = new NoiseGeneratorOctaves(this.rand, 16);
         this.mobSpawnerNoise = new NoiseGeneratorOctaves(this.rand, 8);
     }
-    public void generateTerrain(int par1, int par2, byte[] par3ArrayOfByte)
+
+    public void func_147424_a(int par1, int par2, Block[] par3ArrayOfByte)
     {
         byte var4 = 4;
         byte var5 = 16;
@@ -77,7 +81,7 @@ public class ChunkProviderFantasy implements IChunkProvider
         byte var8 = 17;
         int var9 = var4 + 1;
         this.biomesForGeneration = this.worldObj.getWorldChunkManager().getBiomesForGeneration(this.biomesForGeneration, par1 * 4 - 2, par2 * 4 - 2, var7 + 5, var9 + 5);
-        this.noiseArray = this.initializeNoiseField(this.noiseArray, par1 * var4, 0, par2 * var4, var7, var8, var9);
+       this.func_147423_a(par1 * var4, 0, par2 * var4);
 
         for (int var10 = 0; var10 < var4; ++var10)
         {
@@ -124,7 +128,7 @@ public class ChunkProviderFantasy implements IChunkProvider
                                 }
                                 else
                                 {
-                                    par3ArrayOfByte[var43 += var44] = 0;
+                                    par3ArrayOfByte[var43 += var44] = Blocks.air;
                                 }
                             }
 
@@ -141,98 +145,24 @@ public class ChunkProviderFantasy implements IChunkProvider
             }
         }
     }
-    public void replaceBlocksForBiome(int par1, int par2, byte[] par3ArrayOfByte, BiomeGenBase[] par4ArrayOfBiomeGenBase)
+    public void replaceBlocksForBiome(int p_147422_1_, int p_147422_2_, Block[] p_147422_3_, byte[] p_147422_4_, BiomeGenBase[] p_147422_5_)
     {
-        byte var5 = 63;
-        double var6 = 0.03125D;
-        this.stoneNoise = this.noiseGen4.generateNoiseOctaves(this.stoneNoise, par1 * 16, par2 * 16, 0, 16, 16, 1, var6 * 2.0D, var6 * 2.0D, var6 * 2.0D);
+        ChunkProviderEvent.ReplaceBiomeBlocks event = new ChunkProviderEvent.ReplaceBiomeBlocks(this, p_147422_1_, p_147422_2_, p_147422_3_, p_147422_5_);
+        MinecraftForge.EVENT_BUS.post(event);
+        if (event.getResult() == Result.DENY) return;
 
-        for (int var8 = 0; var8 < 16; ++var8)
+        double d0 = 0.03125D;
+        this.stoneNoise = this.noiseGen4.generateNoiseOctaves(this.stoneNoise,(p_147422_1_ * 16),(p_147422_2_ * 16), 16, 16, d0 * 2.0D, d0 * 2.0D, 1.0D);
+
+        for (int k = 0; k < 16; ++k)
         {
-            for (int var9 = 0; var9 < 16; ++var9)
+            for (int l = 0; l < 16; ++l)
             {
-                BiomeGenBase var10 = par4ArrayOfBiomeGenBase[var9 + var8 * 16];
-                float var11 = var10.getFloatTemperature();
-                int var12 = (int)(this.stoneNoise[var8 + var9 * 16] / 3.0D + 3.0D + this.rand.nextDouble() * 0.25D);
-                int var13 = -1;
-                byte var14 = var10.topBlock;
-                byte var15 = var10.fillerBlock;
-
-                for (int var16 = 127; var16 >= 0; --var16)
-                {
-                    int var17 = (var9 * 16 + var8) * 128 + var16;
-
-                    if (var16 <= 0 + this.rand.nextInt(5))
-                    {
-                        par3ArrayOfByte[var17] = (byte)Block.bedrock.blockID;
-                    }
-                    else
-                    {
-                        byte var18 = par3ArrayOfByte[var17];
-
-                        if (var18 == 0)
-                        {
-                            var13 = -1;
-                        }
-                        else if (var18 != FunMod.FantasyStone.blockID)
-                        {
-                            if (var13 == -1)
-                            {
-                                if (var12 == 0)
-                                {
-                                    var14 = 0;
-                                    var15 = (byte)FunMod.FantasyStone.blockID;
-                                }
-                                else if (var16 >= var5 - 4 && var16 <= var5 + 1)
-                                {
-                                    var14 = var10.topBlock;
-                                    var15 = var10.fillerBlock;
-                                }
-
-                                if (var16 < var5 && var14 == 0)
-                                {
-                                    if (var11 < 0.15F)
-                                    {
-                                        var14 = (byte)Block.ice.blockID;
-                                    }
-                                    else
-                                    {
-                                        var14 = (byte)Block.waterStill.blockID;
-                                    }
-                                }
-
-                                var13 = var12;
-
-                                if (var16 >= var5 - 1)
-                                {
-                                    par3ArrayOfByte[var17] = var14;
-                                }
-                                else
-                                {
-                                    par3ArrayOfByte[var17] = var15;
-                                }
-                            }
-                            else if (var13 > 0)
-                            {
-                                --var13;
-                                par3ArrayOfByte[var17] = var15;
-
-                                if (var13 == 0 && var15 == Block.sand.blockID)
-                                {
-                                    var13 = this.rand.nextInt(4);
-                                    var15 = (byte)Block.sandStone.blockID;
-                                }
-                            }
-                        }
-                    }
-                }
+                BiomeGenBase biomegenbase = p_147422_5_[l + k * 16];
+                biomegenbase.genTerrainBlocks(this.worldObj, this.rand, p_147422_3_, p_147422_4_, p_147422_1_ * 16 + k, p_147422_2_ * 16 + l, this.stoneNoise[l + k * 16]);
             }
         }
     }
-
-    /**
-     * loads or generates the chunk at the chunk location specified
-     */
     public Chunk loadChunk(int par1, int par2)
     {
         return this.provideChunk(par1, par2);
@@ -245,20 +175,21 @@ public class ChunkProviderFantasy implements IChunkProvider
     public Chunk provideChunk(int par1, int par2)
     {
         this.rand.setSeed((long)par1 * 341873128712L + (long)par2 * 132897987541L);
-        byte[] var3 = new byte[32768];
-        this.generateTerrain(par1, par2, var3);
+        Block[] var3 = new Block[65536];
+        byte[] abyte = new byte[65536];
+        this.func_147424_a(par1, par2, var3);
         this.biomesForGeneration = this.worldObj.getWorldChunkManager().loadBlockGeneratorData(this.biomesForGeneration, par1 * 16, par2 * 16, 16, 16);
-        this.replaceBlocksForBiome(par1, par2, var3, this.biomesForGeneration);
-        this.caveGenerator.generate(this, this.worldObj, par1, par2, var3);
-        this.ravineGenerator.generate(this, this.worldObj, par1, par2, var3);
-        this.cave.generate(this, this.worldObj, par1, par2, var3);
+        this.replaceBlocksForBiome(par1, par2, var3, abyte, this.biomesForGeneration);
+        this.caveGenerator.func_151539_a(this, this.worldObj, par1, par2, var3);
+        this.ravineGenerator.func_151539_a(this, this.worldObj, par1, par2, var3);
+        this.cave.func_151539_a(this, this.worldObj, par1, par2, var3);
         if (this.mapFeaturesEnabled)
         {
-            this.mineshaftGenerator.generate(this, this.worldObj, par1, par2, var3);
-            this.villageGenerator.generate(this, this.worldObj, par1, par2, var3);
-            this.strongholdGenerator.generate(this, this.worldObj, par1, par2, var3);
-            this.scatteredFeatureGenerator.generate(this, this.worldObj, par1, par2, var3);
-            this.caveGenerator.generate(this, this.worldObj, par1, par2, var3);
+            this.mineshaftGenerator.func_151539_a(this, this.worldObj, par1, par2, var3);
+            this.villageGenerator.func_151539_a(this, this.worldObj, par1, par2, var3);
+            this.strongholdGenerator.func_151539_a(this, this.worldObj, par1, par2, var3);
+            this.scatteredFeatureGenerator.func_151539_a(this, this.worldObj, par1, par2, var3);
+            this.caveGenerator.func_151539_a(this, this.worldObj, par1, par2, var3);
         }
 
         Chunk var4 = new Chunk(this.worldObj, var3, par1, par2);
@@ -273,17 +204,8 @@ public class ChunkProviderFantasy implements IChunkProvider
         return var4;
     }
 
-    /**
-     * generates a subset of the level's terrain data. Takes 7 arguments: the [empty] noise array, the position, and the
-     * size.
-     */
-    private double[] initializeNoiseField(double[] par1ArrayOfDouble, int par2, int par3, int par4, int par5, int par6, int par7)
+    private void func_147423_a(int p_147423_1_, int p_147423_2_, int p_147423_3_)
     {
-        if (par1ArrayOfDouble == null)
-        {
-            par1ArrayOfDouble = new double[par5 * par6 * par7];
-        }
-
         if (this.parabolicField == null)
         {
             this.parabolicField = new float[25];
@@ -297,43 +219,40 @@ public class ChunkProviderFantasy implements IChunkProvider
                 }
             }
         }
-
         double var44 = 684.412D;
         double var45 = 684.412D;
-        this.noise5 = this.noiseGen5.generateNoiseOctaves(this.noise5, par2, par4, par5, par7, 1.121D, 1.121D, 0.5D);
-        this.noise6 = this.noiseGen6.generateNoiseOctaves(this.noise6, par2, par4, par5, par7, 200.0D, 200.0D, 0.5D);
-        this.noise3 = this.noiseGen3.generateNoiseOctaves(this.noise3, par2, par3, par4, par5, par6, par7, var44 / 80.0D, var45 / 160.0D, var44 / 80.0D);
-        this.noise1 = this.noiseGen1.generateNoiseOctaves(this.noise1, par2, par3, par4, par5, par6, par7, var44, var45, var44);
-        this.noise2 = this.noiseGen2.generateNoiseOctaves(this.noise2, par2, par3, par4, par5, par6, par7, var44, var45, var44);
-        boolean var43 = false;
-        boolean var42 = false;
+        this.noise5 = this.noiseGen5.generateNoiseOctaves(this.noise5, p_147423_1_, p_147423_3_, 5, 7, 1.121D, 1.121D, 0.5D);
+        this.noise6 = this.noiseGen6.generateNoiseOctaves(this.noise6, p_147423_1_, p_147423_3_, 5, 7, 200.0D, 200.0D, 0.5D);
+        this.noise3 = this.noiseGen3.generateNoiseOctaves(this.noise3, p_147423_1_, p_147423_2_, p_147423_3_, 5, 33, 5, var44 / 80.0D, var45 / 160.0D, var44 / 80.0D);
+        this.noise1 = this.noiseGen1.generateNoiseOctaves(this.noise1, p_147423_1_, p_147423_2_, p_147423_3_, 5, 33, 5, var44, var45, var44);
+        this.noise2 = this.noiseGen2.generateNoiseOctaves(this.noise2, p_147423_1_, p_147423_2_, p_147423_3_, 5, 33, 5, var44, var45, var44);
         int var12 = 0;
         int var13 = 0;
 
-        for (int var14 = 0; var14 < par5; ++var14)
+        for (int var14 = 0; var14 < 5; ++var14)
         {
-            for (int var15 = 0; var15 < par7; ++var15)
+            for (int var15 = 0; var15 < 5; ++var15)
             {
                 float var16 = 0.0F;
                 float var17 = 0.0F;
                 float var18 = 0.0F;
                 byte var19 = 2;
-                BiomeGenBase var20 = this.biomesForGeneration[var14 + 2 + (var15 + 2) * (par5 + 5)];
+                BiomeGenBase var20 = this.biomesForGeneration[var14 + 2 + (var15 + 2) * (5 + 5)];
 
                 for (int var21 = -var19; var21 <= var19; ++var21)
                 {
                     for (int var22 = -var19; var22 <= var19; ++var22)
                     {
-                        BiomeGenBase var23 = this.biomesForGeneration[var14 + var21 + 2 + (var15 + var22 + 2) * (par5 + 5)];
-                        float var24 = this.parabolicField[var21 + 2 + (var22 + 2) * 5] / (var23.minHeight + 2.0F);
+                        BiomeGenBase var23 = this.biomesForGeneration[var14 + var21 + 2 + (var15 + var22 + 2) * (10)];
+                        float var24 = this.parabolicField[var21 + 2 + (var22 + 2) * 5] / (var23.rootHeight + 2.0F);
 
-                        if (var23.minHeight > var20.minHeight)
+                        if (var23.rootHeight > var20.rootHeight)
                         {
                             var24 /= 2.0F;
                         }
 
-                        var16 += var23.maxHeight * var24;
-                        var17 += var23.minHeight * var24;
+                        var16 += var23.heightVariation * var24;
+                        var17 += var23.rootHeight * var24;
                         var18 += var24;
                     }
                 }
@@ -375,13 +294,13 @@ public class ChunkProviderFantasy implements IChunkProvider
 
                 ++var13;
 
-                for (int var46 = 0; var46 < par6; ++var46)
+                for (int var46 = 0; var46 < 33; ++var46)
                 {
                     double var48 = (double)var17;
                     double var26 = (double)var16;
                     var48 += var47 * 0.2D;
-                    var48 = var48 * (double)par6 / 16.0D;
-                    double var28 = (double)par6 / 2.0D + var48 * 4.0D;
+                    var48 = var48 * (double)33 / 16.0D;
+                    double var28 = (double)33 / 2.0D + var48 * 4.0D;
                     double var30 = 0.0D;
                     double var32 = ((double)var46 - var28) * 12.0D * 128.0D / 128.0D / var26;
 
@@ -409,19 +328,19 @@ public class ChunkProviderFantasy implements IChunkProvider
 
                     var30 -= var32;
 
-                    if (var46 > par6 - 4)
+                    if (var46 > 33 - 4)
                     {
-                        double var40 = (double)((float)(var46 - (par6 - 4)) / 3.0F);
+                        double var40 = (double)((float)(var46 - (33 - 4)) / 3.0F);
                         var30 = var30 * (1.0D - var40) + -10.0D * var40;
                     }
 
-                    par1ArrayOfDouble[var12] = var30;
+                    this.noiseArray[var12] = var30;
                     ++var12;
                 }
             }
         }
 
-        return par1ArrayOfDouble;
+     
     }
 
     /**
@@ -464,7 +383,7 @@ public class ChunkProviderFantasy implements IChunkProvider
             var12 = var4 + this.rand.nextInt(16) + 8;
             var13 = this.rand.nextInt(128);
             var14 = var5 + this.rand.nextInt(16) + 8;
-            (new WorldGenLakes(Block.waterStill.blockID)).generate(this.worldObj, this.rand, var12, var13, var14);
+            (new WorldGenLakes(Blocks.water)).generate(this.worldObj, this.rand, var12, var13, var14);
         }
 
         if (!var11 && this.rand.nextInt(8) == 0)
@@ -494,17 +413,15 @@ public class ChunkProviderFantasy implements IChunkProvider
 
                 if (this.worldObj.isBlockFreezable(var12 + var4, var14 - 1, var13 + var5))
                 {
-                    this.worldObj.setBlockWithNotify(var12 + var4, var14 - 1, var13 + var5, Block.ice.blockID);
+                    this.worldObj.setBlock(var12 + var4, var14 - 1, var13 + var5, Blocks.ice);
                 }
 
                 if (this.worldObj.canSnowAtBody(var12 + var4, var14, var13 + var5, false))
                 {
-                    this.worldObj.setBlockWithNotify(var12 + var4, var14, var13 + var5, Block.snow.blockID);
+                    this.worldObj.setBlock(var12 + var4, var14, var13 + var5, Blocks.snow);
                 }
             }
         }
-
-        BlockSand.fallInstantly = false;
     }
 
     public boolean saveChunks(boolean par1, IProgressUpdate par2IProgressUpdate)
@@ -514,9 +431,8 @@ public class ChunkProviderFantasy implements IChunkProvider
 
     public boolean unload100OldestChunks()
     {
-        return false;
+        return true;
     }
-
     public boolean canSave()
     {
         return true;
@@ -548,13 +464,10 @@ public class ChunkProviderFantasy implements IChunkProvider
 	@Override
 	public ChunkPosition func_147416_a(World var1, String var2, int var3,
 			int var4, int var5) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public void saveExtraData() {
-		// TODO Auto-generated method stub
-		
 	}
 }

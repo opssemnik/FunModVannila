@@ -12,12 +12,12 @@ public class EntidadeN64  extends TileEntity{
 	 public void readFromNBT(NBTTagCompound par1NBTTagCompound)
 	    {
 	        super.readFromNBT(par1NBTTagCompound);
-	        NBTTagList var2 = par1NBTTagCompound.getTagList("Items");
+	        NBTTagList var2 = par1NBTTagCompound.getTagList("Items",15);
 	      
 
 	        for (int var3 = 0; var3 < var2.tagCount(); ++var3)
 	        {
-	            NBTTagCompound var4 = (NBTTagCompound)var2.tagAt(var3);
+	            NBTTagCompound var4 = (NBTTagCompound)var2.getCompoundTagAt(var3);
 	            byte var5 = var4.getByte("Slot");
 
 	           

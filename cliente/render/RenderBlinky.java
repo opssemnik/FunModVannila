@@ -3,6 +3,7 @@ package FunMod.cliente.render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.util.ResourceLocation;
 import FunMod.cliente.model.ModelBlinky;
 import FunMod.entidades.EntityBlinky;
 
@@ -15,10 +16,10 @@ public class RenderBlinky extends RenderLiving
 
     public void renderBlinky(EntityBlinky par1EntityBlinky, double par2, double par4, double par6, float par8, float par9)
     {
-        super.doRenderLiving(par1EntityBlinky, par2, par4, par6, par8, par9);
+        super.doRender(par1EntityBlinky, par2, par4, par6, par8, par9);
     }
 
-    public void doRenderLiving(EntityLiving par1EntityLiving, double par2, double par4, double par6, float par8, float par9)
+    public void doRender(EntityLiving par1EntityLiving, double par2, double par4, double par6, float par8, float par9)
     {
         renderBlinky((EntityBlinky)par1EntityLiving, par2, par4, par6, par8, par9);
     }
@@ -27,4 +28,10 @@ public class RenderBlinky extends RenderLiving
     {
         renderBlinky((EntityBlinky)par1Entity, par2, par4, par6, par8, par9);
     }
+
+	@Override
+	protected ResourceLocation getEntityTexture(Entity var1) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 } 
