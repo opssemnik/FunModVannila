@@ -1,5 +1,6 @@
 package FunMod.dimensao;
 
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
@@ -122,8 +123,8 @@ public Vec3 getSkyColor(World var1, Entity var2, float var3)
 }
 public boolean canCoordinateBeSpawn(int par1, int par2)
 {
-    int var3 = this.worldObj.getFirstUncoveredBlock(par1, par2);
-    return var3 == FunMod.FantasyGrass.blockID;
+    Block var3 = this.worldObj.getTopBlock(par1, par2);
+    return var3 == FunMod.FantasyGrass;
 }
 public boolean renderStars()
 {
@@ -132,51 +133,30 @@ public boolean renderStars()
 
 }
 
-public String getRespawnMessage()
-{
-    return "Respawning";
-}
-
 public int respawnInDimension()
 {
-    return 0;
+    return 10;
 }
 
 public boolean darkenSkyDuringRain()
 {
-
 	return true;
-
 }
 
-
-//You can use an existing WorldChunkManager, or create your own. You must create your own to
-//add multiple unique biomes to a dimension.
 public void registerWorldChunkManager()
 {
 
-	worldChunkMgr = new WorldChunkManagerHell(FunMod.FantasyBiome, 1.0F, 0.0F);
+	worldChunkMgr = new WorldChunkManagerHell(FunMod.FantasyBiome, 1.0F);
 
 }
-
-//This is where you define your terrain generator.
 public IChunkProvider getChunkProvider()
 {
-
 	return new ChunkProviderFantasy(worldObj, worldObj.getSeed(), false);
-
 }
-
-//Note that, if you respawn in the dimension, you will end up at the coordinates of your
-//overworld spawn point, not at the location of your first entrance to the dimension or
-//something like that. Note also that beds don't work if you cannot respawn in the dimension.
 public boolean canRespawnHere()
 {
-
 	return true;
-
 }
-
 
 public void beforeRespawnTeleportation(MinecraftServer var1, EntityPlayerMP var2) {}
 
@@ -188,10 +168,6 @@ public EntityPlayerMP overrideRespawn(MinecraftServer var1, ServerConfigurationM
 }
 
 @SideOnly(Side.CLIENT)
-
-/**
- * Returns array with sunrise/sunset colors
- */
 public boolean isDaytime()
 {
     return worldObj.skylightSubtracted < 4;

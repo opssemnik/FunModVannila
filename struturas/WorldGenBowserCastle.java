@@ -1,7 +1,3 @@
-/*
-*** MADE BY MITHION'S .SCHEMATIC TO JAVA CONVERTING TOOL v1.6 ***
-*/
-
 package FunMod.struturas;
 import java.util.Random;
 

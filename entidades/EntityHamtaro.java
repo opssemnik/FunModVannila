@@ -3,6 +3,7 @@ package FunMod.entidades;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIFollowOwner;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
@@ -34,51 +35,39 @@ public class EntityHamtaro extends EntityTameable
 {
     private float field_70926_e;
     private float field_70924_f;
-
-    /** true is the wolf is wet else false */
     private boolean isShaking;
     private boolean field_70928_h;
-
-    /**
-     * This time increases while wolf is shaking and emitting water particles.
-     */
     private float timeWolfIsShaking;
     private float prevTimeWolfIsShaking;
 
     public EntityHamtaro(World par1World)
     {
         super(par1World);
-        this.texture = "/FunMod/cliente/texturas/Mobs/Hamtaro.png";
+      //  this.texture = "/FunMod/cliente/texturas/Mobs/Hamtaro.png";
         this.setSize(0.6F, 0.8F);
-        this.moveSpeed = 0.3F;
+      //  this.moveSpeed = 0.3F;
         this.getNavigator().setAvoidsWater(true);
         this.tasks.addTask(1, new EntityAISwimming(this));
         this.tasks.addTask(2, this.aiSit);
         this.tasks.addTask(3, new EntityAILeapAtTarget(this, 0.4F));
-        this.tasks.addTask(4, new EntityAIAttackOnCollide(this, this.moveSpeed, true));
-        this.tasks.addTask(5, new EntityAIFollowOwner(this, this.moveSpeed, 10.0F, 2.0F));
-        this.tasks.addTask(6, new EntityAIMate(this, this.moveSpeed));
-        this.tasks.addTask(7, new EntityAIWander(this, this.moveSpeed));
+      //.tasks.addTask(4, new EntityAIAttackOnCollide(this, this.moveSpeed, true));
+      //.tasks.addTask(5, new EntityAIFollowOwner(this, this.moveSpeed, 10.0F, 2.0F));
+     //   this.tasks.addTask(6, new EntityAIMate(this, this.moveSpeed));
+      //  this.tasks.addTask(7, new EntityAIWander(this, this.moveSpeed));
         this.tasks.addTask(9, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(9, new EntityAILookIdle(this));
         this.targetTasks.addTask(1, new EntityAIOwnerHurtByTarget(this));
         this.targetTasks.addTask(2, new EntityAIOwnerHurtTarget(this));
         this.targetTasks.addTask(3, new EntityAIHurtByTarget(this, true));
-        this.targetTasks.addTask(4, new EntityAITargetNonTamed(this, EntitySheep.class, 16.0F, 200, false));
+        this.targetTasks.addTask(4, new EntityAITargetNonTamed(this, EntitySheep.class, 200, false));
     }
+  //  public boolean isAIEnabled()
+ //   {
+       // return true;
+ //   }
 
-    /**
-     * Returns true if the newer Entity AI code should be run
-     */
-    public boolean isAIEnabled()
-    {
-        return true;
-    }
 
-    /**
-     * Sets the active target the Task system uses for tracking
-     */
-    public void setAttackTarget(EntityLiving par1EntityLiving)
+    public void setAttackTarget(EntityLivingBase par1EntityLiving)
     {
         super.setAttackTarget(par1EntityLiving);
 
@@ -87,24 +76,20 @@ public class EntityHamtaro extends EntityTameable
             this.setAngry(true);
         }
     }
-
-    /**
-     * main AI tick function, replaces updateEntityActionState
-     */
     protected void updateAITick()
     {
-        this.dataWatcher.updateObject(18, Integer.valueOf(this.getHealth()));
+        this.dataWatcher.updateObject(18, Integer.valueOf((int) this.getHealth()));
     }
 
-    public int getMaxHealth()
-    {
-        return this.isTamed() ? 20 : 8;
-    }
+    //public float getMaxHealth()
+   // {
+    //    return this.isTamed() ? 20 : 8;
+   // }
 
     protected void entityInit()
     {
         super.entityInit();
-        this.dataWatcher.addObject(18, new Integer(this.getHealth()));
+        this.dataWatcher.addObject(18, new Integer((int) this.getHealth()));
         this.dataWatcher.addObject(19, new Byte((byte)0));
     }
 
@@ -117,69 +102,37 @@ public class EntityHamtaro extends EntityTameable
         return false;
     }
 
-    /**
-     * Returns the texture's file path as a String.
-     */
-    public String getTexture()
-    {
-        return this.isTamed() ? "/FunMod/cliente/texturas/Mobs/Hamtaro.png" : (this.isAngry() ? "/FunMod/cliente/texturas/Mobs/Hamtaro.png" : super.getTexture());
-    }
+   // public String getTexture()
+   // {
+   //     return this.isTamed() ? "/FunMod/cliente/texturas/Mobs/Hamtaro.png" : (this.isAngry() ? "/FunMod/cliente/texturas/Mobs/Hamtaro.png" : super.getTexture());
+   // }
 
-    /**
-     * (abstract) Protected helper method to write subclass entity data to NBT.
-     */
     public void writeEntityToNBT(NBTTagCompound par1NBTTagCompound)
     {
         super.writeEntityToNBT(par1NBTTagCompound);
         par1NBTTagCompound.setBoolean("Angry", this.isAngry());
     }
 
-    /**
-     * (abstract) Protected helper method to read subclass entity data from NBT.
-     */
     public void readEntityFromNBT(NBTTagCompound par1NBTTagCompound)
     {
         super.readEntityFromNBT(par1NBTTagCompound);
         this.setAngry(par1NBTTagCompound.getBoolean("Angry"));
     }
 
-    /**
-     * Determines if an entity can be despawned, used on idle far away entities
-     */
     protected boolean canDespawn()
     {
         return this.isAngry();
     }
-
-    /**
-     * Returns the sound this mob makes while it's alive.
-     */
-   
-
-    /**
-     * Returns the sound this mob makes on death.
-     */
-   
-    /**
-     * Returns the volume for the sounds this mob makes.
-     */
     protected float getSoundVolume()
     {
         return 0.4F;
     }
 
-    /**
-     * Returns the item ID for the item the mob drops on death.
-     */
     protected int getDropItemId()
     {
         return -1;
     }
 
-    /**
-     * Called frequently so the entity can update its state every tick as required. For example, zombies and skeletons
-     * use this to react to sunlight and start to burn.
-     */
     public void onLivingUpdate()
     {
         super.onLivingUpdate();
@@ -193,9 +146,6 @@ public class EntityHamtaro extends EntityTameable
         }
     }
 
-    /**
-     * Called to update the entity's position/logic.
-     */
     public void onUpdate()
     {
         super.onUpdate();
@@ -260,9 +210,6 @@ public class EntityHamtaro extends EntityTameable
         return this.isShaking;
     }
 
-    /**
-     * Used when calculating the amount of shading to apply while the wolf is shaking.
-     */
     public float getShadingWhileShaking(float par1)
     {
         return 0.75F + (this.prevTimeWolfIsShaking + (this.timeWolfIsShaking - this.prevTimeWolfIsShaking) * par1) / 2.0F * 0.25F;
@@ -294,18 +241,11 @@ public class EntityHamtaro extends EntityTameable
         return this.height * 0.8F;
     }
 
-    /**
-     * The speed it takes to move the entityliving's rotationPitch through the faceEntity method. This is only currently
-     * use in wolves.
-     */
     public int getVerticalFaceSpeed()
     {
         return this.isSitting() ? 20 : super.getVerticalFaceSpeed();
     }
 
-    /**
-     * Called when the entity is attacked.
-     */
     public boolean attackEntityFrom(DamageSource par1DamageSource, int par2)
     {
         Entity var3 = par1DamageSource.getEntity();
@@ -325,18 +265,16 @@ public class EntityHamtaro extends EntityTameable
         return par1Entity.attackEntityFrom(DamageSource.causeMobDamage(this), var2);
     }
 
-    /**
-     * Called when a player interacts with a mob. e.g. gets milk from a cow, gets into the saddle on a pig.
-     */
+ 
     public boolean interact(EntityPlayer par1EntityPlayer)
     {
         ItemStack var2 = par1EntityPlayer.inventory.getCurrentItem();
 
         if (this.isTamed())
         {
-            if (var2 != null && Item.itemsList[var2.itemID] instanceof ItemFood)
+            if (var2 != null && var2.getItem() instanceof ItemFood)
             {
-                ItemFood var3 = (ItemFood)Item.itemsList[var2.itemID];
+                ItemFood var3 = (ItemFood)var2.getItem();
 
                 if (var3.isWolfsFavoriteMeat() && this.dataWatcher.getWatchableObjectInt(18) < 20)
                 {
@@ -345,7 +283,7 @@ public class EntityHamtaro extends EntityTameable
                         --var2.stackSize;
                     }
 
-                    this.heal(var3.getHealAmount());
+                    //this.heal(var3.getHealAmount());
 
                     if (var2.stackSize <= 0)
                     {
@@ -356,14 +294,14 @@ public class EntityHamtaro extends EntityTameable
                 }
             }
 
-            if (par1EntityPlayer.username.equalsIgnoreCase(this.getOwnerName()) && !this.worldObj.isRemote && !this.isWheat(var2))
-            {
-                this.aiSit.setSitting(!this.isSitting());
-                this.isJumping = false;
-                this.setPathToEntity((PathEntity)null);
-            }
+           // if (par1EntityPlayer..equalsIgnoreCase(this.getOwnerName()) && !this.worldObj.isRemote && !this.isWheat(var2))
+           // {
+           //     this.aiSit.setSitting(!this.isSitting());
+            //    this.isJumping = false;
+           //     this.setPathToEntity((PathEntity)null);
+           // }
         }
-        else if (var2 != null && var2.itemID == FunMod.Starman.itemID && !this.isAngry())
+        else if (var2 != null && var2.getItem() == FunMod.Starman && !this.isAngry())
         {
             if (!par1EntityPlayer.capabilities.isCreativeMode)
             {
@@ -383,8 +321,8 @@ public class EntityHamtaro extends EntityTameable
                     this.setPathToEntity((PathEntity)null);
                     this.setAttackTarget((EntityLiving)null);
                     this.aiSit.setSitting(true);
-                    this.setEntityHealth(20);
-                    this.setOwner(par1EntityPlayer.username);
+                    this.setHealth(20);
+                    //this.setOwner(par1EntityPlayer.username);
                     this.playTameEffect(true);
                     this.worldObj.setEntityState(this, (byte)7);
                 }
@@ -419,34 +357,21 @@ public class EntityHamtaro extends EntityTameable
     {
         return this.isAngry() ? 1.5393804F : (this.isTamed() ? (0.55F - (float)(20 - this.dataWatcher.getWatchableObjectInt(18)) * 0.02F) * (float)Math.PI : ((float)Math.PI / 5F));
     }
+  //  public boolean isWheat(ItemStack par1ItemStack)
+  //  {
+  //      return (par1ItemStack == null ? false : (!(par1ItemStack.getItem() instanceof ItemFood) ? false : ((ItemFood)par1ItemStack.getItem().fu)));
+    //}
 
-    /**
-     * Checks if the parameter is an wheat item.
-     */
-    public boolean isWheat(ItemStack par1ItemStack)
-    {
-        return par1ItemStack == null ? false : (!(Item.itemsList[par1ItemStack.itemID] instanceof ItemFood) ? false : ((ItemFood)Item.itemsList[par1ItemStack.itemID]).isWolfsFavoriteMeat());
-    }
-
-    /**
-     * Will return how many at most can spawn in a chunk at once.
-     */
     public int getMaxSpawnedInChunk()
     {
         return 8;
     }
 
-    /**
-     * Determines whether this wolf is angry or not.
-     */
     public boolean isAngry()
     {
         return (this.dataWatcher.getWatchableObjectByte(16) & 2) != 0;
     }
 
-    /**
-     * Sets whether this wolf is angry or not.
-     */
     public void setAngry(boolean par1)
     {
         byte var2 = this.dataWatcher.getWatchableObjectByte(16);
@@ -461,9 +386,6 @@ public class EntityHamtaro extends EntityTameable
         }
     }
 
-    /**
-     * This function is used when two same-species animals in 'love mode' breed to generate the new baby animal.
-     */
     public EntityAnimal spawnBabyAnimal(EntityAnimal par1EntityAnimal)
     {
         EntityHamtaro var2 = new EntityHamtaro(this.worldObj);
@@ -471,11 +393,8 @@ public class EntityHamtaro extends EntityTameable
         var2.setTamed(true);
         return var2;
     }
-
     public void func_70918_i(boolean par1)
     {
-        byte var2 = this.dataWatcher.getWatchableObjectByte(19);
-
         if (par1)
         {
             this.dataWatcher.updateObject(19, Byte.valueOf((byte)1));
@@ -486,9 +405,6 @@ public class EntityHamtaro extends EntityTameable
         }
     }
 
-    /**
-     * Returns true if the mob is currently able to mate with the specified mob.
-     */
     public boolean canMateWith(EntityAnimal par1EntityAnimal)
     {
         if (par1EntityAnimal == this)

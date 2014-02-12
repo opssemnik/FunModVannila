@@ -69,7 +69,6 @@ import FunMod.entidades.EntitySonic;
 import FunMod.entidades.EntityThrowing;
 import FunMod.entidades.EntityVenom;
 import FunMod.entidades.EntityWoody;
-import FunMod.entidades.EntityYoshi;
 import FunMod.ftp.ThreadGetData;
 import FunMod.proxy.proxy;
 import FunMod.tileentidades.EntidadeFantasyFurnace;
@@ -156,7 +155,6 @@ public class clproxy extends proxy implements IGuiHandler
         RenderingRegistry.registerEntityRenderingHandler(EntitySephiroth.class, new RenderSephiroth(new ModelSephiroth(), 0.5F));
         RenderingRegistry.registerEntityRenderingHandler(EntityKoopaTroopa.class, new RenderKoopaTroopa(new ModelKoopa(), 0.5F));
         RenderingRegistry.registerEntityRenderingHandler(EntitySonic.class, new RenderSonic(new ModelSonic(), 0.5F));
-        RenderingRegistry.registerEntityRenderingHandler(EntityYoshi.class, new RenderYoshi(new ModelYoshi(), new ModelYoshi(0.5F), 0.7F));
         RenderingRegistry.registerEntityRenderingHandler(EntityDoctorWilly.class, new RenderBiped(new ModelBiped(), 0.5F));
         RenderingRegistry.registerEntityRenderingHandler(EntityHamtaro.class, new RenderHamtaro(new ModelHamtaro(), 0.5F));
        
