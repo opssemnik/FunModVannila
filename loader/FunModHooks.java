@@ -8,7 +8,8 @@ import java.net.URL;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.network.packet.Packet3Chat;
+import net.minecraft.network.play.client.C01PacketChatMessage;
+import net.minecraft.util.ChatComponentText;
 import FunMod.FunMod;
 import FunMod.enums.EnumColor;
 import cpw.mods.fml.server.FMLServerHandler;
@@ -22,17 +23,13 @@ public class FunModHooks
 	{
 		if(!(FunMod.latestVersionNumber.equals("Error retrieving data.")) && !(FunMod.latestVersionNumber.equals(FunMod.versionNumber.toString())))
 		{
-			entityplayer.addChatMessage(EnumColor.GREY.code + "Your version of " + EnumColor.DARK_BLUE.code + "FunMod " + EnumColor.GREY.code + "(" + EnumColor.DARK_GREY.code + FunMod.versionNumber.toString() + EnumColor.GREY.code + ") is outdated. Please update to version " + EnumColor.RED.code + FunMod.latestVersionNumber + EnumColor.ORANGE.code + FunMod.recentNews);
+			entityplayer.addChatMessage(new ChatComponentText(EnumColor.GREY.code + "Your version of " + EnumColor.DARK_BLUE.code + "FunMod " + EnumColor.GREY.code + "(" + EnumColor.DARK_GREY.code + FunMod.versionNumber.toString() + EnumColor.GREY.code + ") is outdated. Please update to version " + EnumColor.RED.code + FunMod.latestVersionNumber + EnumColor.ORANGE.code + FunMod.recentNews));
 		}
 		else if(FunMod.latestVersionNumber.equals("Error retrieving data."))
 		{
 			System.out.println("[FunMod] Minecraft is in offline mode, could not check for updates.");
 		}
 	}
-
-	
-
-
 	
 	public static String getLatestVersion()
 	{
@@ -49,7 +46,6 @@ public class FunModHooks
 		return "There is no news to show.";
 	}
 
-	
 	public static String getHTML(String urlToRead) 
 	{
 		StringBuilder sb = new StringBuilder();
@@ -74,19 +70,15 @@ public class FunModHooks
 		}
 		return result;
 	}
-
-	
 	public static void sendChatMessageToPlayer(String playerUsername, String msg)
 	{
 		EntityPlayer player = FMLServerHandler.instance().getServer().getConfigurationManager().getPlayerForUsername(playerUsername);
-		Packet3Chat chatPacket = new Packet3Chat(msg);
+		C01PacketChatMessage chatPacket = new C01PacketChatMessage(msg);
 		if(player != null)
 		{
-			((EntityPlayerMP)player).playerNetServerHandler.sendPacketToPlayer(chatPacket);
+			((EntityPlayerMP)player).playerNetServerHandler.sendPacket(chatPacket);
 		}
 	}
-
-	
 	public static boolean isLatestVersion()
 	{
 		return FunMod.versionNumber.toString().equals(FunMod.latestVersionNumber);
@@ -96,32 +88,11 @@ public class FunModHooks
 	public static boolean isOffline()
 	{
 		try {
-			new URL("http://www.apple.com").openConnection().connect();
+			new URL("http://www.google.com").openConnection().connect();
 			return true;
 		} catch (IOException e)
 		{
 			return false;
 		}
 	}
-
-	/**
-	 * Sets the defined world's time to the defined time.
-	 * @param world - world to set time
-	 * @param paramInt - hour to set time to
-	 */
-
-	/**
-	 * Creates a fake explosion at the declared player, with only sounds and effects. No damage is caused to either blocks or the player.
-	 * @param entityplayer - player to explode
-	 */
-	
-
-	/**
-	 * Creates a fake explosion at the declared coords, with only sounds and effects. No damage is caused to either blocks or the player.
-	 * @param world - world where the explosion will occur
-	 * @param x - x coord
-	 * @param y - y coord
-	 * @param z - z coord
-	 */
-	
 }

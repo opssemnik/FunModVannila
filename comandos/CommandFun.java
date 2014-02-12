@@ -35,6 +35,7 @@ public void mesage(String oq){
 	}
     public void processCommand(ICommandSender sender, String[] params)
     {
+    	this.senderr = sender;
         if(params.length < 1)
         {
             this.mesage(EnumColor.GREY.code + "-------- " + EnumColor.DARK_BLUE.code + "[FunMod]" + EnumColor.GREY.code + " --------");
