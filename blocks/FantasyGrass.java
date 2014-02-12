@@ -4,22 +4,21 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.world.World;
+import net.minecraft.item.Item;
 import FunMod.FunMod;
 public class FantasyGrass extends Block
 {
     public FantasyGrass(int par1, int par2)
     {
-        super(par1, par2, Material.ground);
+        super(Material.ground);
         setTickRandomly(true);
         this.setCreativeTab(FunMod.funmodtab);
     }
-    @Override
-    public int idDropped(int par1, Random par2Random, int par3)
+    public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
     {
-        return FunMod.FantasyDirt.idDropped(0, par2Random, par3);
+        return FunMod.FantasyDirt.getItemDropped(p_149650_1_, p_149650_2_, p_149650_3_);
     }
-
+/*
     public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
     {
         if (par1World.isRemote)
@@ -92,5 +91,5 @@ public class FantasyGrass extends Block
     
     		return j != 2 ? 20 : 177;
     }
-
+*/
 }

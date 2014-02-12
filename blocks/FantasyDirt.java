@@ -7,12 +7,9 @@ public class FantasyDirt extends Block
 {
     public FantasyDirt(int par1, int par2)
     {
-        super(par1, par2, Material.ground);
-        this.blockIndexInTexture = 28;
+        super(Material.ground);
         this.setCreativeTab(FunMod.funmodtab);
     }
-public String getTextureFile(){
-	return "/FunMod/cliente/texturas/texturas.png";}
 }
 
 

@@ -2,14 +2,13 @@ package FunMod.tileentidades;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.common.ForgeDirection;
-import net.minecraftforge.common.ISidedInventory;
 import FunMod.FunMod;
 import FunMod.blocks.FantasyFurnace;
 import FunMod.recipes.FantasyFurnacesRecipes;
@@ -19,42 +18,18 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class EntidadeFantasyFurnace extends TileEntity implements IInventory, ISidedInventory
 {
-    /**
-     * The ItemStacks that hold the items currently being used in the furnace
-     */
     private ItemStack[] furnaceItemStacks = new ItemStack[3];
-
-    /** The number of ticks that the furnace will keep burning */
     public int furnaceBurnTime = 0;
-
-    /**
-     * The number of ticks that a fresh copy of the currently-burning item would keep the furnace burning for
-     */
     public int currentItemBurnTime = 0;
-
-    /** The number of ticks that the current item has been cooking for */
     public int furnaceCookTime = 0;
-
-    /**
-     * Returns the number of slots in the inventory.
-     */
     public int getSizeInventory()
     {
         return this.furnaceItemStacks.length;
     }
-
-    /**
-     * Returns the stack in slot i
-     */
     public ItemStack getStackInSlot(int par1)
     {
         return this.furnaceItemStacks[par1];
     }
-
-    /**
-     * Removes from an inventory slot (first arg) up to a specified number (second arg) of items and returns them in a
-     * new stack.
-     */
     public ItemStack decrStackSize(int par1, int par2)
     {
         if (this.furnaceItemStacks[par1] != null)
@@ -84,11 +59,6 @@ public class EntidadeFantasyFurnace extends TileEntity implements IInventory, IS
             return null;
         }
     }
-
-    /**
-     * When some containers are closed they call this on each slot, then drop whatever it returns as an EntityItem -
-     * like when you close a workbench GUI.
-     */
     public ItemStack getStackInSlotOnClosing(int par1)
     {
         if (this.furnaceItemStacks[par1] != null)
@@ -103,9 +73,6 @@ public class EntidadeFantasyFurnace extends TileEntity implements IInventory, IS
         }
     }
 
-    /**
-     * Sets the given item stack to the specified slot in the inventory (can be crafting or armor sections).
-     */
     public void setInventorySlotContents(int par1, ItemStack par2ItemStack)
     {
         this.furnaceItemStacks[par1] = par2ItemStack;
@@ -115,27 +82,15 @@ public class EntidadeFantasyFurnace extends TileEntity implements IInventory, IS
             par2ItemStack.stackSize = this.getInventoryStackLimit();
         }
     }
-
-    /**
-     * Returns the name of the inventory.
-     */
-    public String getInvName()
-    {
-        return "container.brickfurnace";
-    }
-
-    /**
-     * Reads a tile entity from NBT.
-     */
     public void readFromNBT(NBTTagCompound par1NBTTagCompound)
     {
         super.readFromNBT(par1NBTTagCompound);
-        NBTTagList var2 = par1NBTTagCompound.getTagList("Items");
+        NBTTagList var2 = par1NBTTagCompound.getTagList("Items",10);
         this.furnaceItemStacks = new ItemStack[this.getSizeInventory()];
 
         for (int var3 = 0; var3 < var2.tagCount(); ++var3)
         {
-            NBTTagCompound var4 = (NBTTagCompound)var2.tagAt(var3);
+            NBTTagCompound var4 = (NBTTagCompound)var2.getCompoundTagAt(var3);
             byte var5 = var4.getByte("Slot");
 
             if (var5 >= 0 && var5 < this.furnaceItemStacks.length)
@@ -247,7 +202,7 @@ public class EntidadeFantasyFurnace extends TileEntity implements IInventory, IS
 
                         if (this.furnaceItemStacks[1].stackSize == 0)
                         {
-                            this.furnaceItemStacks[1] = this.furnaceItemStacks[1].getItem().getContainerItemStack(furnaceItemStacks[1]);
+                            this.furnaceItemStacks[1] = this.furnaceItemStacks[1].getItem().getContainerItem(furnaceItemStacks[1]);
                         }
                     }
                 }
@@ -278,13 +233,9 @@ public class EntidadeFantasyFurnace extends TileEntity implements IInventory, IS
 
         if (var2)
         {
-            this.onInventoryChanged();
+            this.markDirty();
         }
     }
-
-    /**
-     * Returns true if the furnace can smelt an item, i.e. has a source item, destination stack isn't full, etc.
-     */
     private boolean canSmelt()
     {
         if (this.furnaceItemStacks[0] == null)
@@ -301,10 +252,6 @@ public class EntidadeFantasyFurnace extends TileEntity implements IInventory, IS
             return (result <= getInventoryStackLimit() && result <= var1.getMaxStackSize());
         }
     }
-
-    /**
-     * Turn one item from the furnace source stack into the appropriate smelted item in the furnace result stack
-     */
     public void smeltItem()
     {
         if (this.canSmelt())
@@ -328,11 +275,6 @@ public class EntidadeFantasyFurnace extends TileEntity implements IInventory, IS
             }
         }
     }
-
-    /**
-     * Returns the number of ticks that the supplied fuel item will keep the furnace burning, or 0 if the item isn't
-     * fuel
-     */
     public static int getItemBurnTime(ItemStack par0ItemStack)
     {
         if (par0ItemStack == null)
@@ -341,44 +283,52 @@ public class EntidadeFantasyFurnace extends TileEntity implements IInventory, IS
         }
         else
         {
-            int var1 = par0ItemStack.getItem().itemID;
-            Item var2 = par0ItemStack.getItem();
-            if (var1 == FunMod.coal.itemID) return 2100;
+            Item var1 = par0ItemStack.getItem();
+            if (var1 == FunMod.coal) return 2100;
             return GameRegistry.getFuelValue(par0ItemStack);
         }
     }
-
-    /**
-     * Return true if item is a fuel source (getItemBurnTime() > 0).
-     */
     public static boolean isItemFuel(ItemStack par0ItemStack)
     {
         return getItemBurnTime(par0ItemStack) > 0;
     }
-
-    /**
-     * Do not make give this method the name canInteractWith because it clashes with Container
-     */
     public boolean isUseableByPlayer(EntityPlayer par1EntityPlayer)
     {
-        return this.worldObj.getBlockTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : par1EntityPlayer.getDistanceSq((double)this.xCoord + 0.5D, (double)this.yCoord + 0.5D, (double)this.zCoord + 0.5D) <= 64.0D;
+        return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : par1EntityPlayer.getDistanceSq((double)this.xCoord + 0.5D, (double)this.yCoord + 0.5D, (double)this.zCoord + 0.5D) <= 64.0D;
     }
-
     public void openChest() {}
 
     public void closeChest() {}
+	@Override
+	public int[] getAccessibleSlotsFromSide(int var1) {
+		return null;
+	}
+	@Override
+	public boolean canInsertItem(int var1, ItemStack var2, int var3) {
+		return false;
+	}
+	@Override
+	public boolean canExtractItem(int var1, ItemStack var2, int var3) {
+		return false;
+	}
+	@Override
+	public String getInventoryName() {
+		return "container.brickfurnace";
+	}
+	@Override
+	public boolean hasCustomInventoryName() {
+		return false;
+	}
+	@Override
+	public void openInventory() {	
+	}
 
-    @Override
-    public int getStartInventorySide(ForgeDirection side)
-    {
-        if (side == ForgeDirection.DOWN) return 1;
-        if (side == ForgeDirection.UP) return 0; 
-        return 2;
-    }
+	@Override
+	public void closeInventory(){	
+	}
 
-    @Override
-    public int getSizeInventorySide(ForgeDirection side)
-    {
-        return 1;
-    }
+	@Override
+	public boolean isItemValidForSlot(int var1, ItemStack var2) {
+		return false;
+	}
 }

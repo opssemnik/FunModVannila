@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockPortal;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.AxisAlignedBB;
@@ -20,28 +21,22 @@ public class BlockFantasyPortal extends BlockPortal
     private WorldServer server;
 	public BlockFantasyPortal(int par1, int par2)
     {
-        super(par1, par2);
-       
-       
+        super();       
     }
-
-    /**
-     * Ticks the block if it's been scheduled
-     */
     public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
     {
         super.updateTick(par1World, par2, par3, par4, par5Random);
 
-        if (par1World.provider.isSurfaceWorld() && par5Random.nextInt(2000) < par1World.difficultySetting)
+        if (par1World.provider.isSurfaceWorld() && par5Random.nextInt(2000) < par1World.difficultySetting.getDifficultyId())
         {
             int var6;
 
-            for (var6 = par3; !par1World.doesBlockHaveSolidTopSurface(par2, var6, par4) && var6 > 0; --var6)
+            for (var6 = par3; !par1World.doesBlockHaveSolidTopSurface(par1World,par2, var6, par4) && var6 > 0; --var6)
             {
                 ;
             }
 
-            if (var6 > 0 && !par1World.isBlockNormalCube(par2, var6 + 1, par4))
+            if (var6 > 0 && !par1World.isBlockNormalCubeDefault(par2, var6 + 1, par4, false))
             {
                 Entity var7 = ItemMonsterPlacer.spawnCreature(par1World, 57, (double)par2 + 0.5D, (double)var6 + 1.1D, (double)par4 + 0.5D);
 
@@ -52,25 +47,16 @@ public class BlockFantasyPortal extends BlockPortal
             }
         }
     }
-
-    /**
-     * Returns a bounding box from the pool of bounding boxes (this means this box can change after the pool has been
-     * cleared to be reused)
-     */
     public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4)
     {
         return null;
     }
-
-    /**
-     * Updates the blocks bounds based on its current state. Args: world, x, y, z
-     */
     public void setBlockBoundsBasedOnState(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
     {
         float var5;
         float var6;
 
-        if (par1IBlockAccess.getBlockId(par2 - 1, par3, par4) != this.blockID && par1IBlockAccess.getBlockId(par2 + 1, par3, par4) != this.blockID)
+        if (par1IBlockAccess.getBlock(par2 - 1, par3, par4) != this && par1IBlockAccess.getBlock(par2 + 1, par3, par4) != this)
         {
             var5 = 0.125F;
             var6 = 0.5F;
@@ -109,12 +95,12 @@ public class BlockFantasyPortal extends BlockPortal
         byte var5 = 0;
         byte var6 = 0;
 
-        if (par1World.getBlockId(par2 - 1, par3, par4) == Block.obsidian.blockID || par1World.getBlockId(par2 + 1, par3, par4) == Block.obsidian.blockID)
+        if (par1World.getBlock(par2 - 1, par3, par4) == Blocks.obsidian || par1World.getBlock(par2 + 1, par3, par4) == Blocks.obsidian)
         {
             var5 = 1;
         }
 
-        if (par1World.getBlockId(par2, par3, par4 - 1) == Block.obsidian.blockID || par1World.getBlockId(par2, par3, par4 + 1) == Block.obsidian.blockID)
+        if (par1World.getBlock(par2, par3, par4 - 1) == Blocks.obsidian || par1World.getBlock(par2, par3, par4 + 1) == Blocks.obsidian)
         {
             var6 = 1;
         }
@@ -125,7 +111,7 @@ public class BlockFantasyPortal extends BlockPortal
         }
         else
         {
-            if (par1World.getBlockId(par2 - var5, par3, par4 - var6) == 0)
+            if (par1World.getBlock(par2 - var5, par3, par4 - var6) == Blocks.air)
             {
                 par2 -= var5;
                 par4 -= var6;
@@ -142,48 +128,38 @@ public class BlockFantasyPortal extends BlockPortal
 
                     if (var7 != -1 && var7 != 2 || var8 != -1 && var8 != 3)
                     {
-                        int var10 = par1World.getBlockId(par2 + var5 * var7, par3 + var8, par4 + var6 * var7);
+                        Block var10 = par1World.getBlock(par2 + var5 * var7, par3 + var8, par4 + var6 * var7);
 
                         if (var9)
                         {
-                            if (var10 != Block.obsidian.blockID)
+                            if (var10 != Blocks.obsidian)
                             {
                                 return false;
                             }
                         }
-                        else if (var10 != 0 && var10 != Block.fire.blockID)
+                        else if (var10 != Blocks.air && var10 != Blocks.fire)
                         {
                             return false;
                         }
                     }
                 }
             }
-
-            par1World.editingBlocks = true;
-
             for (var7 = 0; var7 < 2; ++var7)
             {
                 for (var8 = 0; var8 < 3; ++var8)
                 {
-                    par1World.setBlockWithNotify(par2 + var5 * var7, par3 + var8, par4 + var6 * var7, Block.portal.blockID);
+                    par1World.setBlock(par2 + var5 * var7, par3 + var8, par4 + var6 * var7, Blocks.portal);
                 }
             }
-
-            par1World.editingBlocks = false;
             return true;
         }
     }
-
-    /**
-     * Lets the block know when one of its neighbor changes. Doesn't know which neighbor changed (coordinates passed are
-     * their own) Args: x, y, z, neighbor blockID
-     */
     public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
     {
         byte var6 = 0;
         byte var7 = 1;
 
-        if (par1World.getBlockId(par2 - 1, par3, par4) == this.blockID || par1World.getBlockId(par2 + 1, par3, par4) == this.blockID)
+        if (par1World.getBlock(par2 - 1, par3, par4) == this || par1World.getBlock(par2 + 1, par3, par4) == this)
         {
             var6 = 1;
             var7 = 0;
@@ -191,66 +167,61 @@ public class BlockFantasyPortal extends BlockPortal
 
         int var8;
 
-        for (var8 = par3; par1World.getBlockId(par2, var8 - 1, par4) == this.blockID; --var8)
+        for (var8 = par3; par1World.getBlock(par2, var8 - 1, par4) == this; --var8)
         {
             ;
         }
 
-        if (par1World.getBlockId(par2, var8 - 1, par4) != Block.obsidian.blockID)
+        if (par1World.getBlock(par2, var8 - 1, par4) != Blocks.obsidian)
         {
-            par1World.setBlockWithNotify(par2, par3, par4, 0);
+            par1World.setBlock(par2, par3, par4, Blocks.air, 0, 0);
         }
         else
         {
             int var9;
 
-            for (var9 = 1; var9 < 4 && par1World.getBlockId(par2, var8 + var9, par4) == this.blockID; ++var9)
+            for (var9 = 1; var9 < 4 && par1World.getBlock(par2, var8 + var9, par4) == this; ++var9)
             {
                 ;
             }
 
-            if (var9 == 3 && par1World.getBlockId(par2, var8 + var9, par4) == Block.obsidian.blockID)
+            if (var9 == 3 && par1World.getBlock(par2, var8 + var9, par4) == Blocks.obsidian)
             {
-                boolean var10 = par1World.getBlockId(par2 - 1, par3, par4) == this.blockID || par1World.getBlockId(par2 + 1, par3, par4) == this.blockID;
-                boolean var11 = par1World.getBlockId(par2, par3, par4 - 1) == this.blockID || par1World.getBlockId(par2, par3, par4 + 1) == this.blockID;
+                boolean var10 = par1World.getBlock(par2 - 1, par3, par4) == this || par1World.getBlock(par2 + 1, par3, par4) == this;
+                boolean var11 = par1World.getBlock(par2, par3, par4 - 1) == this || par1World.getBlock(par2, par3, par4 + 1) == this;
 
                 if (var10 && var11)
                 {
-                    par1World.setBlockWithNotify(par2, par3, par4, 0);
+                	par1World.setBlock(par2, par3, par4, Blocks.air, 0, 0);
                 }
                 else
                 {
-                    if ((par1World.getBlockId(par2 + var6, par3, par4 + var7) != Block.obsidian.blockID || par1World.getBlockId(par2 - var6, par3, par4 - var7) != this.blockID) && (par1World.getBlockId(par2 - var6, par3, par4 - var7) != Block.obsidian.blockID || par1World.getBlockId(par2 + var6, par3, par4 + var7) != this.blockID))
+                    if ((par1World.getBlock(par2 + var6, par3, par4 + var7) != Blocks.obsidian || par1World.getBlock(par2 - var6, par3, par4 - var7) != this) && (par1World.getBlock(par2 - var6, par3, par4 - var7) != Blocks.obsidian || par1World.getBlock(par2 + var6, par3, par4 + var7) != this))
                     {
-                        par1World.setBlockWithNotify(par2, par3, par4, 0);
+                    	par1World.setBlock(par2, par3, par4, Blocks.air, 0, 0);
                     }
                 }
             }
             else
             {
-                par1World.setBlockWithNotify(par2, par3, par4, 0);
+            	par1World.setBlock(par2, par3, par4, Blocks.air, 0, 0);
             }
         }
     }
 
     @SideOnly(Side.CLIENT)
-
-    /**
-     * Returns true if the given side of this block type should be rendered, if the adjacent block is at the given
-     * coordinates.  Args: blockAccess, x, y, z, side
-     */
     public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
     {
-        if (par1IBlockAccess.getBlockId(par2, par3, par4) == this.blockID)
+        if (par1IBlockAccess.getBlock(par2, par3, par4) == this)
         {
             return false;
         }
         else
         {
-            boolean var6 = par1IBlockAccess.getBlockId(par2 - 1, par3, par4) == this.blockID && par1IBlockAccess.getBlockId(par2 - 2, par3, par4) != this.blockID;
-            boolean var7 = par1IBlockAccess.getBlockId(par2 + 1, par3, par4) == this.blockID && par1IBlockAccess.getBlockId(par2 + 2, par3, par4) != this.blockID;
-            boolean var8 = par1IBlockAccess.getBlockId(par2, par3, par4 - 1) == this.blockID && par1IBlockAccess.getBlockId(par2, par3, par4 - 2) != this.blockID;
-            boolean var9 = par1IBlockAccess.getBlockId(par2, par3, par4 + 1) == this.blockID && par1IBlockAccess.getBlockId(par2, par3, par4 + 2) != this.blockID;
+            boolean var6 = par1IBlockAccess.getBlock(par2 - 1, par3, par4) == this && par1IBlockAccess.getBlock(par2 - 2, par3, par4) != this;
+            boolean var7 = par1IBlockAccess.getBlock(par2 + 1, par3, par4) == this && par1IBlockAccess.getBlock(par2 + 2, par3, par4) != this;
+            boolean var8 = par1IBlockAccess.getBlock(par2, par3, par4 - 1) == this && par1IBlockAccess.getBlock(par2, par3, par4 - 2) != this;
+            boolean var9 = par1IBlockAccess.getBlock(par2, par3, par4 + 1) == this && par1IBlockAccess.getBlock(par2, par3, par4 + 2) != this;
             boolean var10 = var6 || var7;
             boolean var11 = var8 || var9;
             return var10 && par5 == 4 ? true : (var10 && par5 == 5 ? true : (var11 && par5 == 2 ? true : var11 && par5 == 3));
@@ -318,7 +289,7 @@ public class BlockFantasyPortal extends BlockPortal
             var15 = ((double)par5Random.nextFloat() - 0.5D) * 0.5D;
             var17 = ((double)par5Random.nextFloat() - 0.5D) * 0.5D;
 
-            if (par1World.getBlockId(par2 - 1, par3, par4) != this.blockID && par1World.getBlockId(par2 + 1, par3, par4) != this.blockID)
+            if (par1World.getBlock(par2 - 1, par3, par4) != this && par1World.getBlock(par2 + 1, par3, par4) != this)
             {
                 var7 = (double)par2 + 0.5D + 0.25D * (double)var19;
                 var13 = (double)(par5Random.nextFloat() * 2.0F * (float)var19);

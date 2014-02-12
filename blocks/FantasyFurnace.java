@@ -16,51 +16,29 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import FunMod.FunMod;
 import FunMod.tileentidades.EntidadeFantasyFurnace;
+import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 public class FantasyFurnace extends BlockContainer
 {
-    /**
-     * Is the random generator used by furnace to drop the inventory contents in random directions.
-     */
     private Random furnaceRand = new Random();
-
-    /** True if this is an active furnace, false if idle */
     private final boolean isActive;
-
-    /**
-     * This flag is used to prevent the furnace inventory to be dropped upon block removal, is used internally when the
-     * furnace block changes from idle to active and vice-versa.
-     */
     private static boolean keepFurnaceInventory = false;
-
     public FantasyFurnace(int par1, boolean par2)
     {
-        super(par1, Material.rock);
+        super(Material.rock);
         this.isActive = par2;
-        this.blockIndexInTexture = 39;
     }
-
-    /**
-     * Returns the ID of the items to drop on destruction.
-     */
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return FunMod.desativada.blockID;
+        return GameData.blockRegistry.getId(FunMod.desativada);
     }
-
-    /**
-     * Called whenever the block is added into the world. Args: world, x, y, z
-     */
     public void onBlockAdded(World par1World, int par2, int par3, int par4)
     {
         super.onBlockAdded(par1World, par2, par3, par4);
-        this.setDefaultDirection(par1World, par2, par3, par4);
+       // this.setDefaultDirection(par1World, par2, par3, par4);
     }
-
-    /**
-     * set a blocks direction
-     */
+/*
     private void setDefaultDirection(World par1World, int par2, int par3, int par4)
     {
         if (!par1World.isRemote)
@@ -99,7 +77,7 @@ public class FantasyFurnace extends BlockContainer
 
     /**
      * Retrieves the block texture to use based on the display side. Args: iBlockAccess, x, y, z, side
-     */
+     
 	@Override
     public int getBlockTexture(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
 	{
@@ -117,17 +95,13 @@ public class FantasyFurnace extends BlockContainer
 			return par5 != var6 ? this.blockIndexInTexture +1 : (this.isActive ? this.blockIndexInTexture + 2 : this.blockIndexInTexture  );
 		}
 	}
-
+*/
     @SideOnly(Side.CLIENT)
-
-    /**
-     * A randomly called display update to be able to add particles or other items for display
-     */
     public void randomDisplayTick(World par1World, int par2, int par3, int par4, Random par5Random)
     {
         if (this.isActive)
         {
-        	this.sparkle(par1World, par2, par3, par4);
+        	//this.sparkle(par1World, par2, par3, par4);
             int var6 = par1World.getBlockMetadata(par2, par3, par4);
             float var7 = (float)par2 + 0.5F;
             float var8 = (float)par3 + 0.0F + par5Random.nextFloat() * 6.0F / 16.0F;
@@ -156,11 +130,7 @@ public class FantasyFurnace extends BlockContainer
                 par1World.spawnParticle("flame", (double)(var7 + var11), (double)var8, (double)(var9 + var10), 0.0D, 0.0D, 0.0D);
             }
         }
-    }
-    
-    /**
-	 * The redstone ore sparkles.
-	 */
+    }/*
 	private void sparkle(World par1World, int par2, int par3, int par4)
 	{
 		Random var5 = par1World.rand;
@@ -207,7 +177,7 @@ public class FantasyFurnace extends BlockContainer
 
     /**
      * Returns the block texture based on the side being looked at.  Args: side
-     */
+
 	@Override
 	public int getBlockTextureFromSide(int par1)
 	{
@@ -225,91 +195,72 @@ public class FantasyFurnace extends BlockContainer
         }
         else
         {
-        	TileEntity blockEntity = (TileEntity)par1World.getBlockTileEntity(par2, par3, par4);
-
+        	EntidadeFantasyFurnace blockEntity = (EntidadeFantasyFurnace)par1World.getTileEntity(par2, par3, par4);
             if (blockEntity != null){	
         	
-            	EntidadeFantasyFurnace var10 = (EntidadeFantasyFurnace)par1World.getBlockTileEntity(par2, par3, par4);
-    			par5EntityPlayer.openGui(FunMod.instance, 1, par1World, par2, par3, par4);
+            	par5EntityPlayer.openGui(FunMod.instance, 1, par1World, par2, par3, par4);
     		}
-
             return true;
         
     }
     }
-    /**
-     * Update which block ID the furnace is using depending on whether or not it is burning
-     */
-
-    public static void updateFurnaceBlockState(boolean par0, World par1World, int par2, int par3, int par4)
+     public static void updateFurnaceBlockState(boolean par0, World par1World, int par2, int par3, int par4)
     {
         int var5 = par1World.getBlockMetadata(par2, par3, par4);
-        TileEntity var6 = par1World.getBlockTileEntity(par2, par3, par4);
+        TileEntity var6 = par1World.getTileEntity(par2, par3, par4);
         keepFurnaceInventory = true;
 
         if (par0)
         {
-            par1World.setBlockWithNotify(par2, par3, par4, FunMod.ativa.blockID);
+            par1World.setBlock(par2, par3, par4, FunMod.ativa,0, 0);
         }
         else
         {
-            par1World.setBlockWithNotify(par2, par3, par4, FunMod.ativa.blockID);
+            par1World.setBlock(par2, par3, par4, FunMod.ativa,0,0);
         }
 
         keepFurnaceInventory = false;
-        par1World.setBlockMetadataWithNotify(par2, par3, par4, var5);
+        par1World.setBlockMetadataWithNotify(par2, par3, par4, var5, 0);
 
         if (var6 != null)
         {
             var6.validate();
-            par1World.setBlockTileEntity(par2, par3, par4, var6);
+            par1World.setTileEntity(par2, par3, par4, var6);
         }
     }
-
-    /**
-     * each class overrdies this to return a new <className>
-     */
     public TileEntity createNewTileEntity(World par1World)
     {
         return new EntidadeFantasyFurnace();
     }
-
-    /**
-     * Called when the block is placed in the world.
-     */
     public void onBlockPlacedBy(World par1World, int par2, int par3, int par4, EntityLiving par5EntityLiving)
     {
         int var6 = MathHelper.floor_double((double)(par5EntityLiving.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
 
         if (var6 == 0)
         {
-            par1World.setBlockMetadataWithNotify(par2, par3, par4, 2);
+            par1World.setBlockMetadataWithNotify(par2, par3, par4, 2, 0);
         }
 
         if (var6 == 1)
         {
-            par1World.setBlockMetadataWithNotify(par2, par3, par4, 5);
+            par1World.setBlockMetadataWithNotify(par2, par3, par4, 5, 0);
         }
 
         if (var6 == 2)
         {
-            par1World.setBlockMetadataWithNotify(par2, par3, par4, 3);
+            par1World.setBlockMetadataWithNotify(par2, par3, par4, 3, 0);
         }
 
         if (var6 == 3)
         {
-            par1World.setBlockMetadataWithNotify(par2, par3, par4, 4);
+            par1World.setBlockMetadataWithNotify(par2, par3, par4, 4, 0);
         }
     }
-
-    /**
-     * ejects contained items into the world, and notifies neighbours of an update, as appropriate
-     */
-    public void breakBlock(World par1World, int par2, int par3, int par4, int par5, int par6)
+    public void breakBlock(World par1World, int par2, int par3, int par4, Block par5, int par6)
     {
         if (!keepFurnaceInventory)
         {
-        	EntidadeFantasyFurnace var7 = (EntidadeFantasyFurnace)par1World.getBlockTileEntity(par2, par3, par4);
+        	EntidadeFantasyFurnace var7 = (EntidadeFantasyFurnace)par1World.getTileEntity(par2, par3, par4);
 
             if (var7 != null)
             {
@@ -331,9 +282,8 @@ public class FantasyFurnace extends BlockContainer
                             {
                                 var13 = var9.stackSize;
                             }
-
                             var9.stackSize -= var13;
-                            EntityItem var14 = new EntityItem(par1World, (double)((float)par2 + var10), (double)((float)par3 + var11), (double)((float)par4 + var12), new ItemStack(var9.itemID, var13, var9.getItemDamage()));
+                            EntityItem var14 = new EntityItem(par1World, (double)((float)par2 + var10), (double)((float)par3 + var11), (double)((float)par4 + var12), new ItemStack(var9.getItem(), var13, var9.getItemDamage()));
 
                             if (var9.hasTagCompound())
                             {
@@ -353,10 +303,8 @@ public class FantasyFurnace extends BlockContainer
 
         super.breakBlock(par1World, par2, par3, par4, par5, par6);
     }
-    
-    @Override
-	public String getTextureFile()
-    {
-		return "/FunMod/cliente/texturas/texturas.png";
+	@Override
+	public TileEntity createNewTileEntity(World var1, int var2) {
+		return this.createNewTileEntity(var1);
 	}
 }

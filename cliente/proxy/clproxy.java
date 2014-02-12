@@ -1,7 +1,5 @@
 package FunMod.cliente.proxy;
 
-import java.io.IOException;
-
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.entity.RenderBiped;
 import net.minecraft.entity.player.EntityPlayer;
@@ -9,7 +7,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.client.MinecraftForgeClient;
 import FunMod.FunMod;
-import FunMod.cliente.animacoes.TextureFunFX;
 import FunMod.cliente.gui.GuiFantasyFurnace;
 import FunMod.cliente.gui.GuiN64;
 import FunMod.cliente.model.ModelBlinky;
@@ -46,7 +43,6 @@ import FunMod.cliente.render.RenderSofa;
 import FunMod.cliente.render.RenderSonic;
 import FunMod.cliente.render.RenderTvN64;
 import FunMod.cliente.render.RenderYoshi;
-import FunMod.cliente.ticks.FunModClientTickHandler;
 import FunMod.entidades.EntityAsh;
 import FunMod.entidades.EntityBlinky;
 import FunMod.entidades.EntityChaos;
@@ -79,11 +75,9 @@ import FunMod.proxy.proxy;
 import FunMod.tileentidades.EntidadeFantasyFurnace;
 import FunMod.tileentidades.EntidadeN64;
 import FunMod.tileentidades.EntidadeSofa;
-import cpw.mods.fml.client.TextureFXManager;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.network.IGuiHandler;
-import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 public class clproxy extends proxy implements IGuiHandler
@@ -96,50 +90,42 @@ public class clproxy extends proxy implements IGuiHandler
     
     @Override
     public void registerRenderThings()
-    {
-    MinecraftForgeClient.preloadTexture("/FunMod/cliente/texturas/texturas.png");
+    {/*
 	try{
     TextureFXManager.instance().addAnimation(new TextureFunFX("/FunMod/cliente/texturas/animacoes/QuestionBlock.png", FunMod.ANIMATED_TEXTURE_INDEX));
 }
  catch (IOException e) {
 	System.err.println("[FunMod] Error registering animation with FML: " + e.getMessage());}
     System.out.println("[FunMod] Registering Textures And Renders Completed Sucefful Without Any Erros");
-    }  
+    }  */
+    }
 	 @Override
 	 	public void init()
 	 	{   	   	
-		 TickRegistry.registerTickHandler(new FunModClientTickHandler(), Side.CLIENT);	
+		// TickRegistry.registerTickHandler(new FunModClientTickHandler(), Side.CLIENT);	
 	 	}
 	    	 @Override
 	         public Object getClientGuiElement(int id, EntityPlayer player, World world,
 	                         int x, int y, int z) {
 	               switch(id){  
 	               case 1:
-	            	   TileEntity tileEntity = world.getBlockTileEntity(x, y, z);
+	            	   TileEntity tileEntity = world.getTileEntity(x, y, z);
 	                 if(tileEntity instanceof EntidadeFantasyFurnace){
 	                         return new GuiFantasyFurnace(player.inventory, ( EntidadeFantasyFurnace) tileEntity);
 	                 }
 	               case 2:
-	            		TileEntity tileEntity2 = world.getBlockTileEntity(x, y, z);
+	            		TileEntity tileEntity2 = world.getTileEntity(x, y, z);
 	               	 if(tileEntity2 instanceof EntidadeN64){
 	                        return new GuiN64(player);}
 	               return true;
-	               }      
-	                 
-	                 
-	                 
-	                 
+	               }      	                   	                                
 	                 return null;
 
 	    	 }
-	    	//essa porra foi tao dificil que criei um void com 2 anotacao so pra que ela fique mais feliz 
 	    	 @Override
 	    	 @SideOnly(Side.CLIENT)
-	    	 public void rendercontrole(){
-	    	 
-	    	
-	    	  MinecraftForgeClient.registerItemRenderer(FunMod.controle.itemID, new ItemControleRender());  
-	    	 
+	    	 public void rendercontrole(){    	     	
+	    	  MinecraftForgeClient.registerItemRenderer(FunMod.controle, new ItemControleRender());      	 
 	    }
 
     
@@ -183,15 +169,12 @@ public class clproxy extends proxy implements IGuiHandler
          sofamodelID = RenderingRegistry.getNextAvailableRenderId();
          	
     }
-    public void renderItemComModelos(int var1){
-    	      
-    	
-           
+    public void renderItemComModelos(int var1){ 	              
         
     }
 	public void loadTickHandler()
 	{
-		TickRegistry.registerTickHandler(new FunModClientTickHandler(), Side.CLIENT);
+		//TickRegistry.registerTickHandler(new FunModClientTickHandler(), Side.CLIENT);
 	}
     public void loadUtilities() {
     	new ThreadGetData();

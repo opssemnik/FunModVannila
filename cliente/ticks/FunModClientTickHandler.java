@@ -2,11 +2,8 @@ package FunMod.cliente.ticks;
 
 import java.util.EnumSet;
 
-import net.minecraft.src.ModLoader;
 import FunMod.FunMod;
 import FunMod.loader.FunModHooks;
-import cpw.mods.fml.common.ITickHandler;
-import cpw.mods.fml.common.TickType;
 /**
  * Client-side tick handler for Obsidian Ingots. Used mainly for the update check upon startup.
  * @author AidanBrady

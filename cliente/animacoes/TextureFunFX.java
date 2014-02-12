@@ -19,7 +19,6 @@ public class TextureFunFX extends ModTextureAnimation
 
     public void bindImage(RenderEngine renderengine)
     {
-    	//Binds texture with GL11 to use specific icon index.
-        GL11.glBindTexture(3553 /*GL_TEXTURE_2D*/, renderengine.getTexture("/FunMod/cliente/texturas/texturas.png"));
+        GL11.glBindTexture(3553,renderengine.getTexture("/FunMod/cliente/texturas/texturas.png"));
     }
 }

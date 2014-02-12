@@ -4,13 +4,9 @@ import net.minecraft.block.material.Material;
 
 public class BlockBrickBlock extends Block
 {
-
-                public BlockBrickBlock(int i, int j, int k)
+               public BlockBrickBlock(int i, int j, int k)
                 {
-                        super(i, j, Material.rock);
-                        this.blockIndexInTexture = 0;
+                        super(Material.rock);
+                       
                 }
-public String getTextureFile(){
-		return "/FunMod/cliente/texturas/texturas.png";}		
-  
-    }               
+}

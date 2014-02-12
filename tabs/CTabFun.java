@@ -1,6 +1,7 @@
 package FunMod.tabs;
 
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import FunMod.FunMod;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -12,8 +13,8 @@ super(par1, par2Str);
 }
 @SideOnly(Side.CLIENT)
 @Override
-public int getTabIconItemIndex() {
-return FunMod.Starman.itemID;
+public Item getTabIconItem() {
+return FunMod.Starman;
 }
 
 }

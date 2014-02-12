@@ -6,6 +6,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSand;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.IProgressUpdate;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.ChunkPosition;
@@ -18,84 +19,42 @@ import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.MapGenCaves;
 import net.minecraft.world.gen.MapGenRavine;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
-import net.minecraft.world.gen.feature.MapGenScatteredFeature;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.structure.MapGenMineshaft;
+import net.minecraft.world.gen.structure.MapGenScatteredFeature;
 import net.minecraft.world.gen.structure.MapGenStronghold;
 import net.minecraft.world.gen.structure.MapGenVillage;
 import FunMod.FunMod;
 public class ChunkProviderFantasy implements IChunkProvider
 {
-    /** RNG. */
     private Random rand;
-
-    /** A NoiseGeneratorOctaves used in generating terrain */
     private NoiseGeneratorOctaves noiseGen1;
-
-    /** A NoiseGeneratorOctaves used in generating terrain */
     private NoiseGeneratorOctaves noiseGen2;
-
-    /** A NoiseGeneratorOctaves used in generating terrain */
     private NoiseGeneratorOctaves noiseGen3;
-
-    /** A NoiseGeneratorOctaves used in generating terrain */
     private NoiseGeneratorOctaves noiseGen4;
-
-    /** A NoiseGeneratorOctaves used in generating terrain */
     public NoiseGeneratorOctaves noiseGen5;
-
-    /** A NoiseGeneratorOctaves used in generating terrain */
     public NoiseGeneratorOctaves noiseGen6;
     public NoiseGeneratorOctaves mobSpawnerNoise;
     public NoiseGeneratorOctaves   caves;
-    /** Reference to the World object. */
     private World worldObj;
-
-    /** are map structures going to be generated (e.g. strongholds) */
     private final boolean mapFeaturesEnabled;
-
-    /** Holds the overall noise array used in chunk generation */
     private double[] noiseArray;
     private double[] stoneNoise = new double[256];
     private MapGenBase caveGenerator = new MapGenCaves();
-
-    /** Holds StronghoFld Generator */
     private MapGenStronghold strongholdGenerator = new MapGenStronghold();
-
-    /** Holds Village Generator */
     private MapGenVillage villageGenerator = new MapGenVillage();
-
-    /** Holds Mineshaft Generator */
     private MapGenMineshaft mineshaftGenerator = new MapGenMineshaft();
     private MapGenScatteredFeature scatteredFeatureGenerator = new MapGenScatteredFeature();
     private MapGenCaves cave = new MapGenCaves();
-    /** Holds ravine generator */
     private MapGenBase ravineGenerator = new MapGenRavine();
-
-    /** The biomes that are used to generate the chunk */
     private BiomeGenBase[] biomesForGeneration;
-
-    /** A double array that hold terrain noise from noiseGen3 */
     double[] noise3;
-
-    /** A double array that hold terrain noise */
     double[] noise1;
-
-    /** A double array that hold terrain noise from noiseGen2 */
     double[] noise2;
-
-    /** A double array that hold terrain noise from noiseGen5 */
     double[] noise5;
-
-    /** A double array that holds terrain noise from noiseGen6 */
     double[] noise6;
-
-    /**
-     * Used to store the 5x5 parabolic field that is used during terrain generation.
-     */
     float[] parabolicField;
     int[][] field_73219_j = new int[32][32];
-
     public ChunkProviderFantasy(World par1World, long par2, boolean par4)
     {
         this.worldObj = par1World;
@@ -109,11 +68,6 @@ public class ChunkProviderFantasy implements IChunkProvider
         this.noiseGen6 = new NoiseGeneratorOctaves(this.rand, 16);
         this.mobSpawnerNoise = new NoiseGeneratorOctaves(this.rand, 8);
     }
-
-    /**
-     * Generates the shape of the terrain for the chunk though its all stone though the water is frozen if the
-     * temperature is low enough
-     */
     public void generateTerrain(int par1, int par2, byte[] par3ArrayOfByte)
     {
         byte var4 = 4;
@@ -162,11 +116,11 @@ public class ChunkProviderFantasy implements IChunkProvider
                             {
                                 if ((var47 += var49) > 0.0D)
                                 {
-                                    par3ArrayOfByte[var43 += var44] = (byte)FunMod.FantasyStone.blockID;
+                                    par3ArrayOfByte[var43 += var44] = FunMod.FantasyStone;
                                 }
                                 else if (var12 * 8 + var31 < var6)
                                 {
-                                    par3ArrayOfByte[var43 += var44] = (byte)Block.waterStill.blockID;
+                                    par3ArrayOfByte[var43 += var44] = Blocks.water;
                                 }
                                 else
                                 {
@@ -187,10 +141,6 @@ public class ChunkProviderFantasy implements IChunkProvider
             }
         }
     }
-
-    /**
-     * Replaces the stone that was placed in with blocks that match the biome
-     */
     public void replaceBlocksForBiome(int par1, int par2, byte[] par3ArrayOfByte, BiomeGenBase[] par4ArrayOfBiomeGenBase)
     {
         byte var5 = 63;
@@ -525,7 +475,7 @@ public class ChunkProviderFantasy implements IChunkProvider
 
             if (var13 < 63 || this.rand.nextInt(10) == 0)
             {
-                (new WorldGenLakes(Block.waterStill.blockID)).generate(this.worldObj, this.rand, var12, var13, var14);
+                (new WorldGenLakes(Blocks.water)).generate(this.worldObj, this.rand, var12, var13, var14);
             }
             
         }
@@ -547,7 +497,7 @@ public class ChunkProviderFantasy implements IChunkProvider
                     this.worldObj.setBlockWithNotify(var12 + var4, var14 - 1, var13 + var5, Block.ice.blockID);
                 }
 
-                if (this.worldObj.canSnowAt(var12 + var4, var14, var13 + var5))
+                if (this.worldObj.canSnowAtBody(var12 + var4, var14, var13 + var5, false))
                 {
                     this.worldObj.setBlockWithNotify(var12 + var4, var14, var13 + var5, Block.snow.blockID);
                 }
@@ -557,66 +507,53 @@ public class ChunkProviderFantasy implements IChunkProvider
         BlockSand.fallInstantly = false;
     }
 
-    /**
-     * Two modes of operation: if passed true, save all Chunks in one go.  If passed false, save up to two chunks.
-     * Return true if all chunks have been saved.
-     */
     public boolean saveChunks(boolean par1, IProgressUpdate par2IProgressUpdate)
     {
         return true;
     }
 
-    /**
-     * Unloads the 100 oldest chunks from memory, due to a bug with chunkSet.add() never being called it thinks the list
-     * is always empty and will not remove any chunks.
-     */
     public boolean unload100OldestChunks()
     {
         return false;
     }
 
-    /**
-     * Returns if the IChunkProvider supports saving.
-     */
     public boolean canSave()
     {
         return true;
     }
-
-    /**
-     * Converts the instance data to a readable string.
-     */
     public String makeString()
     {
         return "RandomLevelSource";
     }
-
-    /**
-     * Returns a list of creatures of the specified type that can spawn at the given location.
-     */
     public List getPossibleCreatures(EnumCreatureType par1EnumCreatureType, int par2, int par3, int par4)
     {
         BiomeGenBase var5 = this.worldObj.getBiomeGenForCoords(par2, par4);
         return var5 == null ? null : var5.getSpawnableList(par1EnumCreatureType);
     }
-
-    /**
-     * Returns the location of the closest structure of the specified type. If not found returns null.
-     */
-    public ChunkPosition findClosestStructure(World par1World, String par2Str, int par3, int par4, int par5)
-    {
-        return "Stronghold".equals(par2Str) && this.strongholdGenerator != null ? this.strongholdGenerator.getNearestInstance(par1World, par3, par4, par5) : null;
-    }
-
     public int getLoadedChunkCount()
     {
         return 0;
     }
-
-	
-
 	@Override
 	public void recreateStructures(int var1, int var2) {
+		
+		
+	}
+
+	@Override
+	public boolean unloadQueuedChunks() {
+		return false;
+	}
+
+	@Override
+	public ChunkPosition func_147416_a(World var1, String var2, int var3,
+			int var4, int var5) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void saveExtraData() {
 		// TODO Auto-generated method stub
 		
 	}

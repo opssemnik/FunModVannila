@@ -4,23 +4,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandHandler;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.EnumArmorMaterial;
-import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
+import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.packet.Packet23VehicleSpawn;
 import net.minecraft.potion.Potion;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.DimensionManager;
-import net.minecraftforge.common.EnumHelper;
+import net.minecraftforge.common.util.EnumHelper;
 import FunMod.biomas.BiomeGenFantasy;
 import FunMod.blocks.BlocCobble;
 import FunMod.blocks.BlockBrickBlock;
@@ -95,17 +89,13 @@ import com.google.common.collect.Maps;
 
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.Init;
+import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.Mod.PostInit;
-import cpw.mods.fml.common.Mod.PreInit;
-import cpw.mods.fml.common.Mod.ServerStarting;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
-import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -113,16 +103,12 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 @Mod(modid = "FunMod", name = "FunMod", version = "Beta 1.1.0")
-@NetworkMod(clientSideRequired = true, serverSideRequired = false)
-
-
-
 public class FunMod {
 	@SidedProxy(clientSide = "FunMod.cliente.proxy.clproxy", serverSide = "FunMod.proxy.proxy")
 	public static proxy proxy;
-	static EnumToolMaterial Link = EnumHelper.addToolMaterial("Link", 1, 250, 1, 7,14);
-	static EnumArmorMaterial MegaMan = EnumHelper.addArmorMaterial("MegaMan",30, new int[] {2, 7, 5, 3}, 15);
-	static EnumArmorMaterial Sonic = EnumHelper.addArmorMaterial("Sonic",25, new int[] {2, 7, 5, 3}, 15);
+	static ToolMaterial Link = EnumHelper.addToolMaterial("Link", 1, 250, 1, 7,14);
+	static ArmorMaterial MegaMan = EnumHelper.addArmorMaterial("MegaMan",30, new int[] {2, 7, 5, 3}, 15);
+	static ArmorMaterial Sonic = EnumHelper.addArmorMaterial("Sonic",25, new int[] {2, 7, 5, 3}, 15);
 	public static Item UpMushroom; 
 	public static Item SuperMushroom;
 	public static Item FireFlower;
@@ -179,67 +165,65 @@ public class FunMod {
     public static HashMap playerStats = new HashMap();
 	public static boolean FlyingEnabled = true;
 	@Instance("FunMod")
-	public static
-	FunMod instance;
+	public static FunMod instance;
 	
-	@PreInit
+	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
 	
-                funmodtab = new CTabFun(CreativeTabs.getNextID(), "FunMod");
+        funmodtab = new CTabFun(CreativeTabs.getNextID(), "FunMod");
 		LanguageRegistry.instance().addStringLocalization("itemGroup.FunMod", "FunMod CreativeTabs");
-		System.out.println("[FunMod] Finished FunMod Pre Init Phase Without Any Errors");
 	}	
-	@Init
+	@EventHandler
 	 public void load(FMLInitializationEvent event) 
 	 {
 		System.out.println("[FunMod] Starting FunMod Init Phase");
 		//registrando items e blocos
-		UpMushroom = new ItemUpCog(500, 4, false).setPotionEffect(Potion.heal.id , 30, 0, 1.0F).setItemName("Up Mushroom"); 	 
-		SuperMushroom = new ItemSuperCog(501, 4, false).setPotionEffect(Potion.resistance.id , 30, 0, 1.0F).setItemName("Super Mushroom"); 
-		FireFlower = (new ItemFun(5000, 5, 1).setItemName("Fire Flower").setMaxDamage(20));
-		Starman = (new ItemFun(5001, 8, 1).setItemName("Starman"));
-		LinkSword = (new LinkSword (5002, Link)).setCreativeTab(FunMod.funmodtab).setItemName("Link Sword"); 
-		ThunderSword = (new ThunderSword (5003, Link)).setCreativeTab(FunMod.funmodtab).setItemName("Thunder Sword"); 
-		ThunderBlade = (new ThunderBlade(5015).setItemName("Thunder Blade")); 
-		MarioCoin = (new ItemFun(5004, 6, 16).setItemName("Mario Coin"));
-	 	MegaManHelmet = (new MegaManHelm(5007,MegaMan, 3, 0)).setItemName("MegaMan Helmet");
-	 	MegaManChest = (new MegaManChest(5008,MegaMan, 3, 1)).setItemName("MegaMan Chest");
-	 	 MegaManPants = (new MegaManLeg (5009, MegaMan, 3,2)).setItemName("MegaMan Pants");
-	 	MegaManBoots = (new MegaManBot (5010, MegaMan , 3,3)).setItemName("MegaMan Boots");
-	 	SonicBoots = (new SonicBoots (5011, Sonic ,3,3)).setItemName("Sonic Boots");
-	 	LinkBow = (new ItemLinkBow(5012).setItemName("Link Bow").setCreativeTab(FunMod.funmodtab).setItemName("Link Bow")); 	
-	 	PearlOfLink = (new ItemFun(5016, 10, 64).setItemName("Pearl Of Link"));
-	 	Battery = (new ItemFun(5017, 7, 64).setItemName("Battery"));
-	 	ThunderDust = (new ItemThunderDust(5018).setItemName("Thunder Dust"));
-	 	ObsidianStick = (new ItemFun(5019, 19, 64).setItemName("Obsidian Stick"));
-	 	Blade = (new ItemFun(5020, 20 , 64).setItemName("Blade"));
+		UpMushroom = new ItemUpCog(500, 4, false).setPotionEffect(Potion.heal.id , 30, 0, 1.0F).setUnlocalizedName("Up Mushroom"); 	 
+		SuperMushroom = new ItemSuperCog(501, 4, false).setPotionEffect(Potion.resistance.id , 30, 0, 1.0F).setUnlocalizedName("Super Mushroom"); 
+		FireFlower = (new ItemFun(5000, 5, 1).setUnlocalizedName("Fire Flower").setMaxDamage(20));
+		Starman = (new ItemFun(5001, 8, 1).setUnlocalizedName("Starman"));
+		LinkSword = (new LinkSword (5002, Link)).setCreativeTab(FunMod.funmodtab).setUnlocalizedName("Link Sword"); 
+		ThunderSword = (new ThunderSword (5003, Link)).setCreativeTab(FunMod.funmodtab).setUnlocalizedName("Thunder Sword"); 
+		ThunderBlade = (new ThunderBlade(5015).setUnlocalizedName("Thunder Blade")); 
+		MarioCoin = (new ItemFun(5004, 6, 16).setUnlocalizedName("Mario Coin"));
+	 	MegaManHelmet = (new MegaManHelm(5007,MegaMan, 3, 0)).setUnlocalizedName("MegaMan Helmet");
+	 	MegaManChest = (new MegaManChest(5008,MegaMan, 3, 1)).setUnlocalizedName("MegaMan Chest");
+	 	 MegaManPants = (new MegaManLeg (5009, MegaMan, 3,2)).setUnlocalizedName("MegaMan Pants");
+	 	MegaManBoots = (new MegaManBot (5010, MegaMan , 3,3)).setUnlocalizedName("MegaMan Boots");
+	 	SonicBoots = (new SonicBoots (5011, Sonic ,3,3)).setUnlocalizedName("Sonic Boots");
+	 	LinkBow = (new ItemLinkBow(5012).setUnlocalizedName("Link Bow").setCreativeTab(FunMod.funmodtab).setUnlocalizedName("Link Bow")); 	
+	 	PearlOfLink = (new ItemFun(5016, 10, 64).setUnlocalizedName("Pearl Of Link"));
+	 	Battery = (new ItemFun(5017, 7, 64).setUnlocalizedName("Battery"));
+	 	ThunderDust = (new ItemThunderDust(5018).setUnlocalizedName("Thunder Dust"));
+	 	ObsidianStick = (new ItemFun(5019, 19, 64).setUnlocalizedName("Obsidian Stick"));
+	 	Blade = (new ItemFun(5020, 20 , 64).setUnlocalizedName("Blade"));
 	 	QuestionBlock = new BlockQuestionBlock(225, 0).setHardness(2F).setResistance(200F).setCreativeTab(FunMod.funmodtab).setBlockName("Question Block"); 
 	 	BrickBlock = new BlockBrickBlock(226,0, 0).setHardness(3F).setResistance(200F).setLightValue(0.2F).setCreativeTab(FunMod.funmodtab).setBlockName("Brick Block");
 	 	tv = new BlockTv(200,0, EntidadeN64.class).setResistance(.5F).setBlockName("Test").setHardness(0.5f);
 	 	sofa = new BlockSofa(255, 0, EntidadeN64.class).setResistance(.5F).setBlockName("Sofa").setHardness(0.5f);
-	 	FantasyGrass = (new FantasyGrass(210,0).setStepSound(Block.soundGrassFootstep).setHardness(0.5F).setResistance(1F).setBlockName("FantasyGrass"));
-	 	FantasyStone = (new FantasyStone(211, 0).setHardness((float) 5.0).setStepSound(Block.soundStoneFootstep).setResistance(1.0F).setBlockName("FantasyStone"));
-	 	FantasyDirt = (new FantasyDirt(212,0).setHardness(0.5F).setStepSound(Block.soundGrassFootstep).setResistance(0.5F).setBlockName("FantasyDirt"));
-	 	FantasyLeaf = (new FantasyLeaf(218, 0)).setHardness(1.0F).setRequiresSelfNotify().setStepSound(Block.soundGrassFootstep).setResistance(1.0F).setBlockName("FantasyLeaf");
-	 	FantasyLog = (new FantasyLog (217).setResistance(1.0F).setHardness(1.0F).setBlockName("forbiddenLog").setStepSound(Block.soundWoodFootstep)); 
+	 	FantasyGrass = (new FantasyGrass(210,0).setStepSound(Block.soundTypeGrass).setHardness(0.5F).setResistance(1F).setBlockName("FantasyGrass"));
+	 	FantasyStone = (new FantasyStone(211, 0).setHardness((float) 5.0).setStepSound(Block.soundTypeStone).setResistance(1.0F).setBlockName("FantasyStone"));
+	 	FantasyDirt = (new FantasyDirt(212,0).setHardness(0.5F).setStepSound(Block.soundTypeGrass).setResistance(0.5F).setBlockName("FantasyDirt"));
+	 	FantasyLeaf = (new FantasyLeaf(218, 0)).setHardness(1.0F).setRequiresSelfNotify().setStepSound(Block.soundTypeGrass).setResistance(1.0F).setBlockName("FantasyLeaf");
+	 	FantasyLog = (new FantasyLog (217).setResistance(1.0F).setHardness(1.0F).setBlockName("forbiddenLog").setStepSound(Block.soundTypeWood)); 
 	 	FantasyBiome = (new BiomeGenFantasy(65));
-	 	FantasyPortal = (new BlockFantasyPortal(216, 0).setStepSound(Block.soundWoodFootstep).setHardness(0.5F).setResistance(1F).setBlockName("FantasyPortal"));	
-	 	MysticalStone = (new MysticalStone(215,0, 0).setHardness(5.0F).setStepSound(Block.soundStoneFootstep).setResistance(1000000.0F).setBlockName("MysticalStone"));
-	 	tvcima = (new ItemTvCima(10001).setItemName("TvCima"));
-	 	nes = (new ItemFun(10005, 36, 64).setItemName("Nes"));
-	 	mesa = (new ItemFun(10004, 37, 64).setItemName("mesa"));
+	 	FantasyPortal = (new BlockFantasyPortal(216, 0).setStepSound(Block.soundTypeWood).setHardness(0.5F).setResistance(1F).setBlockName("FantasyPortal"));	
+	 	MysticalStone = (new MysticalStone(215,0, 0).setHardness(5.0F).setStepSound(Block.soundTypeStone).setResistance(1000000.0F).setBlockName("MysticalStone"));
+	 	tvcima = (new ItemTvCima(10001).setUnlocalizedName("TvCima"));
+	 	nes = (new ItemFun(10005, 36, 64).setUnlocalizedName("Nes"));
+	 	mesa = (new ItemFun(10004, 37, 64).setUnlocalizedName("mesa"));
 	 	plank = new BlockPlank(2222, 0).setHardness(2F).setResistance(200F).setCreativeTab(FunMod.funmodtab).setBlockName("Plank"); 
 	 	cobble = new BlocCobble(2223, 0).setHardness(2F).setResistance(200F).setCreativeTab(FunMod.funmodtab).setBlockName("Cobble"); 
 	 	//Item em 3d	 	
-	 	controle = (new ItemFun(3025, 35 ,1).setItemName("Controle").setCreativeTab(FunMod.funmodtab).setFull3D());
+	 	controle = (new ItemFun(3025, 35 ,1).setUnlocalizedName("Controle").setCreativeTab(FunMod.funmodtab).setFull3D());
 	 	desativada = new FantasyFurnace(2831, false).setBlockName("FantasyFurnace").setHardness(6F).setStepSound(Block.soundMetalFootstep).setCreativeTab(this.funmodtab);
 	 	ativa = new FantasyFurnace(2832, true).setBlockName("BrickFurnaceActive").setHardness(6F).setStepSound(Block.soundMetalFootstep);
-	 	coal = (new ItemFun(3024 , 46 , 64).setItemName("CoaL").setCreativeTab(this.funmodtab));
+	 	coal = (new ItemFun(3024 , 46 , 64).setUnlocalizedName("CoaL").setCreativeTab(this.funmodtab));
 	 	
 	 	
 	 	
 	 	//geracao de ore
-	 	 GameRegistry.registerWorldGenerator(new WorldGeneratorFantasy());
+	 	 GameRegistry.registerWorldGenerator(new WorldGeneratorFantasy(), 15);
 		 	//registrando blocos
 	 	GameRegistry.registerBlock(plank);
 	 	GameRegistry.registerBlock(cobble);
@@ -500,79 +484,16 @@ public class FunMod {
 	 //Dimensao
       DimensionManager.registerProviderType(10, WorldProviderFantasy.class, false);
       DimensionManager.registerDimension(10, 10);
-	 
-	
       System.out.println("[FunMod] Finished FunMod Init Phase Without Any Errors");
       new ThreadGetData();
 	 
 	 }
-	@PostInit
-	public void postInit(FMLPostInitializationEvent event)
-	{
-		System.out.println("[FunMod] PostInit Phase started.");
-		System.out.println("[FunMod] PostInit Phase completed sucefull.");
-	}
 
-	@SideOnly(Side.SERVER)
-	public void registerServerCommands()
-	{
-		ServerCommandHandler.initialize();
-	}	
-	@ServerStarting
+	@EventHandler
 	public void serverStarting(FMLServerStartingEvent event) {
 		CommandHandler commandManager = (CommandHandler)event.getServer().getCommandManager();
 		commandManager.registerCommand(new CommandFun());
 	}
-	/**
-	public static float getMoveStrafing(EntityPlayer var0)
-	    {
-	        return var0.worldObj.isRemote ? var0.moveStrafing : 0.0F;
-	    }
-
-	    public static float getMoveForward(EntityPlayer var0)
-	    {
-	        return var0.worldObj.isRemote ? var0.moveForward : 0.0F;
-	    }
-	  **/ 
-	    // sistema relacionado a packets (Nao precisa implementar IPacketHandler pois ja existe um packet pra entidades)
-	 public Entity spawnEntity(int var1, World var2, double var3, double var5, double var7)
-	    {
-	             if(var1 == 497)
-	             {
-	                     return new EntityThrowing( var2, var3, var5, var7 );
-	             }
-	             else
-	             {
-	                     return null;
-	             }
-	            
-	    }
-
-	 public Packet23VehicleSpawn getSpawnPacket(Entity var1, int var2)
-	    {
-	             if(var1 instanceof EntityThrowing)
-	             {
-	                     return new Packet23VehicleSpawn( var1, 497 );
-	             }
-	             else
-	             {
-	                     return null;
-	             }
-	    }
-	 public static boolean isSpacebarPressed(EntityPlayer var0)
-	    {
-	        return var0.worldObj.isRemote ? Minecraft.getMinecraft().gameSettings.keyBindJump.pressed : (!playerStats.containsKey(var0) ? false : ((float[])playerStats.get(var0))[5] == 1.0F);
-	    }
-
-	    public static boolean isShiftbarPressed(EntityPlayer var0)
-	    {
-	        return var0.worldObj.isRemote ? Minecraft.getMinecraft().gameSettings.keyBindSneak.pressed : (!playerStats.containsKey(var0) ? false : ((float[])playerStats.get(var0))[6] == 1.0F);
-	    }
-		public static boolean isJumping(EntityPlayer rider) {
-			
-			return rider.worldObj.isRemote ? rider.isJumping : false;
-		}
-
 	 
 	 }
 

@@ -3,6 +3,7 @@ package FunMod.dimensao;
 import java.util.Random;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.Teleporter;
 import net.minecraft.world.World;
@@ -10,21 +11,10 @@ import net.minecraft.world.WorldServer;
 import FunMod.FunMod;
 public class FantasyTeleporter extends Teleporter
 {
-
-	
-
-
-
 public FantasyTeleporter(WorldServer par1WorldServer) {
 		super(par1WorldServer);
-		// TODO Auto-generated constructor stub
 	}
-
 private Random random;
-
-
-
-
 public void placeInPortal(World world, Entity entity)
 {
 if (placeInExistingPortal(world, entity))
@@ -38,7 +28,6 @@ placeInExistingPortal(world, entity);
 return;
 }
 }
-
 public boolean placeInExistingPortal(World world, Entity entity)
 {
 char c = '\200';
@@ -50,19 +39,14 @@ int l = MathHelper.floor_double(entity.posX);
 int i1 = MathHelper.floor_double(entity.posZ);
 for (int j1 = l - c; j1 <= l + c; j1++)
 {
-double d1 = ((double)j1 + 0.5D) - entity.posX;
 for (int j2 = i1 - c; j2 <= i1 + c; j2++)
 {
-double d3 = ((double)j2 + 0.5D) - entity.posZ;
 for (int k2 = 128 - 1; k2 >= 0; k2--)
 {
 
 {
 continue;
 }
-
-
-
 }
 }
 }
@@ -130,7 +114,7 @@ for (int l11 = -1; l11 < 4; l11++)
 int j12 = i2 + (k10 - 1) * l6 + j9 * i8;
 int l12 = k4 + l11;
 int j13 = (j3 + (k10 - 1) * i8) - j9 * l6;
-if (l11 < 0 && !world.getBlockMaterial(j12, l12, j13).isSolid() || l11 >= 0 && !world.isAirBlock(j12, l12, j13))
+if (l11 >= 0 && !world.isAirBlock(j12, l12, j13))
 {
 break label0;
 }
@@ -180,7 +164,7 @@ for (int l10 = -1; l10 < 4; l10++)
 int i12 = j2 + (k9 - 1) * i7;
 int k12 = l4 + l10;
 int i13 = k3 + (k9 - 1) * j8;
-if (l10 < 0 && !world.getBlockMaterial(i12, k12, i13).isSolid() || l10 >= 0 && !world.isAirBlock(i12, k12, i13))
+if (l10 >= 0 && !world.isAirBlock(i12, k12, i13))
 {
 break label1;
 }
@@ -230,36 +214,22 @@ for (int i6 = 1; i6 < 3; i6++)
 {
 for (int j7 = -1; j7 < 3; j7++)
 {
-int k8 = l2 + (i6 - 1) * i4 + i5 * j4;
-int l9 = i3 + j7;
-int i11 = (l3 + (i6 - 1) * j4) - i5 * i4;
-boolean flag = j7 < 0;
-
 }
 }
 }
 }
 for (int j5 = 0; j5 < 4; j5++)
 {
-world.editingBlocks = true;
-//You can add your own portal's generation here (and delete all the code up to
-//"world.editingBlocks = false"). This particular portal is like a Nether portal, but with
-//sandstone instead of obsidian, and obviously the Taiga portal block instead of the Nether
-//one.
 for (int j6 = 0; j6 < 4; j6++)
 {
 for (int k7 = -1; k7 < 4; k7++)
 {
-int l8 = l2 + (j6 - 1) * i4;
-int i10 = i3 + k7;
-int j11 = l3 + (j6 - 1) * j4;
 int j20 = 0;
 boolean flag1 = j6 == 0 || j6 == 3 || k7 == -1 || k7 == 3;
-world.setBlockWithNotify(j20, j20, j20, flag1 ? FunMod.tv.blockID : 0);
+world.setBlock(j20, j20, j20, flag1 ? FunMod.tv : Blocks.air);
 }
 }
 
-world.editingBlocks = false;
 for (int k6 = 0; k6 < 4; k6++)
 {
 for (int l7 = -1; l7 < 4; l7++)
@@ -267,7 +237,7 @@ for (int l7 = -1; l7 < 4; l7++)
 int i9 = l2 + (k6 - 1) * i4;
 int j10 = i3 + l7;
 int k11 = l3 + (k6 - 1) * j4;
-world.notifyBlocksOfNeighborChange(i9, j10, k11, world.getBlockId(i9, j10, k11));
+world.notifyBlocksOfNeighborChange(i9, j10, k11, world.getBlock(i9, j10, k11));
 }
 }
 }

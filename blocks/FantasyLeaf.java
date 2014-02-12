@@ -1,11 +1,14 @@
 package FunMod.blocks;
 import java.util.Random;
 
+import cpw.mods.fml.common.registry.GameData;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeavesBase;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
@@ -14,40 +17,15 @@ import FunMod.FunMod;
 
 public class FantasyLeaf extends BlockLeavesBase
 {
-
-    private int baseIndexInPNG;
     int adjacentTreeBlocks[];
-
-    
-    
-    
     public FantasyLeaf(int i, int j)
     {
-        super(i, j, Material.leaves, false);
-        //baseIndexInPNG = j;   - Not needed
+        super(Material.leaves, false);
         setTickRandomly(true);
-        this.blockIndexInTexture = 31;
         this.setCreativeTab(FunMod.funmodtab);
     }
     
-   
-    /*public int getRenderColor(int i)
-    {
-        if((i & 1) == 1)
-        {
-            return ColorizerFoliage.getFoliageColorPine();
-        }
-        if((i & 2) == 2)
-        {
-            return ColorizerFoliage.getFoliageColorBirch();
-        } else
-        {
-            return ColorizerFoliage.getFoliageColorBasic();
-        }
-    }      *************Unnecessary Method */
-
-   
-    public void onBlockRemoval(World world, int i, int j, int k)
+      public void onBlockRemoval(World world, int i, int j, int k)
     {
         int l = 1;
         int i1 = l + 1;
@@ -59,11 +37,11 @@ public class FantasyLeaf extends BlockLeavesBase
                 {
                     for(int l1 = -l; l1 <= l; l1++)
                     {
-                        int i2 = world.getBlockId(i + j1, j + k1, k + l1);
-                        if(i2 == Block.sapling.blockID)              ///////Leaf/////////////
+                        Block i2 = world.getBlock(i + j1, j + k1, k + l1);
+                        if(i2 == Blocks.sapling)          
                         {
                             int j2 = world.getBlockMetadata(i + j1, j + k1, k + l1);
-                            world.setBlockMetadata(i + j1, j + k1, k + l1, j2 | 8);
+                            world.setBlock(i + j1, j + k1, k + l1,i2, j2 | 8,0);
                         }
                     }
 
@@ -73,7 +51,6 @@ public class FantasyLeaf extends BlockLeavesBase
 
         }
     }
-
     public boolean renderAsNormalBlock()
     {
     	return false;
@@ -109,13 +86,13 @@ public class FantasyLeaf extends BlockLeavesBase
                     {
                         for(int i3 = -byte0; i3 <= byte0; i3++)
                         {
-                            int k3 = world.getBlockId(i + l1, j + k2, k + i3);
-                            if(k3 ==FunMod.FantasyLog.blockID)            ///////Log//////////////
+                            Block k3 = world.getBlock(i + l1, j + k2, k + i3);
+                            if(k3 ==FunMod.FantasyLog)
                             {
                                 adjacentTreeBlocks[(l1 + k1) * j1 + (k2 + k1) * byte1 + (i3 + k1)] = 0;
                                 continue;
                             }
-                            if(k3 ==FunMod.FantasyLeaf.blockID)               ///////Leaf///////////
+                            if(k3 ==FunMod.FantasyLeaf)          
                             {
                                 adjacentTreeBlocks[(l1 + k1) * j1 + (k2 + k1) * byte1 + (i3 + k1)] = -2;
                             } else
@@ -176,7 +153,7 @@ public class FantasyLeaf extends BlockLeavesBase
             int j2 = adjacentTreeBlocks[k1 * j1 + k1 * byte1 + k1];
             if(j2 >= 0)
             {
-                world.setBlockMetadata(i, j, k, l & -9);
+                world.setBlock(i, j, k,GameData.blockRegistry.get(l & -9),0,0);
             } else
             {
                 removeLeaves(world, i, j, k);
@@ -187,64 +164,32 @@ public class FantasyLeaf extends BlockLeavesBase
     private void removeLeaves(World world, int i, int j, int k)
     {
         dropBlockAsItem(world, i, j, k, world.getBlockMetadata(i, j, k), 0);
-        world.setBlockWithNotify(i, j, k, 0);
+        world.setBlockToAir(i, j, k);
     }
 
     public int quantityDropped(Random random)
     {
         return random.nextInt(20) != 0 ? 0 : 1;
     }
-
-    public int idDropped(int i, Random random, int j)
+@Override
+    public Item getItemDropped(int i, Random random, int j)
     {
-        return Block.sapling.blockID;
+        return Blocks.sapling.getItemDropped(i, random, j);
     }
-
-   
-
     public void harvestBlock(World world, EntityPlayer entityplayer, int i, int j, int k, int l)
     {
-        if (!world.isRemote && entityplayer.getCurrentEquippedItem() != null && entityplayer.getCurrentEquippedItem().itemID == Item.shears.itemID)
+        if (!world.isRemote && entityplayer.getCurrentEquippedItem() != null && entityplayer.getCurrentEquippedItem().getItem() == Items.shears)
         {
-            entityplayer.addStat(StatList.mineBlockStatArray[blockID], 1);
-            dropBlockAsItem_do(world, i, j, k, new ItemStack(Block.leaves.blockID, 1, l & 3));
+            entityplayer.addStat(StatList.mineBlockStatArray[GameData.blockRegistry.getId(this)], 1);
+            dropBlockAsItem(world, i, j, k, new ItemStack(Blocks.leaves, 1, l & 3));
         }
         else
         {
             super.harvestBlock(world, entityplayer, i, j, k, l);
         }
     }
-
     public int damageDropped(int i)
     {
         return i & 3;
-    }
-
-    
-
-    public int getBlockTextureFromSideAndMetadata(int i, int j)
-    {
-        if((j & 3) == 1)
-        {
-            return blockIndexInTexture;          //get rid of the 80///////////
-        } else
-        {
-            return blockIndexInTexture;          
-        }
-    }
-
-    public void setGraphicsLevel(boolean flag)
-    {
-        graphicsLevel = flag;
-        /////////////////blockIndexInTexture = baseIndexInPNG + (flag ? 0 : 1);  - Not needed, comment out
-    }
-
-    public void onEntityWalking(World world, int i, int j, int k, Entity entity)
-    {
-        super.onEntityWalking(world, i, j, k, entity);
-    }
-   public String getTextureFile(){
-	   return "/FunMod/cliente/texturas/texturas.png";
-   }
-    
+    }  
 }

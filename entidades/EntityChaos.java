@@ -13,12 +13,12 @@ public class EntityChaos extends EntityMobFun
     public EntityChaos(World par1World)
     {
         super(par1World);
-        texture = "/FunMod/cliente/texturas/Mobs/Chaos.png"; 
+     //   texture = "/FunMod/cliente/texturas/Mobs/Chaos.png"; 
         setSize(1F*1F, 2F*2F);   
-        this.moveSpeed = 0.5F;
+     //   this. = 0.5F;
         this.attackStrength = 6;  
         this.tasks.addTask(1, new EntityAIAttackOnCollide(this, EntityPlayer.class, this.moveSpeed, false));
-        this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 16.0F, 0, true));
+        this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
     }
 
     public boolean isAIEnabled()
