@@ -9,23 +9,19 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import FunMod.FunMod;
-
-/** ticks until heightOffset is randomized */
-
-
 public class EntityPikachu extends EntityMob
 {
-	private int heightOffsetUpdateTime;
 	private int field_70846_g;
 	
     public EntityPikachu(World par1World)
     {
         super(par1World);
-        texture = "/FunMod/cliente/texturas/Mobs/ModelPikachuHD.png"; 
+       // texture = "/FunMod/cliente/texturas/Mobs/ModelPikachuHD.png"; 
         this.setSize(0.4F, 0.8F);     
         tasks.addTask(0, new EntityAISwimming(this));
         tasks.addTask(1, new EntityAIPanic(this, 0.15F));
@@ -39,10 +35,10 @@ public class EntityPikachu extends EntityMob
         return true; 
     }
 
-    public int getMaxHealth()
-    {
-        return 30; 
-    }
+   // public int getMaxHealth()
+   // {
+   //     return 30; 
+   // }
 
     protected void attackEntity(Entity par1Entity, float par2)
     {
@@ -134,17 +130,11 @@ public class EntityPikachu extends EntityMob
         return "mob.silverfish.say";
     }
 
-    /**
-     * Returns the sound this mob makes when it is hurt.
-     */
     protected String getHurtSound()
     {
         return "mob.silverfish.hit";
     }
 
-    /**
-     * Returns the sound this mob makes on death.
-     */
     protected String getDeathSound()
     {
         return "mob.silverfish.kill";
@@ -155,9 +145,9 @@ public class EntityPikachu extends EntityMob
     }
 
  
-    protected int getDropItemId()
+    protected Item getDropItem()
     {
-        return FunMod.ThunderDust.itemID; 
+        return FunMod.ThunderDust; 
     }
 
     public EntityAnimal spawnBabyAnimal(EntityAnimal par1EntityAnimal)

@@ -11,7 +11,6 @@ public class WorldGenFantasy extends WorldGenerator
 {
     private final  int field_48202_a;
     private final boolean field_48200_b;
-    private final  int field_48201_c;
     private final  int field_48199_d;
 
     public WorldGenFantasy(boolean par1)
@@ -23,7 +22,6 @@ public class WorldGenFantasy extends WorldGenerator
     {
         super(par1);
         field_48202_a = par2;
-        field_48201_c = par3;
         field_48199_d = par4;
         field_48200_b = par5;
     }

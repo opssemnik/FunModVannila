@@ -1,6 +1,5 @@
 package FunMod.entidades;
 
-import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -19,10 +18,10 @@ public class EntityBlinky extends EntityMobFun
         
     }
    
-    public float getMaxHealth()
-    {
-        return 20f;
-    }
+ //   public float getMaxHealth()
+   // {
+     //   return 20f;
+    //}
 
      protected boolean isAIEnabled()
     {

@@ -1,9 +1,9 @@
 package FunMod.entidades;
 
-import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
@@ -17,7 +17,7 @@ public class EntityChaos extends EntityMobFun
         setSize(1F*1F, 2F*2F);   
      //   this. = 0.5F;
         this.attackStrength = 6;  
-        this.tasks.addTask(1, new EntityAIAttackOnCollide(this, EntityPlayer.class, this.moveSpeed, false));
+     //   this.tasks.addTask(1, new EntityAIAttackOnCollide(this, EntityPlayer.class, this.moveSpeed, false));
         this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
     }
 
@@ -26,10 +26,10 @@ public class EntityChaos extends EntityMobFun
         return true; 
     }
 
-    public int getMaxHealth()
-    {
-        return 30; 
-    }
+   // public int getMaxHealth()
+   // {
+  //      return 30; 
+   // }
 
     public void writeEntityToNBT(NBTTagCompound par1NBTTagCompound)
     {
@@ -70,9 +70,9 @@ public class EntityChaos extends EntityMobFun
     }
 
  
-    protected int getDropItemId()
+    protected Item getDropItem()
     {
-        return Item.swordSteel.itemID; 
+        return Items.stone_sword; 
     }
 
    

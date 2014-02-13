@@ -8,8 +8,8 @@ import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 public class EntityNess extends EntityAnimal 
 {
@@ -21,7 +21,7 @@ public class EntityNess extends EntityAnimal
     {
         super(par1World);
         setSize(1F*1F, 1.0F*1.0F);  
-        texture = "/FunMod/cliente/texturas/Mobs/NessTexture.png"; 
+        //texture = "/FunMod/cliente/texturas/Mobs/NessTexture.png"; 
         tasks.addTask(1, new EntityAIPanic(this, 0.38F));
         tasks.addTask(2, new EntityAIMate(this, 0.2F));
         tasks.addTask(5, new EntityAIWander(this, 0.2F));
@@ -34,20 +34,10 @@ public class EntityNess extends EntityAnimal
         return true; 
     }
 
-    public int getMaxHealth()
-    {
-        return 30; 
-    }
-
-    public void writeEntityToNBT(NBTTagCompound par1NBTTagCompound)
-    {
-        super.writeEntityToNBT(par1NBTTagCompound); 
-    }
-
-    public void readEntityFromNBT(NBTTagCompound par1NBTTagCompound)
-    {
-        super.readEntityFromNBT(par1NBTTagCompound);
-    }
+   // public int getMaxHealth()
+   // {
+   //     return 30; 
+   // }
 
     protected String getLivingSound()
     {
@@ -73,9 +63,9 @@ public class EntityNess extends EntityAnimal
     }
 
  
-    protected int getDropItemId()
+    protected Item getDropItem()
     {
-        return Item.appleRed.itemID; 
+        return Items.apple; 
     }
 
     public EntityAnimal spawnBabyAnimal(EntityAnimal par1EntityAnimal)
@@ -85,7 +75,6 @@ public class EntityNess extends EntityAnimal
 
 	@Override
 	public EntityAgeable createChild(EntityAgeable var1) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
