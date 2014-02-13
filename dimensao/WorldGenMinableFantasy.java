@@ -2,7 +2,6 @@ package FunMod.dimensao;
 
 import java.util.Random;
 
-import cpw.mods.fml.common.registry.GameData;
 import net.minecraft.block.Block;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -10,16 +9,11 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import FunMod.FunMod;
 
 public class WorldGenMinableFantasy extends WorldGenerator {
-
 	private Block minableBlockId;
-
 	private int metadata;
-
 	private int numberOfBlocks;
-
-	public WorldGenMinableFantasy(int par1, int par3) {
-		minableBlockId = GameData.blockRegistry.getObjectById(par1);
-
+	public WorldGenMinableFantasy(Block par1, int par3) {
+		minableBlockId = par1;
 		numberOfBlocks = par3;
 	}
 

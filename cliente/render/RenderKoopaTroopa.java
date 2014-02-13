@@ -3,6 +3,7 @@ package FunMod.cliente.render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.util.ResourceLocation;
 import FunMod.cliente.model.ModelKoopa;
 import FunMod.entidades.EntityKoopaTroopa;
 
@@ -27,4 +28,10 @@ public class RenderKoopaTroopa extends RenderLiving
     {
         renderKoopaTroopa((EntityKoopaTroopa)par1Entity, par2, par4, par6, par8, par9);
     }
+
+	@Override
+	protected ResourceLocation getEntityTexture(Entity var1) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 } 

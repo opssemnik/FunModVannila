@@ -1508,8 +1508,8 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 5, j + 0, k + 1,GameData.blockRegistry.getObjectById(2));
 		world.setBlock(i + 5, j + 0, k + 2,GameData.blockRegistry.getObjectById(2));
 		world.setBlock(i + 5, j + 0, k + 3, GameData.blockRegistry.getObjectById(3));
-		world.setBlock(i + 5, j + 0, k + 4, 3);
-		world.setBlock(i + 5, j + 0, k + 5, 3);
+		world.setBlock(i + 5, j + 0, k + 4, GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 5, j + 0, k + 5, GameData.blockRegistry.getObjectById(3));
 		world.setBlock(i + 5, j + 0, k + 6, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 5, j + 0, k + 7, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 5, j + 0, k + 8, GameData.blockRegistry.getObjectById(35), 4, 0);
@@ -1521,10 +1521,10 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 5, j + 0, k + 14, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 5, j + 0, k + 15, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 5, j + 0, k + 16, GameData.blockRegistry.getObjectById(35), 4, 0);
-		world.setBlock(i + 5, j + 0, k + 17, 3);
-		world.setBlock(i + 5, j + 0, k + 18, 3);
-		world.setBlock(i + 5, j + 0, k + 19GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 5, j + 0, k + 20GameData.blockRegistry.getObjectById(2)
+		world.setBlock(i + 5, j + 0, k + 17, GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 5, j + 0, k + 18, GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 5, j + 0, k + 19,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 5, j + 0, k + 20,GameData.blockRegistry.getObjectById(2));
 		world.setBlock(i + 5, j + 1, k + 0, Blocks.air);
 		world.setBlock(i + 5, j + 1, k + 1, Blocks.air);
 		world.setBlock(i + 5, j + 1, k + 2, Blocks.air);
@@ -1533,8 +1533,8 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 5, j + 1, k + 5, GameData.blockRegistry.getObjectById(35), 14, 0);
 		world.setBlock(i + 5, j + 1, k + 6, Blocks.air);
 		world.setBlock(i + 5, j + 1, k + 7, Blocks.air);
-		world.setBlock(i + 5, j + 1, k + 8, 85);
-		world.setBlock(i + 5, j + 1, k + 9, 85);
+		world.setBlock(i + 5, j + 1, k + 8, GameData.blockRegistry.getObjectById(85));
+		world.setBlock(i + 5, j + 1, k + 9, GameData.blockRegistry.getObjectById(85));
 		world.setBlock(i + 5, j + 1, k + 11, Blocks.air);
 		world.setBlock(i + 5, j + 1, k + 12, Blocks.air);
 		world.setBlock(i + 5, j + 1, k + 13, Blocks.air);
@@ -1669,7 +1669,7 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 5, j + 7, k + 14, Blocks.air);
 		world.setBlock(i + 5, j + 7, k + 15, Blocks.air);
 		world.setBlock(i + 5, j + 7, k + 16, GameData.blockRegistry.getObjectById(35), 14, 0);
-		world.setBlock(i + 5, j + 7, k + 17, 54GameData.blockRegistry.getObjectById(2)
+		world.setBlock(i + 5, j + 7, k + 17, GameData.blockRegistry.getObjectById(54),2,0);
 		world.setBlock(i + 5, j + 7, k + 18, GameData.blockRegistry.getObjectById(102));
 		world.setBlock(i + 5, j + 7, k + 19, Blocks.air);
 		world.setBlock(i + 5, j + 7, k + 20, Blocks.air);
@@ -1799,12 +1799,12 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 5, j + 13, k + 18, Blocks.air);
 		world.setBlock(i + 5, j + 13, k + 19, Blocks.air);
 		world.setBlock(i + 5, j + 13, k + 20, Blocks.air);
-		world.setBlock(i + 6, j + 0, k + 0GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 6, j + 0, k + 1GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 6, j + 0, k + 2GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 6, j + 0, k + 3, 3);
-		world.setBlock(i + 6, j + 0, k + 4, 3);
-		world.setBlock(i + 6, j + 0, k + 5, 3);
+		world.setBlock(i + 6, j + 0, k + 0,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 6, j + 0, k + 1,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 6, j + 0, k + 2,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 6, j + 0, k + 3, GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 6, j + 0, k + 4,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 6, j + 0, k + 5,GameData.blockRegistry.getObjectById(3));
 		world.setBlock(i + 6, j + 0, k + 6, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 6, j + 0, k + 7, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 6, j + 0, k + 8, GameData.blockRegistry.getObjectById(35), 4, 0);
@@ -1816,10 +1816,10 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 6, j + 0, k + 14, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 6, j + 0, k + 15, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 6, j + 0, k + 16, GameData.blockRegistry.getObjectById(35), 4, 0);
-		world.setBlock(i + 6, j + 0, k + 17, 3);
-		world.setBlock(i + 6, j + 0, k + 18, 3);
-		world.setBlock(i + 6, j + 0, k + 19GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 6, j + 0, k + 20GameData.blockRegistry.getObjectById(2)
+		world.setBlock(i + 6, j + 0, k + 17, GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 6, j + 0, k + 18, GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 6, j + 0, k + 19,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 6, j + 0, k + 20,GameData.blockRegistry.getObjectById(2));
 		world.setBlock(i + 6, j + 1, k + 0, Blocks.air);
 		world.setBlock(i + 6, j + 1, k + 1, Blocks.air);
 		world.setBlock(i + 6, j + 1, k + 2, Blocks.air);
@@ -2090,12 +2090,12 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 6, j + 13, k + 18, Blocks.air);
 		world.setBlock(i + 6, j + 13, k + 19, Blocks.air);
 		world.setBlock(i + 6, j + 13, k + 20, Blocks.air);
-		world.setBlock(i + 7, j + 0, k + 0GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 7, j + 0, k + 1GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 7, j + 0, k + 2GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 7, j + 0, k + 3, 3);
-		world.setBlock(i + 7, j + 0, k + 4, 3);
-		world.setBlock(i + 7, j + 0, k + 5, 3);
+		world.setBlock(i + 7, j + 0, k + 0,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 7, j + 0, k + 1,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 7, j + 0, k + 2,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 7, j + 0, k + 3,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 7, j + 0, k + 4,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 7, j + 0, k + 5,GameData.blockRegistry.getObjectById(3));
 		world.setBlock(i + 7, j + 0, k + 6, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 7, j + 0, k + 7, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 7, j + 0, k + 8, GameData.blockRegistry.getObjectById(35), 4, 0);
@@ -2107,10 +2107,10 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 7, j + 0, k + 14, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 7, j + 0, k + 15, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 7, j + 0, k + 16, GameData.blockRegistry.getObjectById(35), 4, 0);
-		world.setBlock(i + 7, j + 0, k + 17, 3);
-		world.setBlock(i + 7, j + 0, k + 18, 3);
-		world.setBlock(i + 7, j + 0, k + 19GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 7, j + 0, k + 20GameData.blockRegistry.getObjectById(2)
+		world.setBlock(i + 7, j + 0, k + 17,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 7, j + 0, k + 18,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 7, j + 0, k + 19,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 7, j + 0, k + 20,GameData.blockRegistry.getObjectById(2));
 		world.setBlock(i + 7, j + 1, k + 0, Blocks.air);
 		world.setBlock(i + 7, j + 1, k + 1, Blocks.air);
 		world.setBlock(i + 7, j + 1, k + 2, Blocks.air);
@@ -2239,7 +2239,7 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 7, j + 7, k + 2, GameData.blockRegistry.getObjectById(35));
 		world.setBlock(i + 7, j + 7, k + 3, GameData.blockRegistry.getObjectById(35));
 		world.setBlock(i + 7, j + 7, k + 4, Blocks.air);
-		world.setBlock(i + 7, j + 7, k + 5, 114, 3);
+		world.setBlock(i + 7, j + 7, k + 5, GameData.blockRegistry.getObjectById(114), 3,0);
 		world.setBlock(i + 7, j + 7, k + 6, Blocks.air);
 		world.setBlock(i + 7, j + 7, k + 7, Blocks.air);
 		world.setBlock(i + 7, j + 7, k + 8, Blocks.air);
@@ -2380,12 +2380,12 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 7, j + 13, k + 18, Blocks.air);
 		world.setBlock(i + 7, j + 13, k + 19, Blocks.air);
 		world.setBlock(i + 7, j + 13, k + 20, Blocks.air);
-		world.setBlock(i + 8, j + 0, k + 0GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 8, j + 0, k + 1GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 8, j + 0, k + 2, 3);
-		world.setBlock(i + 8, j + 0, k + 3, 3);
-		world.setBlock(i + 8, j + 0, k + 4, 3);
-		world.setBlock(i + 8, j + 0, k + 5, 3);
+		world.setBlock(i + 8, j + 0, k + 0,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 8, j + 0, k + 1,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 8, j + 0, k + 2,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 8, j + 0, k + 3,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 8, j + 0, k + 4,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 8, j + 0, k + 5,GameData.blockRegistry.getObjectById(3));
 		world.setBlock(i + 8, j + 0, k + 6, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 8, j + 0, k + 7, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 8, j + 0, k + 8, GameData.blockRegistry.getObjectById(35), 4, 0);
@@ -2397,15 +2397,15 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 8, j + 0, k + 14, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 8, j + 0, k + 15, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 8, j + 0, k + 16, GameData.blockRegistry.getObjectById(35), 4, 0);
-		world.setBlock(i + 8, j + 0, k + 17, 3);
-		world.setBlock(i + 8, j + 0, k + 18, 3);
-		world.setBlock(i + 8, j + 0, k + 19GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 8, j + 0, k + 20GameData.blockRegistry.getObjectById(2)
+		world.setBlock(i + 8, j + 0, k + 17,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 8, j + 0, k + 18,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 8, j + 0, k + 19,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 8, j + 0, k + 20,GameData.blockRegistry.getObjectById(2));
 		world.setBlock(i + 8, j + 1, k + 0, Blocks.air);
 		world.setBlock(i + 8, j + 1, k + 1, Blocks.air);
-		world.setBlock(i + 8, j + 1, k + 2, GameData.blockRegistry.getObjectById(35), 8);
-		world.setBlock(i + 8, j + 1, k + 3, GameData.blockRegistry.getObjectById(35), 8);
-		world.setBlock(i + 8, j + 1, k + 4, GameData.blockRegistry.getObjectById(35), 8);
+		world.setBlock(i + 8, j + 1, k + 2, GameData.blockRegistry.getObjectById(35), 8,0);
+		world.setBlock(i + 8, j + 1, k + 3, GameData.blockRegistry.getObjectById(35), 8,0);
+		world.setBlock(i + 8, j + 1, k + 4, GameData.blockRegistry.getObjectById(35), 8,0);
 		world.setBlock(i + 8, j + 1, k + 5, GameData.blockRegistry.getObjectById(35), 14, 0);
 		world.setBlock(i + 8, j + 1, k + 6, Blocks.air);
 		world.setBlock(i + 8, j + 1, k + 7, Blocks.air);
@@ -2424,8 +2424,8 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 8, j + 2, k + 0, Blocks.air);
 		world.setBlock(i + 8, j + 2, k + 1, Blocks.air);
 		world.setBlock(i + 8, j + 2, k + 2, Blocks.air);
-		world.setBlock(i + 8, j + 2, k + 3, GameData.blockRegistry.getObjectById(35), 8);
-		world.setBlock(i + 8, j + 2, k + 4, GameData.blockRegistry.getObjectById(35), 8);
+		world.setBlock(i + 8, j + 2, k + 3, GameData.blockRegistry.getObjectById(35), 8,0);
+		world.setBlock(i + 8, j + 2, k + 4, GameData.blockRegistry.getObjectById(35), 8,0);
 		world.setBlock(i + 8, j + 2, k + 5, GameData.blockRegistry.getObjectById(35), 14, 0);
 		world.setBlock(i + 8, j + 2, k + 6, Blocks.air);
 		world.setBlock(i + 8, j + 2, k + 7, Blocks.air);
@@ -2445,8 +2445,8 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 8, j + 3, k + 0, Blocks.air);
 		world.setBlock(i + 8, j + 3, k + 1, Blocks.air);
 		world.setBlock(i + 8, j + 3, k + 2, Blocks.air);
-		world.setBlock(i + 8, j + 3, k + 3, GameData.blockRegistry.getObjectById(35), 8);
-		world.setBlock(i + 8, j + 3, k + 4, GameData.blockRegistry.getObjectById(35), 8);
+		world.setBlock(i + 8, j + 3, k + 3, GameData.blockRegistry.getObjectById(35), 8,0);
+		world.setBlock(i + 8, j + 3, k + 4, GameData.blockRegistry.getObjectById(35), 8,0);
 		world.setBlock(i + 8, j + 3, k + 5, GameData.blockRegistry.getObjectById(35), 14, 0);
 		world.setBlock(i + 8, j + 3, k + 7, Blocks.air);
 		world.setBlock(i + 8, j + 3, k + 8, Blocks.air);
@@ -2464,8 +2464,8 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 8, j + 4, k + 0, Blocks.air);
 		world.setBlock(i + 8, j + 4, k + 1, Blocks.air);
 		world.setBlock(i + 8, j + 4, k + 2, Blocks.air);
-		world.setBlock(i + 8, j + 4, k + 3, GameData.blockRegistry.getObjectById(35), 8);
-		world.setBlock(i + 8, j + 4, k + 4, GameData.blockRegistry.getObjectById(35), 8);
+		world.setBlock(i + 8, j + 4, k + 3, GameData.blockRegistry.getObjectById(35), 8,0);
+		world.setBlock(i + 8, j + 4, k + 4, GameData.blockRegistry.getObjectById(35), 8,0);
 		world.setBlock(i + 8, j + 4, k + 5, GameData.blockRegistry.getObjectById(35), 14, 0);
 		world.setBlock(i + 8, j + 4, k + 6, Blocks.air);
 		world.setBlock(i + 8, j + 4, k + 7, Blocks.air);
@@ -2485,7 +2485,7 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 8, j + 5, k + 0, Blocks.air);
 		world.setBlock(i + 8, j + 5, k + 1, Blocks.air);
 		world.setBlock(i + 8, j + 5, k + 2, Blocks.air);
-		world.setBlock(i + 8, j + 5, k + 3, GameData.blockRegistry.getObjectById(35), 8);
+		world.setBlock(i + 8, j + 5, k + 3, GameData.blockRegistry.getObjectById(35), 8,0);
 		world.setBlock(i + 8, j + 5, k + 4, GameData.blockRegistry.getObjectById(35));
 		world.setBlock(i + 8, j + 5, k + 5, GameData.blockRegistry.getObjectById(35), 14, 0);
 		world.setBlock(i + 8, j + 5, k + 6, GameData.blockRegistry.getObjectById(35));
@@ -2671,8 +2671,8 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 8, j + 13, k + 18, Blocks.air);
 		world.setBlock(i + 8, j + 13, k + 19, Blocks.air);
 		world.setBlock(i + 8, j + 13, k + 20, Blocks.air);
-		world.setBlock(i + 9, j + 0, k + 0GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 9, j + 0, k + 1GameData.blockRegistry.getObjectById(2)
+		world.setBlock(i + 9, j + 0, k + 0,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 9, j + 0, k + 1,GameData.blockRegistry.getObjectById(2));
 		world.setBlock(i + 9, j + 0, k + 2, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 9, j + 0, k + 3, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 9, j + 0, k + 4, GameData.blockRegistry.getObjectById(35), 4, 0);
@@ -2688,10 +2688,10 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 9, j + 0, k + 14, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 9, j + 0, k + 15, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 9, j + 0, k + 16, GameData.blockRegistry.getObjectById(35), 4, 0);
-		world.setBlock(i + 9, j + 0, k + 17, 3);
-		world.setBlock(i + 9, j + 0, k + 18, 3);
-		world.setBlock(i + 9, j + 0, k + 19GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 9, j + 0, k + 20GameData.blockRegistry.getObjectById(2)
+		world.setBlock(i + 9, j + 0, k + 17,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 9, j + 0, k + 18,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 9, j + 0, k + 19,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 9, j + 0, k + 20,GameData.blockRegistry.getObjectById(2));
 		world.setBlock(i + 9, j + 1, k + 0, Blocks.air);
 		world.setBlock(i + 9, j + 1, k + 1, Blocks.air);
 		world.setBlock(i + 9, j + 1, k + 2, Blocks.air);
@@ -2744,7 +2744,7 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 9, j + 3, k + 7, Blocks.air);
 		world.setBlock(i + 9, j + 3, k + 8, Blocks.air);
 		world.setBlock(i + 9, j + 3, k + 9, Blocks.air);
-		world.setBlock(i + 9, j + 3, k + 10, 89);
+		world.setBlock(i + 9, j + 3, k + 10, GameData.blockRegistry.getObjectById(89));
 		world.setBlock(i + 9, j + 3, k + 11, Blocks.air);
 		world.setBlock(i + 9, j + 3, k + 12, Blocks.air);
 		world.setBlock(i + 9, j + 3, k + 13, Blocks.air);
@@ -2764,7 +2764,7 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 9, j + 4, k + 7, Blocks.air);
 		world.setBlock(i + 9, j + 4, k + 8, Blocks.air);
 		world.setBlock(i + 9, j + 4, k + 9, Blocks.air);
-		world.setBlock(i + 9, j + 4, k + 10, 85);
+		world.setBlock(i + 9, j + 4, k + 10, GameData.blockRegistry.getObjectById(85));
 		world.setBlock(i + 9, j + 4, k + 11, Blocks.air);
 		world.setBlock(i + 9, j + 4, k + 12, Blocks.air);
 		world.setBlock(i + 9, j + 4, k + 13, Blocks.air);
@@ -2778,8 +2778,8 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 9, j + 5, k + 0, Blocks.air);
 		world.setBlock(i + 9, j + 5, k + 1, Blocks.air);
 		world.setBlock(i + 9, j + 5, k + 2, Blocks.air);
-		world.setBlock(i + 9, j + 5, k + 3, GameData.blockRegistry.getObjectById(35), 8);
-		world.setBlock(i + 9, j + 5, k + 4, GameData.blockRegistry.getObjectById(35), 8);
+		world.setBlock(i + 9, j + 5, k + 3, GameData.blockRegistry.getObjectById(35), 8,0);
+		world.setBlock(i + 9, j + 5, k + 4, GameData.blockRegistry.getObjectById(35), 8,0);
 		world.setBlock(i + 9, j + 5, k + 5, GameData.blockRegistry.getObjectById(35), 14, 0);
 		world.setBlock(i + 9, j + 5, k + 6, GameData.blockRegistry.getObjectById(35));
 		world.setBlock(i + 9, j + 5, k + 7, GameData.blockRegistry.getObjectById(35));
@@ -2822,7 +2822,7 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 9, j + 7, k + 2, GameData.blockRegistry.getObjectById(35), 14, 0);
 		world.setBlock(i + 9, j + 7, k + 3, GameData.blockRegistry.getObjectById(35));
 		world.setBlock(i + 9, j + 7, k + 4, Blocks.air);
-		world.setBlock(i + 9, j + 7, k + 5, 114, 3);
+		world.setBlock(i + 9, j + 7, k + 5, GameData.blockRegistry.getObjectById(114),3, 0);
 		world.setBlock(i + 9, j + 7, k + 6, Blocks.air);
 		world.setBlock(i + 9, j + 7, k + 7, Blocks.air);
 		world.setBlock(i + 9, j + 7, k + 8, Blocks.air);
@@ -2834,7 +2834,7 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 9, j + 7, k + 14, Blocks.air);
 		world.setBlock(i + 9, j + 7, k + 15, Blocks.air);
 		world.setBlock(i + 9, j + 7, k + 16, GameData.blockRegistry.getObjectById(35), 14, 0);
-		world.setBlock(i + 9, j + 7, k + 17, 54GameData.blockRegistry.getObjectById(2)
+		world.setBlock(i + 9, j + 7, k + 17, GameData.blockRegistry.getObjectById(54),2,0);
 		world.setBlock(i + 9, j + 7, k + 18, GameData.blockRegistry.getObjectById(102));
 		world.setBlock(i + 9, j + 7, k + 19, Blocks.air);
 		world.setBlock(i + 9, j + 7, k + 20, Blocks.air);
@@ -2964,8 +2964,8 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 9, j + 13, k + 18, Blocks.air);
 		world.setBlock(i + 9, j + 13, k + 19, Blocks.air);
 		world.setBlock(i + 9, j + 13, k + 20, Blocks.air);
-		world.setBlock(i + 10, j + 0, k + 0GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 10, j + 0, k + 1GameData.blockRegistry.getObjectById(2)
+		world.setBlock(i + 10, j + 0, k + 0,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 10, j + 0, k + 1,GameData.blockRegistry.getObjectById(2));
 		world.setBlock(i + 10, j + 0, k + 2, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 10, j + 0, k + 3, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 10, j + 0, k + 4, GameData.blockRegistry.getObjectById(35), 4, 0);
@@ -2981,10 +2981,10 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 10, j + 0, k + 14, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 10, j + 0, k + 15, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 10, j + 0, k + 16, GameData.blockRegistry.getObjectById(35), 4, 0);
-		world.setBlock(i + 10, j + 0, k + 17, 3);
-		world.setBlock(i + 10, j + 0, k + 18, 3);
-		world.setBlock(i + 10, j + 0, k + 19GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 10, j + 0, k + 20GameData.blockRegistry.getObjectById(2)
+		world.setBlock(i + 10, j + 0, k + 17,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 10, j + 0, k + 18,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 10, j + 0, k + 19,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 10, j + 0, k + 20,GameData.blockRegistry.getObjectById(2));
 		world.setBlock(i + 10, j + 1, k + 0, Blocks.air);
 		world.setBlock(i + 10, j + 1, k + 1, Blocks.air);
 		world.setBlock(i + 10, j + 1, k + 2, Blocks.air);
@@ -3076,8 +3076,8 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 10, j + 5, k + 0, Blocks.air);
 		world.setBlock(i + 10, j + 5, k + 1, Blocks.air);
 		world.setBlock(i + 10, j + 5, k + 2, Blocks.air);
-		world.setBlock(i + 10, j + 5, k + 3, GameData.blockRegistry.getObjectById(35), 8);
-		world.setBlock(i + 10, j + 5, k + 4, GameData.blockRegistry.getObjectById(35), 8);
+		world.setBlock(i + 10, j + 5, k + 3, GameData.blockRegistry.getObjectById(35), 8,0);
+		world.setBlock(i + 10, j + 5, k + 4, GameData.blockRegistry.getObjectById(35), 8,0);
 		world.setBlock(i + 10, j + 5, k + 5, GameData.blockRegistry.getObjectById(35), 14, 0);
 		world.setBlock(i + 10, j + 5, k + 6, GameData.blockRegistry.getObjectById(35));
 		world.setBlock(i + 10, j + 5, k + 7, GameData.blockRegistry.getObjectById(35));
@@ -3120,7 +3120,7 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 10, j + 7, k + 2, GameData.blockRegistry.getObjectById(35), 14, 0);
 		world.setBlock(i + 10, j + 7, k + 3, GameData.blockRegistry.getObjectById(35));
 		world.setBlock(i + 10, j + 7, k + 4, Blocks.air);
-		world.setBlock(i + 10, j + 7, k + 5, 114, 3);
+		world.setBlock(i + 10, j + 7, k + 5, GameData.blockRegistry.getObjectById(114), 3, 0);
 		world.setBlock(i + 10, j + 7, k + 6, Blocks.air);
 		world.setBlock(i + 10, j + 7, k + 7, Blocks.air);
 		world.setBlock(i + 10, j + 7, k + 8, Blocks.air);
@@ -3188,7 +3188,7 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 10, j + 10, k + 7, Blocks.air);
 		world.setBlock(i + 10, j + 10, k + 8, Blocks.air);
 		world.setBlock(i + 10, j + 10, k + 9, Blocks.air);
-		world.setBlock(i + 10, j + 10, k + 10, 89);
+		world.setBlock(i + 10, j + 10, k + 10, GameData.blockRegistry.getObjectById(89));
 		world.setBlock(i + 10, j + 10, k + 11, Blocks.air);
 		world.setBlock(i + 10, j + 10, k + 12, Blocks.air);
 		world.setBlock(i + 10, j + 10, k + 13, Blocks.air);
@@ -3209,7 +3209,7 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 10, j + 11, k + 7, Blocks.air);
 		world.setBlock(i + 10, j + 11, k + 8, Blocks.air);
 		world.setBlock(i + 10, j + 11, k + 9, Blocks.air);
-		world.setBlock(i + 10, j + 11, k + 10, 85);
+		world.setBlock(i + 10, j + 11, k + 10,GameData.blockRegistry.getObjectById(85));
 		world.setBlock(i + 10, j + 11, k + 11, Blocks.air);
 		world.setBlock(i + 10, j + 11, k + 12, Blocks.air);
 		world.setBlock(i + 10, j + 11, k + 13, Blocks.air);
@@ -3230,7 +3230,7 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 10, j + 12, k + 7, Blocks.air);
 		world.setBlock(i + 10, j + 12, k + 8, Blocks.air);
 		world.setBlock(i + 10, j + 12, k + 9, Blocks.air);
-		world.setBlock(i + 10, j + 12, k + 10, 85);
+		world.setBlock(i + 10, j + 12, k + 10,GameData.blockRegistry.getObjectById(85));
 		world.setBlock(i + 10, j + 12, k + 11, Blocks.air);
 		world.setBlock(i + 10, j + 12, k + 12, Blocks.air);
 		world.setBlock(i + 10, j + 12, k + 13, Blocks.air);
@@ -3262,8 +3262,8 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 10, j + 13, k + 18, Blocks.air);
 		world.setBlock(i + 10, j + 13, k + 19, Blocks.air);
 		world.setBlock(i + 10, j + 13, k + 20, Blocks.air);
-		world.setBlock(i + 11, j + 0, k + 0GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 11, j + 0, k + 1GameData.blockRegistry.getObjectById(2)
+		world.setBlock(i + 11, j + 0, k + 0,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 11, j + 0, k + 1,GameData.blockRegistry.getObjectById(2));
 		world.setBlock(i + 11, j + 0, k + 2, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 11, j + 0, k + 3, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 11, j + 0, k + 4, GameData.blockRegistry.getObjectById(35), 4, 0);
@@ -3279,10 +3279,10 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 11, j + 0, k + 14, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 11, j + 0, k + 15, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 11, j + 0, k + 16, GameData.blockRegistry.getObjectById(35), 4, 0);
-		world.setBlock(i + 11, j + 0, k + 17, 3);
-		world.setBlock(i + 11, j + 0, k + 18, 3);
-		world.setBlock(i + 11, j + 0, k + 19GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 11, j + 0, k + 20GameData.blockRegistry.getObjectById(2)
+		world.setBlock(i + 11, j + 0, k + 17,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 11, j + 0, k + 18,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 11, j + 0, k + 19,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 11, j + 0, k + 20,GameData.blockRegistry.getObjectById(2));
 		world.setBlock(i + 11, j + 1, k + 0, Blocks.air);
 		world.setBlock(i + 11, j + 1, k + 1, Blocks.air);
 		world.setBlock(i + 11, j + 1, k + 2, Blocks.air);
@@ -3299,7 +3299,7 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 11, j + 1, k + 13, GameData.blockRegistry.getObjectById(35));
 		world.setBlock(i + 11, j + 1, k + 14, Blocks.air);
 		world.setBlock(i + 11, j + 1, k + 15, Blocks.air);
-		world.setBlock(i + 11, j + 1, k + 16, 54GameData.blockRegistry.getObjectById(2)
+		world.setBlock(i + 11, j + 1, k + 16, GameData.blockRegistry.getObjectById(54),2,0);
 		world.setBlock(i + 11, j + 1, k + 17, GameData.blockRegistry.getObjectById(35), 14, 0);
 		world.setBlock(i + 11, j + 1, k + 18, GameData.blockRegistry.getObjectById(35));
 		world.setBlock(i + 11, j + 1, k + 19, Blocks.air);
@@ -3335,7 +3335,7 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 11, j + 3, k + 7, Blocks.air);
 		world.setBlock(i + 11, j + 3, k + 8, Blocks.air);
 		world.setBlock(i + 11, j + 3, k + 9, Blocks.air);
-		world.setBlock(i + 11, j + 3, k + 10, 89);
+		world.setBlock(i + 11, j + 3, k + 10,GameData.blockRegistry.getObjectById(89));
 		world.setBlock(i + 11, j + 3, k + 11, Blocks.air);
 		world.setBlock(i + 11, j + 3, k + 12, Blocks.air);
 		world.setBlock(i + 11, j + 3, k + 13, Blocks.air);
@@ -3355,7 +3355,7 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 11, j + 4, k + 7, Blocks.air);
 		world.setBlock(i + 11, j + 4, k + 8, Blocks.air);
 		world.setBlock(i + 11, j + 4, k + 9, Blocks.air);
-		world.setBlock(i + 11, j + 4, k + 10, 85);
+		world.setBlock(i + 11, j + 4, k + 10,GameData.blockRegistry.getObjectById(85));
 		world.setBlock(i + 11, j + 4, k + 11, Blocks.air);
 		world.setBlock(i + 11, j + 4, k + 12, Blocks.air);
 		world.setBlock(i + 11, j + 4, k + 13, Blocks.air);
@@ -3369,8 +3369,8 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 11, j + 5, k + 0, Blocks.air);
 		world.setBlock(i + 11, j + 5, k + 1, Blocks.air);
 		world.setBlock(i + 11, j + 5, k + 2, Blocks.air);
-		world.setBlock(i + 11, j + 5, k + 3, GameData.blockRegistry.getObjectById(35), 8);
-		world.setBlock(i + 11, j + 5, k + 4, GameData.blockRegistry.getObjectById(35), 8);
+		world.setBlock(i + 11, j + 5, k + 3, GameData.blockRegistry.getObjectById(35), 8,0);
+		world.setBlock(i + 11, j + 5, k + 4, GameData.blockRegistry.getObjectById(35), 8,0);
 		world.setBlock(i + 11, j + 5, k + 5, GameData.blockRegistry.getObjectById(35), 14, 0);
 		world.setBlock(i + 11, j + 5, k + 6, GameData.blockRegistry.getObjectById(35));
 		world.setBlock(i + 11, j + 5, k + 7, GameData.blockRegistry.getObjectById(35));
@@ -3413,7 +3413,7 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 11, j + 7, k + 2, GameData.blockRegistry.getObjectById(35), 14, 0);
 		world.setBlock(i + 11, j + 7, k + 3, GameData.blockRegistry.getObjectById(35));
 		world.setBlock(i + 11, j + 7, k + 4, Blocks.air);
-		world.setBlock(i + 11, j + 7, k + 5, 114, 3);
+		world.setBlock(i + 11, j + 7, k + 5, GameData.blockRegistry.getObjectById(114), 3,0);
 		world.setBlock(i + 11, j + 7, k + 6, Blocks.air);
 		world.setBlock(i + 11, j + 7, k + 7, Blocks.air);
 		world.setBlock(i + 11, j + 7, k + 8, Blocks.air);
@@ -3554,12 +3554,12 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 11, j + 13, k + 18, Blocks.air);
 		world.setBlock(i + 11, j + 13, k + 19, Blocks.air);
 		world.setBlock(i + 11, j + 13, k + 20, Blocks.air);
-		world.setBlock(i + 12, j + 0, k + 0GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 12, j + 0, k + 1GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 12, j + 0, k + 2, 3);
-		world.setBlock(i + 12, j + 0, k + 3, 3);
-		world.setBlock(i + 12, j + 0, k + 4, 3);
-		world.setBlock(i + 12, j + 0, k + 5, 3);
+		world.setBlock(i + 12, j + 0, k + 0,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 12, j + 0, k + 1,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 12, j + 0, k + 2,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 12, j + 0, k + 3,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 12, j + 0, k + 4,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 12, j + 0, k + 5,GameData.blockRegistry.getObjectById(3));
 		world.setBlock(i + 12, j + 0, k + 6, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 12, j + 0, k + 7, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 12, j + 0, k + 8, GameData.blockRegistry.getObjectById(35), 4, 0);
@@ -3571,15 +3571,15 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 12, j + 0, k + 14, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 12, j + 0, k + 15, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 12, j + 0, k + 16, GameData.blockRegistry.getObjectById(35), 4, 0);
-		world.setBlock(i + 12, j + 0, k + 17, 3);
-		world.setBlock(i + 12, j + 0, k + 18, 3);
-		world.setBlock(i + 12, j + 0, k + 19GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 12, j + 0, k + 20GameData.blockRegistry.getObjectById(2)
+		world.setBlock(i + 12, j + 0, k + 17,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 12, j + 0, k + 18,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 12, j + 0, k + 19,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 12, j + 0, k + 20,GameData.blockRegistry.getObjectById(2));
 		world.setBlock(i + 12, j + 1, k + 0, Blocks.air);
 		world.setBlock(i + 12, j + 1, k + 1, Blocks.air);
-		world.setBlock(i + 12, j + 1, k + 2, GameData.blockRegistry.getObjectById(35), 8);
-		world.setBlock(i + 12, j + 1, k + 3, GameData.blockRegistry.getObjectById(35), 8);
-		world.setBlock(i + 12, j + 1, k + 4, GameData.blockRegistry.getObjectById(35), 8);
+		world.setBlock(i + 12, j + 1, k + 2, GameData.blockRegistry.getObjectById(35), 8,0);
+		world.setBlock(i + 12, j + 1, k + 3, GameData.blockRegistry.getObjectById(35), 8,0);
+		world.setBlock(i + 12, j + 1, k + 4, GameData.blockRegistry.getObjectById(35), 8,0);
 		world.setBlock(i + 12, j + 1, k + 5, GameData.blockRegistry.getObjectById(35), 14, 0);
 		world.setBlock(i + 12, j + 1, k + 6, Blocks.air);
 		world.setBlock(i + 12, j + 1, k + 7, Blocks.air);
@@ -3590,7 +3590,7 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 12, j + 1, k + 12, Blocks.air);
 		world.setBlock(i + 12, j + 1, k + 13, GameData.blockRegistry.getObjectById(35));
 		world.setBlock(i + 12, j + 1, k + 15, Blocks.air);
-		world.setBlock(i + 12, j + 1, k + 16, 54GameData.blockRegistry.getObjectById(2)
+		world.setBlock(i + 12, j + 1, k + 16, GameData.blockRegistry.getObjectById(54),2,0);
 		world.setBlock(i + 12, j + 1, k + 17, GameData.blockRegistry.getObjectById(35), 14, 0);
 		world.setBlock(i + 12, j + 1, k + 18, GameData.blockRegistry.getObjectById(35));
 		world.setBlock(i + 12, j + 1, k + 19, Blocks.air);
@@ -3598,8 +3598,8 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 12, j + 2, k + 0, Blocks.air);
 		world.setBlock(i + 12, j + 2, k + 1, Blocks.air);
 		world.setBlock(i + 12, j + 2, k + 2, Blocks.air);
-		world.setBlock(i + 12, j + 2, k + 3, GameData.blockRegistry.getObjectById(35), 8);
-		world.setBlock(i + 12, j + 2, k + 4, GameData.blockRegistry.getObjectById(35), 8);
+		world.setBlock(i + 12, j + 2, k + 3, GameData.blockRegistry.getObjectById(35), 8,0);
+		world.setBlock(i + 12, j + 2, k + 4, GameData.blockRegistry.getObjectById(35), 8,0);
 		world.setBlock(i + 12, j + 2, k + 5, GameData.blockRegistry.getObjectById(35), 14, 0);
 		world.setBlock(i + 12, j + 2, k + 6, Blocks.air);
 		world.setBlock(i + 12, j + 2, k + 7, Blocks.air);
@@ -3619,8 +3619,8 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 12, j + 3, k + 0, Blocks.air);
 		world.setBlock(i + 12, j + 3, k + 1, Blocks.air);
 		world.setBlock(i + 12, j + 3, k + 2, Blocks.air);
-		world.setBlock(i + 12, j + 3, k + 3, GameData.blockRegistry.getObjectById(35), 8);
-		world.setBlock(i + 12, j + 3, k + 4, GameData.blockRegistry.getObjectById(35), 8);
+		world.setBlock(i + 12, j + 3, k + 3, GameData.blockRegistry.getObjectById(35), 8,0);
+		world.setBlock(i + 12, j + 3, k + 4, GameData.blockRegistry.getObjectById(35), 8,0);
 		world.setBlock(i + 12, j + 3, k + 5, GameData.blockRegistry.getObjectById(35), 14, 0);
 		world.setBlock(i + 12, j + 3, k + 7, Blocks.air);
 		world.setBlock(i + 12, j + 3, k + 8, Blocks.air);
@@ -3638,8 +3638,8 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 12, j + 4, k + 0, Blocks.air);
 		world.setBlock(i + 12, j + 4, k + 1, Blocks.air);
 		world.setBlock(i + 12, j + 4, k + 2, Blocks.air);
-		world.setBlock(i + 12, j + 4, k + 3, GameData.blockRegistry.getObjectById(35), 8);
-		world.setBlock(i + 12, j + 4, k + 4, GameData.blockRegistry.getObjectById(35), 8);
+		world.setBlock(i + 12, j + 4, k + 3, GameData.blockRegistry.getObjectById(35), 8,0);
+		world.setBlock(i + 12, j + 4, k + 4, GameData.blockRegistry.getObjectById(35), 8,0);
 		world.setBlock(i + 12, j + 4, k + 5, GameData.blockRegistry.getObjectById(35), 14, 0);
 		world.setBlock(i + 12, j + 4, k + 6, Blocks.air);
 		world.setBlock(i + 12, j + 4, k + 7, Blocks.air);
@@ -3659,7 +3659,7 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 12, j + 5, k + 0, Blocks.air);
 		world.setBlock(i + 12, j + 5, k + 1, Blocks.air);
 		world.setBlock(i + 12, j + 5, k + 2, Blocks.air);
-		world.setBlock(i + 12, j + 5, k + 3, GameData.blockRegistry.getObjectById(35), 8);
+		world.setBlock(i + 12, j + 5, k + 3, GameData.blockRegistry.getObjectById(35), 8,0);
 		world.setBlock(i + 12, j + 5, k + 4, GameData.blockRegistry.getObjectById(35));
 		world.setBlock(i + 12, j + 5, k + 5, GameData.blockRegistry.getObjectById(35), 14, 0);
 		world.setBlock(i + 12, j + 5, k + 6, GameData.blockRegistry.getObjectById(35));
@@ -3845,12 +3845,12 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 12, j + 13, k + 18, Blocks.air);
 		world.setBlock(i + 12, j + 13, k + 19, Blocks.air);
 		world.setBlock(i + 12, j + 13, k + 20, Blocks.air);
-		world.setBlock(i + 13, j + 0, k + 0GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 13, j + 0, k + 1GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 13, j + 0, k + 2GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 13, j + 0, k + 3, 3);
-		world.setBlock(i + 13, j + 0, k + 4, 3);
-		world.setBlock(i + 13, j + 0, k + 5, 3);
+		world.setBlock(i + 13, j + 0, k + 0,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 13, j + 0, k + 1,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 13, j + 0, k + 2,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 13, j + 0, k + 3,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 13, j + 0, k + 4,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 13, j + 0, k + 5,GameData.blockRegistry.getObjectById(3));
 		world.setBlock(i + 13, j + 0, k + 6, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 13, j + 0, k + 7, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 13, j + 0, k + 8, GameData.blockRegistry.getObjectById(35), 4, 0);
@@ -3862,10 +3862,10 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 13, j + 0, k + 14, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 13, j + 0, k + 15, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 13, j + 0, k + 16, GameData.blockRegistry.getObjectById(35), 4, 0);
-		world.setBlock(i + 13, j + 0, k + 17, 3);
-		world.setBlock(i + 13, j + 0, k + 18, 3);
-		world.setBlock(i + 13, j + 0, k + 19GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 13, j + 0, k + 20GameData.blockRegistry.getObjectById(2)
+		world.setBlock(i + 13, j + 0, k + 17,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 13, j + 0, k + 18,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 13, j + 0, k + 19,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 13, j + 0, k + 20,GameData.blockRegistry.getObjectById(2));
 		world.setBlock(i + 13, j + 1, k + 0, Blocks.air);
 		world.setBlock(i + 13, j + 1, k + 1, Blocks.air);
 		world.setBlock(i + 13, j + 1, k + 2, Blocks.air);
@@ -3995,7 +3995,7 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 13, j + 7, k + 2, GameData.blockRegistry.getObjectById(35));
 		world.setBlock(i + 13, j + 7, k + 3, GameData.blockRegistry.getObjectById(35));
 		world.setBlock(i + 13, j + 7, k + 4, Blocks.air);
-		world.setBlock(i + 13, j + 7, k + 5, 114, 3);
+		world.setBlock(i + 13, j + 7, k + 5, GameData.blockRegistry.getObjectById(114), 3,0);
 		world.setBlock(i + 13, j + 7, k + 6, Blocks.air);
 		world.setBlock(i + 13, j + 7, k + 7, Blocks.air);
 		world.setBlock(i + 13, j + 7, k + 8, Blocks.air);
@@ -4007,7 +4007,7 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 13, j + 7, k + 14, Blocks.air);
 		world.setBlock(i + 13, j + 7, k + 15, Blocks.air);
 		world.setBlock(i + 13, j + 7, k + 16, GameData.blockRegistry.getObjectById(35), 14, 0);
-		world.setBlock(i + 13, j + 7, k + 17, 54GameData.blockRegistry.getObjectById(2)
+		world.setBlock(i + 13, j + 7, k + 17, GameData.blockRegistry.getObjectById(54),2,0);
 		world.setBlock(i + 13, j + 7, k + 18, GameData.blockRegistry.getObjectById(102));
 		world.setBlock(i + 13, j + 7, k + 19, Blocks.air);
 		world.setBlock(i + 13, j + 7, k + 20, Blocks.air);
@@ -4137,12 +4137,12 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 13, j + 13, k + 18, Blocks.air);
 		world.setBlock(i + 13, j + 13, k + 19, Blocks.air);
 		world.setBlock(i + 13, j + 13, k + 20, Blocks.air);
-		world.setBlock(i + 14, j + 0, k + 0GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 14, j + 0, k + 1GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 14, j + 0, k + 2GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 14, j + 0, k + 3, 3);
-		world.setBlock(i + 14, j + 0, k + 4, 3);
-		world.setBlock(i + 14, j + 0, k + 5, 3);
+		world.setBlock(i + 14, j + 0, k + 0,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 14, j + 0, k + 1,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 14, j + 0, k + 2,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 14, j + 0, k + 3,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 14, j + 0, k + 4,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 14, j + 0, k + 5,GameData.blockRegistry.getObjectById(3));
 		world.setBlock(i + 14, j + 0, k + 6, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 14, j + 0, k + 7, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 14, j + 0, k + 8, GameData.blockRegistry.getObjectById(35), 4, 0);
@@ -4154,10 +4154,10 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 14, j + 0, k + 14, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 14, j + 0, k + 15, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 14, j + 0, k + 16, GameData.blockRegistry.getObjectById(35), 4, 0);
-		world.setBlock(i + 14, j + 0, k + 17, 3);
-		world.setBlock(i + 14, j + 0, k + 18, 3);
-		world.setBlock(i + 14, j + 0, k + 19GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 14, j + 0, k + 20GameData.blockRegistry.getObjectById(2)
+		world.setBlock(i + 14, j + 0, k + 17,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 14, j + 0, k + 18,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 14, j + 0, k + 19,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 14, j + 0, k + 20,GameData.blockRegistry.getObjectById(2));
 		world.setBlock(i + 14, j + 1, k + 0, Blocks.air);
 		world.setBlock(i + 14, j + 1, k + 1, Blocks.air);
 		world.setBlock(i + 14, j + 1, k + 2, Blocks.air);
@@ -4167,8 +4167,8 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 14, j + 1, k + 6, Blocks.air);
 		world.setBlock(i + 14, j + 1, k + 7, Blocks.air);
 		world.setBlock(i + 14, j + 1, k + 8, GameData.blockRegistry.getObjectById(35));
-		world.setBlock(i + 14, j + 1, k + 9, 109);
-		world.setBlock(i + 14, j + 1, k + 10, 109);
+		world.setBlock(i + 14, j + 1, k + 9, GameData.blockRegistry.getObjectById(119));
+		world.setBlock(i + 14, j + 1, k + 10, GameData.blockRegistry.getObjectById(109));
 		world.setBlock(i + 14, j + 1, k + 11, GameData.blockRegistry.getObjectById(35));
 		world.setBlock(i + 14, j + 1, k + 12, Blocks.air);
 		world.setBlock(i + 14, j + 1, k + 14, Blocks.air);
@@ -4428,12 +4428,12 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 14, j + 13, k + 18, Blocks.air);
 		world.setBlock(i + 14, j + 13, k + 19, Blocks.air);
 		world.setBlock(i + 14, j + 13, k + 20, Blocks.air);
-		world.setBlock(i + 15, j + 0, k + 0GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 15, j + 0, k + 1GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 15, j + 0, k + 2GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 15, j + 0, k + 3, 3);
-		world.setBlock(i + 15, j + 0, k + 4, 3);
-		world.setBlock(i + 15, j + 0, k + 5, 3);
+		world.setBlock(i + 15, j + 0, k + 0,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 15, j + 0, k + 1,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 15, j + 0, k + 2,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 15, j + 0, k + 3,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 15, j + 0, k + 4,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 15, j + 0, k + 5,GameData.blockRegistry.getObjectById(3));
 		world.setBlock(i + 15, j + 0, k + 6, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 15, j + 0, k + 7, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 15, j + 0, k + 8, GameData.blockRegistry.getObjectById(35), 4, 0);
@@ -4445,10 +4445,10 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 15, j + 0, k + 14, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 15, j + 0, k + 15, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 15, j + 0, k + 16, GameData.blockRegistry.getObjectById(35), 4, 0);
-		world.setBlock(i + 15, j + 0, k + 17, 3);
-		world.setBlock(i + 15, j + 0, k + 18, 3);
-		world.setBlock(i + 15, j + 0, k + 19GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 15, j + 0, k + 20GameData.blockRegistry.getObjectById(2)
+		world.setBlock(i + 15, j + 0, k + 17,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 15, j + 0, k + 18,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 15, j + 0, k + 19,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 15, j + 0, k + 20,GameData.blockRegistry.getObjectById(2));
 		world.setBlock(i + 15, j + 1, k + 0, Blocks.air);
 		world.setBlock(i + 15, j + 1, k + 1, Blocks.air);
 		world.setBlock(i + 15, j + 1, k + 2, Blocks.air);
@@ -4478,8 +4478,8 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 15, j + 2, k + 6, Blocks.air);
 		world.setBlock(i + 15, j + 2, k + 7, Blocks.air);
 		world.setBlock(i + 15, j + 2, k + 8, GameData.blockRegistry.getObjectById(35));
-		world.setBlock(i + 15, j + 2, k + 9, 109);
-		world.setBlock(i + 15, j + 2, k + 10, 109);
+		world.setBlock(i + 15, j + 2, k + 9, GameData.blockRegistry.getObjectById(109));
+		world.setBlock(i + 15, j + 2, k + 10, GameData.blockRegistry.getObjectById(109));
 		world.setBlock(i + 15, j + 2, k + 11, GameData.blockRegistry.getObjectById(35));
 		world.setBlock(i + 15, j + 2, k + 12, Blocks.air);
 		world.setBlock(i + 15, j + 2, k + 13, Blocks.air);
@@ -4725,12 +4725,12 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 15, j + 13, k + 18, Blocks.air);
 		world.setBlock(i + 15, j + 13, k + 19, Blocks.air);
 		world.setBlock(i + 15, j + 13, k + 20, Blocks.air);
-		world.setBlock(i + 16, j + 0, k + 0GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 16, j + 0, k + 1GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 16, j + 0, k + 2GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 16, j + 0, k + 3, 3);
-		world.setBlock(i + 16, j + 0, k + 4, 3);
-		world.setBlock(i + 16, j + 0, k + 5, 3);
+		world.setBlock(i + 16, j + 0, k + 0,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 16, j + 0, k + 1,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 16, j + 0, k + 2,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 16, j + 0, k + 3,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 16, j + 0, k + 4,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 16, j + 0, k + 5,GameData.blockRegistry.getObjectById(3));
 		world.setBlock(i + 16, j + 0, k + 6, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 16, j + 0, k + 7, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 16, j + 0, k + 8, GameData.blockRegistry.getObjectById(35), 4, 0);
@@ -4742,10 +4742,10 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 16, j + 0, k + 14, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 16, j + 0, k + 15, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 16, j + 0, k + 16, GameData.blockRegistry.getObjectById(35), 4, 0);
-		world.setBlock(i + 16, j + 0, k + 17, 3);
-		world.setBlock(i + 16, j + 0, k + 18, 3);
-		world.setBlock(i + 16, j + 0, k + 19GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 16, j + 0, k + 20GameData.blockRegistry.getObjectById(2)
+		world.setBlock(i + 16, j + 0, k + 17,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 16, j + 0, k + 18,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 16, j + 0, k + 19,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 16, j + 0, k + 20,GameData.blockRegistry.getObjectById(2));
 		world.setBlock(i + 16, j + 1, k + 0, Blocks.air);
 		world.setBlock(i + 16, j + 1, k + 1, Blocks.air);
 		world.setBlock(i + 16, j + 1, k + 2, Blocks.air);
@@ -4795,8 +4795,8 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 16, j + 3, k + 5, GameData.blockRegistry.getObjectById(35), 14, 0);
 		world.setBlock(i + 16, j + 3, k + 7, Blocks.air);
 		world.setBlock(i + 16, j + 3, k + 8, GameData.blockRegistry.getObjectById(35));
-		world.setBlock(i + 16, j + 3, k + 9, 109);
-		world.setBlock(i + 16, j + 3, k + 10, 109);
+		world.setBlock(i + 16, j + 3, k + 9,GameData.blockRegistry.getObjectById(109));
+		world.setBlock(i + 16, j + 3, k + 10,GameData.blockRegistry.getObjectById(109));
 		world.setBlock(i + 16, j + 3, k + 11, GameData.blockRegistry.getObjectById(35));
 		world.setBlock(i + 16, j + 3, k + 12, Blocks.air);
 		world.setBlock(i + 16, j + 3, k + 13, Blocks.air);
@@ -5016,12 +5016,12 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 16, j + 13, k + 18, Blocks.air);
 		world.setBlock(i + 16, j + 13, k + 19, Blocks.air);
 		world.setBlock(i + 16, j + 13, k + 20, Blocks.air);
-		world.setBlock(i + 17, j + 0, k + 0GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 17, j + 0, k + 1GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 17, j + 0, k + 2GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 17, j + 0, k + 3, 3);
-		world.setBlock(i + 17, j + 0, k + 4, 3);
-		world.setBlock(i + 17, j + 0, k + 5, 3);
+		world.setBlock(i + 17, j + 0, k + 0,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 17, j + 0, k + 1,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 17, j + 0, k + 2,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 17, j + 0, k + 3,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 17, j + 0, k + 4,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 17, j + 0, k + 5,GameData.blockRegistry.getObjectById(3));
 		world.setBlock(i + 17, j + 0, k + 6, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 17, j + 0, k + 7, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 17, j + 0, k + 8, GameData.blockRegistry.getObjectById(35), 4, 0);
@@ -5033,10 +5033,10 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 17, j + 0, k + 14, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 17, j + 0, k + 15, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 17, j + 0, k + 16, GameData.blockRegistry.getObjectById(35), 4, 0);
-		world.setBlock(i + 17, j + 0, k + 17, 3);
-		world.setBlock(i + 17, j + 0, k + 18, 3);
-		world.setBlock(i + 17, j + 0, k + 19GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 17, j + 0, k + 20GameData.blockRegistry.getObjectById(2)
+		world.setBlock(i + 17, j + 0, k + 17,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 17, j + 0, k + 18,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 17, j + 0, k + 19,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 17, j + 0, k + 20,GameData.blockRegistry.getObjectById(2));
 		world.setBlock(i + 17, j + 1, k + 0, Blocks.air);
 		world.setBlock(i + 17, j + 1, k + 1, Blocks.air);
 		world.setBlock(i + 17, j + 1, k + 2, Blocks.air);
@@ -5106,8 +5106,8 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 17, j + 4, k + 6, Blocks.air);
 		world.setBlock(i + 17, j + 4, k + 7, Blocks.air);
 		world.setBlock(i + 17, j + 4, k + 8, GameData.blockRegistry.getObjectById(35));
-		world.setBlock(i + 17, j + 4, k + 9, 109);
-		world.setBlock(i + 17, j + 4, k + 10, 109);
+		world.setBlock(i + 17, j + 4, k + 9,GameData.blockRegistry.getObjectById(109));
+		world.setBlock(i + 17, j + 4, k + 10,GameData.blockRegistry.getObjectById(109));
 		world.setBlock(i + 17, j + 4, k + 11, GameData.blockRegistry.getObjectById(35));
 		world.setBlock(i + 17, j + 4, k + 12, Blocks.air);
 		world.setBlock(i + 17, j + 4, k + 13, Blocks.air);
@@ -5176,7 +5176,7 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 17, j + 7, k + 13, Blocks.air);
 		world.setBlock(i + 17, j + 7, k + 14, Blocks.air);
 		world.setBlock(i + 17, j + 7, k + 15, Blocks.air);
-		world.setBlock(i + 17, j + 7, k + 16, 43, 5);
+		world.setBlock(i + 17, j + 7, k + 16, GameData.blockRegistry.getObjectById(43), 5,0);
 		world.setBlock(i + 17, j + 7, k + 17, GameData.blockRegistry.getObjectById(35));
 		world.setBlock(i + 17, j + 7, k + 18, GameData.blockRegistry.getObjectById(35));
 		world.setBlock(i + 17, j + 7, k + 19, Blocks.air);
@@ -5307,12 +5307,12 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 17, j + 13, k + 18, Blocks.air);
 		world.setBlock(i + 17, j + 13, k + 19, Blocks.air);
 		world.setBlock(i + 17, j + 13, k + 20, Blocks.air);
-		world.setBlock(i + 18, j + 0, k + 0GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 18, j + 0, k + 1GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 18, j + 0, k + 2GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 18, j + 0, k + 3, 3);
-		world.setBlock(i + 18, j + 0, k + 4, 3);
-		world.setBlock(i + 18, j + 0, k + 5, 3);
+		world.setBlock(i + 18, j + 0, k + 0,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 18, j + 0, k + 1,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 18, j + 0, k + 2,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 18, j + 0, k + 3,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 18, j + 0, k + 4,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 18, j + 0, k + 5,GameData.blockRegistry.getObjectById(3));
 		world.setBlock(i + 18, j + 0, k + 6, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 18, j + 0, k + 7, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 18, j + 0, k + 8, GameData.blockRegistry.getObjectById(35), 4, 0);
@@ -5324,10 +5324,10 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 18, j + 0, k + 14, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 18, j + 0, k + 15, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 18, j + 0, k + 16, GameData.blockRegistry.getObjectById(35), 4, 0);
-		world.setBlock(i + 18, j + 0, k + 17, 3);
-		world.setBlock(i + 18, j + 0, k + 18, 3);
-		world.setBlock(i + 18, j + 0, k + 19GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 18, j + 0, k + 20GameData.blockRegistry.getObjectById(2)
+		world.setBlock(i + 18, j + 0, k + 17,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 18, j + 0, k + 18,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 18, j + 0, k + 19,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 18, j + 0, k + 20,GameData.blockRegistry.getObjectById(2));
 		world.setBlock(i + 18, j + 1, k + 0, Blocks.air);
 		world.setBlock(i + 18, j + 1, k + 1, Blocks.air);
 		world.setBlock(i + 18, j + 1, k + 2, Blocks.air);
@@ -5412,8 +5412,8 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 18, j + 5, k + 6, GameData.blockRegistry.getObjectById(35));
 		world.setBlock(i + 18, j + 5, k + 7, GameData.blockRegistry.getObjectById(35));
 		world.setBlock(i + 18, j + 5, k + 8, GameData.blockRegistry.getObjectById(35));
-		world.setBlock(i + 18, j + 5, k + 9, 109);
-		world.setBlock(i + 18, j + 5, k + 10, 109);
+		world.setBlock(i + 18, j + 5, k + 9,GameData.blockRegistry.getObjectById(109));
+		world.setBlock(i + 18, j + 5, k + 10,GameData.blockRegistry.getObjectById(109));
 		world.setBlock(i + 18, j + 5, k + 11, GameData.blockRegistry.getObjectById(35));
 		world.setBlock(i + 18, j + 5, k + 12, GameData.blockRegistry.getObjectById(35));
 		world.setBlock(i + 18, j + 5, k + 13, GameData.blockRegistry.getObjectById(35));
@@ -5592,12 +5592,12 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 18, j + 13, k + 18, Blocks.air);
 		world.setBlock(i + 18, j + 13, k + 19, Blocks.air);
 		world.setBlock(i + 18, j + 13, k + 20, Blocks.air);
-		world.setBlock(i + 19, j + 0, k + 0GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 19, j + 0, k + 1GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 19, j + 0, k + 2GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 19, j + 0, k + 3, 3);
-		world.setBlock(i + 19, j + 0, k + 4, 3);
-		world.setBlock(i + 19, j + 0, k + 5, 3);
+		world.setBlock(i + 19, j + 0, k + 0,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 19, j + 0, k + 1,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 19, j + 0, k + 2,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 19, j + 0, k + 3,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 19, j + 0, k + 4,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 19, j + 0, k + 5,GameData.blockRegistry.getObjectById(3));
 		world.setBlock(i + 19, j + 0, k + 6, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 19, j + 0, k + 7, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 19, j + 0, k + 8, GameData.blockRegistry.getObjectById(35), 4, 0);
@@ -5609,10 +5609,10 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 19, j + 0, k + 14, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 19, j + 0, k + 15, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 19, j + 0, k + 16, GameData.blockRegistry.getObjectById(35), 4, 0);
-		world.setBlock(i + 19, j + 0, k + 17, 3);
-		world.setBlock(i + 19, j + 0, k + 18, 3);
-		world.setBlock(i + 19, j + 0, k + 19GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 19, j + 0, k + 20GameData.blockRegistry.getObjectById(2)
+		world.setBlock(i + 19, j + 0, k + 17,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 19, j + 0, k + 18,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 19, j + 0, k + 19,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 19, j + 0, k + 20,GameData.blockRegistry.getObjectById(2));
 		world.setBlock(i + 19, j + 1, k + 0, Blocks.air);
 		world.setBlock(i + 19, j + 1, k + 1, Blocks.air);
 		world.setBlock(i + 19, j + 1, k + 2, Blocks.air);
@@ -5727,8 +5727,8 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 19, j + 6, k + 6, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 19, j + 6, k + 7, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 19, j + 6, k + 8, GameData.blockRegistry.getObjectById(35), 4, 0);
-		world.setBlock(i + 19, j + 6, k + 9, 44, 5);
-		world.setBlock(i + 19, j + 6, k + 10, 44, 5);
+		world.setBlock(i + 19, j + 6, k + 9, GameData.blockRegistry.getObjectById(44), 5,0);
+		world.setBlock(i + 19, j + 6, k + 10, GameData.blockRegistry.getObjectById(44), 5,0);
 		world.setBlock(i + 19, j + 6, k + 11, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 19, j + 6, k + 12, GameData.blockRegistry.getObjectById(35), 4, 0);
 		world.setBlock(i + 19, j + 6, k + 13, GameData.blockRegistry.getObjectById(35), 4, 0);
@@ -5886,27 +5886,27 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 19, j + 13, k + 18, Blocks.air);
 		world.setBlock(i + 19, j + 13, k + 19, Blocks.air);
 		world.setBlock(i + 19, j + 13, k + 20, Blocks.air);
-		world.setBlock(i + 20, j + 0, k + 0GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 20, j + 0, k + 1GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 20, j + 0, k + 2GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 20, j + 0, k + 3, 3);
-		world.setBlock(i + 20, j + 0, k + 4, 3);
-		world.setBlock(i + 20, j + 0, k + 5, 3);
-		world.setBlock(i + 20, j + 0, k + 6, 3);
-		world.setBlock(i + 20, j + 0, k + 7, 3);
-		world.setBlock(i + 20, j + 0, k + 8, 3);
-		world.setBlock(i + 20, j + 0, k + 9, 3);
-		world.setBlock(i + 20, j + 0, k + 10, 3);
-		world.setBlock(i + 20, j + 0, k + 11, 3);
-		world.setBlock(i + 20, j + 0, k + 12, 3);
-		world.setBlock(i + 20, j + 0, k + 13, 3);
-		world.setBlock(i + 20, j + 0, k + 14, 3);
-		world.setBlock(i + 20, j + 0, k + 15, 3);
-		world.setBlock(i + 20, j + 0, k + 16, 3);
-		world.setBlock(i + 20, j + 0, k + 17, 3);
-		world.setBlock(i + 20, j + 0, k + 18, 3);
-		world.setBlock(i + 20, j + 0, k + 19GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 20, j + 0, k + 20GameData.blockRegistry.getObjectById(2)
+		world.setBlock(i + 20, j + 0, k + 0,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 20, j + 0, k + 1,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 20, j + 0, k + 2,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 20, j + 0, k + 3,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 20, j + 0, k + 4,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 20, j + 0, k + 5,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 20, j + 0, k + 6,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 20, j + 0, k + 7,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 20, j + 0, k + 8,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 20, j + 0, k + 9,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 20, j + 0, k + 10,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 20, j + 0, k + 11,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 20, j + 0, k + 12,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 20, j + 0, k + 13,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 20, j + 0, k + 14,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 20, j + 0, k + 15,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 20, j + 0, k + 16,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 20, j + 0, k + 17,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 20, j + 0, k + 18,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 20, j + 0, k + 19,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 20, j + 0, k + 20,GameData.blockRegistry.getObjectById(2));
 		world.setBlock(i + 20, j + 1, k + 0, Blocks.air);
 		world.setBlock(i + 20, j + 1, k + 1, Blocks.air);
 		world.setBlock(i + 20, j + 1, k + 2, Blocks.air);
@@ -6186,27 +6186,27 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 20, j + 13, k + 18, Blocks.air);
 		world.setBlock(i + 20, j + 13, k + 19, Blocks.air);
 		world.setBlock(i + 20, j + 13, k + 20, Blocks.air);
-		world.setBlock(i + 21, j + 0, k + 0GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 21, j + 0, k + 1GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 21, j + 0, k + 2GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 21, j + 0, k + 3GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 21, j + 0, k + 4GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 21, j + 0, k + 5GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 21, j + 0, k + 6GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 21, j + 0, k + 7GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 21, j + 0, k + 8GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 21, j + 0, k + 9GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 21, j + 0, k + 10GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 21, j + 0, k + 11GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 21, j + 0, k + 12GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 21, j + 0, k + 13GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 21, j + 0, k + 14GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 21, j + 0, k + 15GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 21, j + 0, k + 16GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 21, j + 0, k + 17GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 21, j + 0, k + 18GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 21, j + 0, k + 19GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 21, j + 0, k + 20GameData.blockRegistry.getObjectById(2)
+		world.setBlock(i + 21, j + 0, k + 0,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 21, j + 0, k + 1,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 21, j + 0, k + 2,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 21, j + 0, k + 3,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 21, j + 0, k + 4,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 21, j + 0, k + 5,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 21, j + 0, k + 6,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 21, j + 0, k + 7,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 21, j + 0, k + 8,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 21, j + 0, k + 9,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 21, j + 0, k + 10,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 21, j + 0, k + 11,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 21, j + 0, k + 12,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 21, j + 0, k + 13,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 21, j + 0, k + 14,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 21, j + 0, k + 15,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 21, j + 0, k + 16,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 21, j + 0, k + 17,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 21, j + 0, k + 18,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 21, j + 0, k + 19,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 21, j + 0, k + 20,GameData.blockRegistry.getObjectById(2));
 		world.setBlock(i + 21, j + 1, k + 0, Blocks.air);
 		world.setBlock(i + 21, j + 1, k + 1, Blocks.air);
 		world.setBlock(i + 21, j + 1, k + 2, Blocks.air);
@@ -6480,27 +6480,27 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 21, j + 13, k + 18, Blocks.air);
 		world.setBlock(i + 21, j + 13, k + 19, Blocks.air);
 		world.setBlock(i + 21, j + 13, k + 20, Blocks.air);
-		world.setBlock(i + 22, j + 0, k + 0GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 22, j + 0, k + 1GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 22, j + 0, k + 2GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 22, j + 0, k + 3GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 22, j + 0, k + 4GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 22, j + 0, k + 5GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 22, j + 0, k + 6GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 22, j + 0, k + 7GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 22, j + 0, k + 8GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 22, j + 0, k + 9GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 22, j + 0, k + 10GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 22, j + 0, k + 11GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 22, j + 0, k + 12GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 22, j + 0, k + 13GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 22, j + 0, k + 14GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 22, j + 0, k + 15GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 22, j + 0, k + 16GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 22, j + 0, k + 17GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 22, j + 0, k + 18GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 22, j + 0, k + 19GameData.blockRegistry.getObjectById(2)
-		world.setBlock(i + 22, j + 0, k + 20GameData.blockRegistry.getObjectById(2)
+		world.setBlock(i + 22, j + 0, k + 0,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 22, j + 0, k + 1,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 22, j + 0, k + 2,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 22, j + 0, k + 3,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 22, j + 0, k + 4,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 22, j + 0, k + 5,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 22, j + 0, k + 6,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 22, j + 0, k + 7,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 22, j + 0, k + 8,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 22, j + 0, k + 9,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 22, j + 0, k + 10,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 22, j + 0, k + 11,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 22, j + 0, k + 12,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 22, j + 0, k + 13,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 22, j + 0, k + 14,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 22, j + 0, k + 15,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 22, j + 0, k + 16,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 22, j + 0, k + 17,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 22, j + 0, k + 18,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 22, j + 0, k + 19,GameData.blockRegistry.getObjectById(2));
+		world.setBlock(i + 22, j + 0, k + 20,GameData.blockRegistry.getObjectById(2));
 		world.setBlock(i + 22, j + 1, k + 0, Blocks.air);
 		world.setBlock(i + 22, j + 1, k + 1, Blocks.air);
 		world.setBlock(i + 22, j + 1, k + 2, Blocks.air);
@@ -6774,71 +6774,71 @@ public class WorldGenCasaDoPokemon extends WorldGenerator {
 		world.setBlock(i + 22, j + 13, k + 18, Blocks.air);
 		world.setBlock(i + 22, j + 13, k + 19, Blocks.air);
 		world.setBlock(i + 22, j + 13, k + 20, Blocks.air);
-		world.setBlock(i + 2, j + 1, k + 7, 50, 5);
-		world.setBlock(i + 2, j + 3, k + 6, 50, 1);
-		world.setBlock(i + 2, j + 3, k + 7, 50, 1);
-		world.setBlock(i + 2, j + 3, k + 8, 50, 1);
-		world.setBlock(i + 2, j + 3, k + 9, 50, 1);
-		world.setBlock(i + 2, j + 3, k + 10, 50, 1);
-		world.setBlock(i + 2, j + 3, k + 11, 50, 1);
-		world.setBlock(i + 2, j + 3, k + 12, 50, 1);
-		world.setBlock(i + 2, j + 3, k + 13, 50, 1);
-		world.setBlock(i + 2, j + 3, k + 14, 50, 1);
-		world.setBlock(i + 2, j + 3, k + 15, 50, 1);
-		world.setBlock(i + 2, j + 3, k + 16, 50, 4, 0);
-		world.setBlock(i + 3, j + 3, k + 6, 50, 3);
-		world.setBlock(i + 3, j + 3, k + 16, 50, 4, 0);
-		world.setBlock(i + 4, j + 2, k + 8, 70);
-		world.setBlock(i + 4, j + 2, k + 9, 70);
-		world.setBlock(i + 4, j + 3, k + 6, 50, 3);
-		world.setBlock(i + 4, j + 3, k + 16, 50, 4, 0);
-		world.setBlock(i + 4, j + 8, k + 16, 96, 3);
-		world.setBlock(i + 5, j + 1, k + 10, 50, 5);
-		world.setBlock(i + 5, j + 2, k + 8, 70);
-		world.setBlock(i + 5, j + 2, k + 9, 70);
-		world.setBlock(i + 5, j + 3, k + 6, 50, 3);
-		world.setBlock(i + 5, j + 3, k + 16, 50, 4, 0);
-		world.setBlock(i + 6, j + 1, k + 11, 50, 5);
-		world.setBlock(i + 6, j + 3, k + 6, 50, 3);
-		world.setBlock(i + 6, j + 3, k + 16, 50, 4, 0);
-		world.setBlock(i + 7, j + 1, k + 11, 50, 5);
-		world.setBlock(i + 7, j + 3, k + 6, 50, 3);
-		world.setBlock(i + 7, j + 3, k + 16, 50, 4, 0);
-		world.setBlock(i + 7, j + 8, k + 16, 96, 3);
-		world.setBlock(i + 8, j + 1, k + 11, 50, 5);
-		world.setBlock(i + 8, j + 3, k + 6, 50, 3);
-		world.setBlock(i + 8, j + 3, k + 16, 50, 4, 0);
-		world.setBlock(i + 9, j + 3, k + 16, 50, 4, 0);
+		world.setBlock(i + 2, j + 1, k + 7, GameData.blockRegistry.getObjectById(50), 5,0);
+		world.setBlock(i + 2, j + 3, k + 6, GameData.blockRegistry.getObjectById(50), 1,0);
+		world.setBlock(i + 2, j + 3, k + 7, GameData.blockRegistry.getObjectById(50), 1,0);
+		world.setBlock(i + 2, j + 3, k + 8, GameData.blockRegistry.getObjectById(50), 1,0);
+		world.setBlock(i + 2, j + 3, k + 9, GameData.blockRegistry.getObjectById(50), 1,0);
+		world.setBlock(i + 2, j + 3, k + 10, GameData.blockRegistry.getObjectById(50), 1,0);
+		world.setBlock(i + 2, j + 3, k + 11, GameData.blockRegistry.getObjectById(50), 1,0);
+		world.setBlock(i + 2, j + 3, k + 12, GameData.blockRegistry.getObjectById(50), 1,0);
+		world.setBlock(i + 2, j + 3, k + 13, GameData.blockRegistry.getObjectById(50), 1,0);
+		world.setBlock(i + 2, j + 3, k + 14, GameData.blockRegistry.getObjectById(50), 1,0);
+		world.setBlock(i + 2, j + 3, k + 15, GameData.blockRegistry.getObjectById(50), 1,0);
+		world.setBlock(i + 2, j + 3, k + 16, GameData.blockRegistry.getObjectById(50), 4, 0);
+		world.setBlock(i + 3, j + 3, k + 6, GameData.blockRegistry.getObjectById(50),3,0);
+		world.setBlock(i + 3, j + 3, k + 16, GameData.blockRegistry.getObjectById(50), 4, 0);
+		world.setBlock(i + 4, j + 2, k + 8, GameData.blockRegistry.getObjectById(70));
+		world.setBlock(i + 4, j + 2, k + 9, GameData.blockRegistry.getObjectById(70));
+		world.setBlock(i + 4, j + 3, k + 6, GameData.blockRegistry.getObjectById(50),3,0);
+		world.setBlock(i + 4, j + 3, k + 16, GameData.blockRegistry.getObjectById(50), 4, 0);
+		world.setBlock(i + 4, j + 8, k + 16, GameData.blockRegistry.getObjectById(96),3,0);
+		world.setBlock(i + 5, j + 1, k + 10, GameData.blockRegistry.getObjectById(50), 5,0);
+		world.setBlock(i + 5, j + 2, k + 8,GameData.blockRegistry.getObjectById(70));
+		world.setBlock(i + 5, j + 2, k + 9,GameData.blockRegistry.getObjectById(70));
+		world.setBlock(i + 5, j + 3, k + 6, GameData.blockRegistry.getObjectById(50),3,0);
+		world.setBlock(i + 5, j + 3, k + 16, GameData.blockRegistry.getObjectById(50), 4, 0);
+		world.setBlock(i + 6, j + 1, k + 11, GameData.blockRegistry.getObjectById(50), 5,0);
+		world.setBlock(i + 6, j + 3, k + 6, GameData.blockRegistry.getObjectById(50),3,0);
+		world.setBlock(i + 6, j + 3, k + 16, GameData.blockRegistry.getObjectById(50), 4, 0);
+		world.setBlock(i + 7, j + 1, k + 11, GameData.blockRegistry.getObjectById(50), 5,0);
+		world.setBlock(i + 7, j + 3, k + 6, GameData.blockRegistry.getObjectById(50),3,0);
+		world.setBlock(i + 7, j + 3, k + 16, GameData.blockRegistry.getObjectById(50), 4, 0);
+		world.setBlock(i + 7, j + 8, k + 16, GameData.blockRegistry.getObjectById(96),3,0);
+		world.setBlock(i + 8, j + 1, k + 11, GameData.blockRegistry.getObjectById(50), 5,0);
+		world.setBlock(i + 8, j + 3, k + 6, 50,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 8, j + 3, k + 16, GameData.blockRegistry.getObjectById(5),4,0);
+		world.setBlock(i + 9, j + 3, k + 16, GameData.blockRegistry.getObjectById(5),4,0);
 		world.setBlock(i + 10, j + 1, k + 11, 50, 5);
-		world.setBlock(i + 10, j + 3, k + 16, 50, 4, 0);
-		world.setBlock(i + 11, j + 3, k + 16, 50, 4, 0);
-		world.setBlock(i + 11, j + 8, k + 16, 96, 3);
+		world.setBlock(i + 10, j + 3, k + 16, GameData.blockRegistry.getObjectById(5),4,0);
+		world.setBlock(i + 11, j + 3, k + 16, GameData.blockRegistry.getObjectById(5),4,0);
+		world.setBlock(i + 11, j + 8, k + 16, 96,GameData.blockRegistry.getObjectById(3));
 		world.setBlock(i + 12, j + 1, k + 14, 50, 5);
-		world.setBlock(i + 12, j + 3, k + 6, 50, 3);
-		world.setBlock(i + 12, j + 3, k + 16, 50, 4, 0);
-		world.setBlock(i + 13, j + 3, k + 6, 50, 3);
-		world.setBlock(i + 13, j + 3, k + 16, 50, 4, 0);
+		world.setBlock(i + 12, j + 3, k + 6, 50,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 12, j + 3, k + 16, GameData.blockRegistry.getObjectById(5),4,0);
+		world.setBlock(i + 13, j + 3, k + 6, 50,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 13, j + 3, k + 16, GameData.blockRegistry.getObjectById(5),4,0);
 		world.setBlock(i + 14, j + 1, k + 13, 50, 5);
-		world.setBlock(i + 14, j + 3, k + 6, 50, 3);
-		world.setBlock(i + 14, j + 3, k + 16, 50, 4, 0);
+		world.setBlock(i + 14, j + 3, k + 6, 50,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 14, j + 3, k + 16, GameData.blockRegistry.getObjectById(5),4,0);
 		world.setBlock(i + 15, j + 1, k + 15, 50, 5);
-		world.setBlock(i + 15, j + 3, k + 6, 50, 3);
-		world.setBlock(i + 15, j + 3, k + 16, 50, 4, 0);
+		world.setBlock(i + 15, j + 3, k + 6, 50,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 15, j + 3, k + 16, GameData.blockRegistry.getObjectById(5),4,0);
 		world.setBlock(i + 16, j + 1, k + 15, 50, 5);
-		world.setBlock(i + 16, j + 3, k + 6, 50, 3);
-		world.setBlock(i + 16, j + 3, k + 16, 50, 4, 0);
+		world.setBlock(i + 16, j + 3, k + 6, 50,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 16, j + 3, k + 16, GameData.blockRegistry.getObjectById(5),4,0);
 		world.setBlock(i + 17, j + 1, k + 14, 50, 5);
-		world.setBlock(i + 17, j + 3, k + 6, 50, 3);
-		world.setBlock(i + 17, j + 3, k + 16, 50, 4, 0);
+		world.setBlock(i + 17, j + 3, k + 6, 50,GameData.blockRegistry.getObjectById(3));
+		world.setBlock(i + 17, j + 3, k + 16, GameData.blockRegistry.getObjectById(5),4,0);
 		world.setBlock(i + 18, j + 1, k + 9, 50, 5);
 		world.setBlock(i + 18, j + 1, k + 10, 50, 5);
-		world.setBlock(i + 18, j + 3, k + 6, 50,GameData.blockRegistry.getObjectById(2));
-		world.setBlock(i + 18, j + 3, k + 7, 50,GameData.blockRegistry.getObjectById(2));
-		world.setBlock(i + 18, j + 3, k + 12, 50,GameData.blockRegistry.getObjectById(2));
-		world.setBlock(i + 18, j + 3, k + 13, 50,GameData.blockRegistry.getObjectById(2));
-		world.setBlock(i + 18, j + 3, k + 14, 50,GameData.blockRegistry.getObjectById(2));
-		world.setBlock(i + 18, j + 3, k + 15, 50,GameData.blockRegistry.getObjectById(2));
-		world.setBlock(i + 18, j + 3, k + 16, 50, 4, 0);
+		world.setBlock(i + 18, j + 3, k + 6, GameData.blockRegistry.getObjectById(50),2,0);
+		world.setBlock(i + 18, j + 3, k + 7, GameData.blockRegistry.getObjectById(50),2,0);
+		world.setBlock(i + 18, j + 3, k + 12, GameData.blockRegistry.getObjectById(50),2,0);
+		world.setBlock(i + 18, j + 3, k + 13, GameData.blockRegistry.getObjectById(50),2,0);
+		world.setBlock(i + 18, j + 3, k + 14, GameData.blockRegistry.getObjectById(50),2,0);
+		world.setBlock(i + 18, j + 3, k + 15, GameData.blockRegistry.getObjectById(50),2,0);
+		world.setBlock(i + 18, j + 3, k + 16, GameData.blockRegistry.getObjectById(5),4,0);
 
 		return true;
 	}

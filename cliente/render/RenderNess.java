@@ -4,7 +4,9 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.RenderLiving;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
@@ -12,13 +14,8 @@ import FunMod.cliente.model.ModelNess;
 
 public class RenderNess extends RenderLiving
 {
- 
-
-
-     
     public RenderNess(ModelNess par1ModelNess, float par2) {
 		super(par1ModelNess, par2);
-		// TODO Auto-generated constructor stub
 	}
 
 	protected void renderName(EntityPlayer par1EntityPlayer, double par2, double par4, double par6)
@@ -32,7 +29,7 @@ public class RenderNess extends RenderLiving
 
             if (var10 < (double)(var12 * var12))
             {
-                String var13 = par1EntityPlayer.username;
+                String var13 = Minecraft.getMinecraft().thePlayer.getDisplayName();
 
                 if (par1EntityPlayer.isSneaking())
                 {
@@ -68,18 +65,26 @@ public class RenderNess extends RenderLiving
                 }
                 else if (par1EntityPlayer.isPlayerSleeping())
                 {
-                    this.renderLivingLabel(par1EntityPlayer, var13, par2, par4 - 1.5D, par6, 64);
+                    this.doRender(par1EntityPlayer, var13, par2, par4 - 1.5D, par6, 64);
                 }
                 else
                 {
-                    this.renderLivingLabel(par1EntityPlayer, var13, par2, par4, par6, 64);
+                    this.doRender(par1EntityPlayer, var13, par2, par4, par6, 64);
                 }
             }
         }
     }
 
-    /**
-     * Method for adding special render rules
-     */
-    
+	private void doRender(EntityPlayer par1EntityPlayer, String var13,
+			double par2, double par6, double par62, int par9) {
+		this.doRender(par1EntityPlayer, par2, par6, par62, par9, par9);
+		
+	}
+
+	@Override
+	protected ResourceLocation getEntityTexture(Entity var1) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

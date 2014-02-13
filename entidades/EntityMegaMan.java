@@ -17,11 +17,11 @@ public class EntityMegaMan extends EntityMobFun
     public EntityMegaMan(World par1World)
     {
         super(par1World);
-        texture = "/FunMod/cliente/texturas/Mobs/MEGAMAN.png"; 
+        //texture = "/FunMod/cliente/texturas/Mobs/MEGAMAN.png"; 
         setSize(0.9F, 1.3F);      
         this.attackStrength = 3;
-        this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntitySpider.class, 16.0F, 0, true));
-        this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityDoctorWilly.class, 16.0F, 0, true));
+        this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntitySpider.class, 0, true));
+        this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityDoctorWilly.class, 0, true));
         tasks.addTask(1, new EntityAIPanic(this, 0.20F));
         tasks.addTask(2, new EntityAIWander(this, 0.4F));
     }
@@ -31,10 +31,10 @@ public class EntityMegaMan extends EntityMobFun
         return true; 
     }
 
-    public int getMaxHealth()
-    {
-        return 25; 
-    }
+   // public int getMaxHealth()
+ //   {
+  //      return 25; 
+  //  }
 
     public void writeEntityToNBT(NBTTagCompound par1NBTTagCompound)
     {

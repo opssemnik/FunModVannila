@@ -2,7 +2,7 @@ package FunMod.struturas;
 
 import java.util.Random;
 
-import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import FunMod.dimensao.WorldGenMinableFantasy;
@@ -25,19 +25,19 @@ private void generateFantasy(World world, Random random, int blockX, int blockZ)
 	int Xcoord = blockX + random.nextInt(16);
 	int Ycoord = random.nextInt(60);
 	int Zcoord = blockZ + random.nextInt(16);
-	(new WorldGenMinableFantasy(Block.oreCoal.blockID, 19)).generate(world, random, Xcoord, Ycoord, Zcoord);	
+	(new WorldGenMinableFantasy(Blocks.coal_ore, 19)).generate(world, random, Xcoord, Ycoord, Zcoord);	
 	int Xcoord2 = blockX + random.nextInt(16);
 	int Ycoord2 = random.nextInt(40);
 	int Zcoord2 = blockZ + random.nextInt(16);
-	(new WorldGenMinableFantasy(Block.oreIron.blockID, 10)).generate(world, random, Xcoord2, Ycoord2, Zcoord2);	
+	(new WorldGenMinableFantasy(Blocks.iron_ore, 10)).generate(world, random, Xcoord2, Ycoord2, Zcoord2);	
 	int Xcoord3 = blockX + random.nextInt(16);
 	int Ycoord3 = random.nextInt(40);
 	int Zcoord3 = blockZ + random.nextInt(16);
-	(new WorldGenMinableFantasy(Block.oreGold.blockID, 5)).generate(world, random, Xcoord3, Ycoord3, Zcoord3);	
+	(new WorldGenMinableFantasy(Blocks.gold_ore, 5)).generate(world, random, Xcoord3, Ycoord3, Zcoord3);	
 	int Xcoord4 = blockX + random.nextInt(16);
 	int Ycoord4 = random.nextInt(14);
 	int Zcoord4 = blockZ + random.nextInt(16);
-	(new WorldGenMinableFantasy(Block.oreDiamond.blockID, 3)).generate(world, random, Xcoord4, Ycoord4, Zcoord4);	
+	(new WorldGenMinableFantasy(Blocks.diamond_ore, 3)).generate(world, random, Xcoord4, Ycoord4, Zcoord4);	
 }
 
 

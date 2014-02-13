@@ -3,6 +3,7 @@ package FunMod.cliente.render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
@@ -39,6 +40,12 @@ public class RenderSephiroth extends RenderLiving
     protected void preRenderCallback(EntityLiving par1EntityLiving, float par2)
     {
         preRenderScale((EntitySephiroth)par1EntityLiving, par2);
-    } 
+    }
+
+	@Override
+	protected ResourceLocation getEntityTexture(Entity var1) {
+		// TODO Auto-generated method stub
+		return null;
+	} 
     
 } 

@@ -2,10 +2,10 @@ package FunMod.entidades;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
@@ -16,12 +16,12 @@ public class EntityMage extends EntityMobFun
     public EntityMage(World par1World)
     {
         super(par1World);
-        texture = "/FunMod/cliente/texturas/Mobs/firemage.png"; 
+     //   texture = "/FunMod/cliente/texturas/Mobs/firemage.png"; 
         setSize(0.9F, 1.0F);      
-        this.moveSpeed = 0.4F;
+       // this.moveSpeed = 0.4F;
         this.attackStrength = 2;  
-        this.tasks.addTask(1, new EntityAIAttackOnCollide(this, EntityPlayer.class, this.moveSpeed, false));
-        this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 16.0F, 0, true));
+       // this.tasks.addTask(1, new EntityAIAttackOnCollide(this, EntityPlayer.class, , false));
+        this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
     }
 
     public boolean isAIEnabled()
@@ -29,10 +29,10 @@ public class EntityMage extends EntityMobFun
         return true; 
     }
 
-    public int getMaxHealth()
-    {
-        return 20; 
-    }
+ //   public int getMaxHealth()
+  //  {
+  //      return 20; 
+ //   }
 
     public boolean attackEntityAsMob(Entity par1Entity)
     {
@@ -42,13 +42,13 @@ public class EntityMage extends EntityMobFun
             {
                 byte var2 = 0;
 
-                if (this.worldObj.difficultySetting > 1)
+                if (this.worldObj.difficultySetting.getDifficultyId() > 1)
                 {
-                    if (this.worldObj.difficultySetting == 2)
+                    if (this.worldObj.difficultySetting.getDifficultyId() == 2)
                     {
                         var2 = 7;
                     }
-                    else if (this.worldObj.difficultySetting == 3)
+                    else if (this.worldObj.difficultySetting.getDifficultyId() == 3)
                     {
                         var2 = 15;
                     }
@@ -72,33 +72,21 @@ public class EntityMage extends EntityMobFun
     {
         return "mob.zombiepig.zpig";
     }
-
-    /**
-     * Returns the sound this mob makes when it is hurt.
-     */
     protected String getHurtSound()
     {
         return "mob.zombiepig.zpighurt";
     }
-
-    /**
-     * Returns the sound this mob makes on death.
-     */
     protected String getDeathSound()
     {
         return "mob.zombiepig.zpigdeath";
     }
-
-
     protected float getSoundVolume()
     {
         return 0.4F;
     }
-
- 
-    protected int getDropItemId()
+    protected Item getDropItem()
     {
-        return FunMod.MarioCoin.itemID; 
+        return FunMod.MarioCoin; 
     }
 
     protected void dropFewItems(boolean par1, int par2)
@@ -107,7 +95,7 @@ public class EntityMage extends EntityMobFun
 
         if (par1 && (this.rand.nextInt(3) == 0 || this.rand.nextInt(1 + par2) > 0))
         {
-            this.dropItem(FunMod.ObsidianStick.itemID, 1);
+            this.dropItem(FunMod.ObsidianStick, 1);
         }
     }
     public EntityAnimal spawnBabyAnimal(EntityAnimal par1EntityAnimal)
