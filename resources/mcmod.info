@@ -1,0 +1,17 @@
+[
+{
+  "modid": "FunMod",
+  "name": "FunMod",
+  "description": "Um mod épicamente épico que adiciona mobs , blocos , items e mais.",
+  "version": "1.0.0",
+  "mcversion": "1.4.2",
+  "logoFile": "",
+  "url": "http://tinyurl.com/funmod",
+  "updateUrl": "",
+  "authors": ["Antônio, Vini Santos, Gustavo Mendonça"],
+  "credits": "[Feito pelo time do mod Fun Mod]",
+  "parent": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
