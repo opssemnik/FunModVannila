@@ -54,75 +54,19 @@ public class WorldProviderFantasy extends WorldProvider {
 	}
 
 	public int getDimensionID() {
-
-		return 10;
-
+	return 10;
 	}
-
-	public boolean renderClouds() {
-
-		return true;
-
-	}
-
-	public boolean renderEndSky() {
-		return false;
-	}
-
-	public boolean renderVoidFog() {
-
-		return true;
-
-	}
-
-	public float setMoonSize() {
-		return 1.0F;
-	}
-
-	public float setSunSize() {
-
-		return 1.0F;
-
-	}
-
-	public String getSunTexture() {
-		return "/terrain/sun.png";
-	}
-
-	public String getMoonTexture() {
-		return "/terrain/moon_phases.png";
-	}
-
-	public float getStarBrightness(World var1, float var2) {
-		return var1.getStarBrightness(var2);
-	}
-
-	public Vec3 getSkyColor(World var1, Entity var2, float var3) {
-		return var1.getSkyColor(var2, var3);
-	}
-
 	public boolean canCoordinateBeSpawn(int par1, int par2) {
 		Block var3 = this.worldObj.getTopBlock(par1, par2);
 		return var3 == StaticHelper.FMBlockLoader.FantasyGrass;
-	}
-
-	public boolean renderStars() {
-		return true;
-
 	}
 
 	public int respawnInDimension() {
 		return 10;
 	}
 
-	public boolean darkenSkyDuringRain() {
-		return true;
-	}
-
 	public void registerWorldChunkManager() {
-
 		worldChunkMgr = new WorldChunkManagerHell(FunMod.FantasyBiome, 1.0F);
-
 	}
 
 	public IChunkProvider getChunkProvider() {

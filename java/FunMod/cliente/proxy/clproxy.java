@@ -168,9 +168,5 @@ public class clproxy extends proxy implements IGuiHandler
     public void renderItemComModelos(int var1){ 	              
         
     }
-	public void loadTickHandler()
-	{
-		//TickRegistry.registerTickHandler(new FunModClientTickHandler(), Side.CLIENT);
-	}
-    
+	
 }

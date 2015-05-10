@@ -3,6 +3,7 @@ package opssemnik.minecraft.funmod.fixes;
 import java.lang.reflect.Field;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -10,6 +11,7 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.util.EnumHelper;
 import FunMod.FunMod;
 import FunMod.blocks.BlocCobble;
@@ -26,7 +28,34 @@ import FunMod.blocks.FantasyLeaf;
 import FunMod.blocks.FantasyLog;
 import FunMod.blocks.FantasyStone;
 import FunMod.blocks.MysticalStone;
+import FunMod.entidades.EntityAsh;
+import FunMod.entidades.EntityBlinky;
+import FunMod.entidades.EntityChaos;
+import FunMod.entidades.EntityClyde;
+import FunMod.entidades.EntityDarkLink;
+import FunMod.entidades.EntityDoctorWilly;
+import FunMod.entidades.EntityGanondorf;
+import FunMod.entidades.EntityGoomba;
+import FunMod.entidades.EntityHamtaro;
+import FunMod.entidades.EntityHomemAranha;
+import FunMod.entidades.EntityIchigo;
+import FunMod.entidades.EntityInky;
+import FunMod.entidades.EntityKirby;
+import FunMod.entidades.EntityKoopaTroopa;
+import FunMod.entidades.EntityLink;
+import FunMod.entidades.EntityMage;
+import FunMod.entidades.EntityMegaMan;
+import FunMod.entidades.EntityNaruto;
+import FunMod.entidades.EntityNess;
+import FunMod.entidades.EntityPikachu;
+import FunMod.entidades.EntityPinky;
+import FunMod.entidades.EntitySephiroth;
+import FunMod.entidades.EntitySonic;
+import FunMod.entidades.EntityThrowing;
+import FunMod.entidades.EntityVenom;
+import FunMod.entidades.EntityWoody;
 import FunMod.tileentidades.EntidadeN64;
+import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class StaticHelper {
@@ -154,7 +183,6 @@ public class StaticHelper {
 	 public void registerItems() {
 		 Field[] items = this.getClass().getDeclaredFields();
 		 for(Field item : items){
-			 System.out.println(item.getClass().getSuperclass().getName());
 			 try {
 				if(item.get(this).getClass().getSuperclass().getName().contains("Item")){
 					 try {
@@ -214,7 +242,6 @@ public class StaticHelper {
 	 public void registerBlocks() {
 		 Field[] items = this.getClass().getDeclaredFields();
 		 for(Field item : items){
-			 System.out.println(item.getClass().getSuperclass().getName());
 			 try {
 				if(item.get(this).getClass().getSuperclass().getName().contains("Block")){
 					 try {
@@ -228,6 +255,61 @@ public class StaticHelper {
 
 			}
 		 }
+	 }
+ }
+ public static class FMEntityLoader{
+	 public FMEntityLoader(){
+		EntityRegistry.registerGlobalEntityID(EntityThrowing.class, "Throwing",EntityRegistry.findGlobalUniqueEntityId());
+		EntityRegistry.registerModEntity(EntityThrowing.class, "Throwing", EntityRegistry.findGlobalUniqueEntityId(),FunMod.instance, 64, 1, true);
+		EntityRegistry.registerGlobalEntityID(EntityLink.class, "Link", EntityRegistry.findGlobalUniqueEntityId(),8510747, 2551400);
+		EntityRegistry.addSpawn(EntityLink.class, 100, 2, 3,EnumCreatureType.creature, new BiomeGenBase[] {FunMod.FantasyBiome, });
+		EntityRegistry.registerGlobalEntityID(EntityNess.class, "Ness", EntityRegistry.findGlobalUniqueEntityId(),25500, 30144255);
+		EntityRegistry.addSpawn(EntityNess.class, 182, 1, 4,EnumCreatureType.creature,new BiomeGenBase[] { FunMod.FantasyBiome });
+		EntityRegistry.registerGlobalEntityID(EntityMegaMan.class, "MegaMan",EntityRegistry.findGlobalUniqueEntityId(), 135206250, 245245245);
+		EntityRegistry.addSpawn(EntityMegaMan.class, 102, 1, 2,EnumCreatureType.creature,	new BiomeGenBase[] { FunMod.FantasyBiome });
+		EntityRegistry.registerGlobalEntityID(EntityWoody.class, "Woody", EntityRegistry.findGlobalUniqueEntityId(),812712861, 245245245);
+		EntityRegistry.addSpawn(EntityWoody.class, EntityRegistry.findGlobalUniqueEntityId(), 1, 3,EnumCreatureType.creature,new BiomeGenBase[] { FunMod.FantasyBiome });
+		EntityRegistry.registerGlobalEntityID(EntityIchigo.class, "Ichigo",	EntityRegistry.findGlobalUniqueEntityId(), 23344499, 212823623);
+		EntityRegistry.addSpawn(EntityIchigo.class, 104, 3, 5,EnumCreatureType.creature,new BiomeGenBase[] { FunMod.FantasyBiome });
+		EntityRegistry.registerGlobalEntityID(EntityClyde.class, "Clyde", EntityRegistry.findGlobalUniqueEntityId(),46467576, 212823623);
+		EntityRegistry.addSpawn(EntityClyde.class, 105, 3, 7,EnumCreatureType.monster,new BiomeGenBase[] { FunMod.FantasyBiome });
+		EntityRegistry.registerGlobalEntityID(EntityGoomba.class, "Goomba",EntityRegistry.findGlobalUniqueEntityId(), 18271293, 212823623);
+		EntityRegistry.addSpawn(EntityGoomba.class, 106, 6, 8,EnumCreatureType.monster,new BiomeGenBase[] { FunMod.FantasyBiome });
+		EntityRegistry.registerGlobalEntityID(EntityNaruto.class, "Naruto",	EntityRegistry.findGlobalUniqueEntityId(), 252520, 141415);
+		EntityRegistry.addSpawn(EntityNaruto.class, 107, 2, 4,	EnumCreatureType.creature,new BiomeGenBase[] { FunMod.FantasyBiome });EntityRegistry.registerGlobalEntityID(EntityBlinky.class, "Blinky",		EntityRegistry.findGlobalUniqueEntityId(), 12872382, 141415);
+		EntityRegistry.addSpawn(EntityBlinky.class, 108, 8, 12,	EnumCreatureType.monster, new BiomeGenBase[] {FunMod.FantasyBiome, });
+		EntityRegistry.registerGlobalEntityID(EntityInky.class, "Inky", EntityRegistry.findGlobalUniqueEntityId(),12872382, 18191918);
+		EntityRegistry.addSpawn(EntityInky.class, 109, 3, 5,EnumCreatureType.monster, new BiomeGenBase[] {FunMod.FantasyBiome });
+		EntityRegistry.registerGlobalEntityID(EntityPinky.class, "Pinky", EntityRegistry.findGlobalUniqueEntityId(),1281272, 18191918);
+		EntityRegistry.addSpawn(EntityPinky.class, 110, 8, 12,EnumCreatureType.monster, new BiomeGenBase[] {FunMod.FantasyBiome });
+		EntityRegistry.registerGlobalEntityID(EntityAsh.class, "Ash", EntityRegistry.findGlobalUniqueEntityId(),19291201, 1821928);
+		EntityRegistry.addSpawn(EntityAsh.class, 111, 2, 3,EnumCreatureType.creature, new BiomeGenBase[] {FunMod.FantasyBiome });
+		EntityRegistry.registerGlobalEntityID(EntityKirby.class, "Kirby", EntityRegistry.findGlobalUniqueEntityId(),80807090, 8512712);
+		EntityRegistry.addSpawn(EntityKirby.class, 112, 4, 8,EnumCreatureType.creature, new BiomeGenBase[] {	FunMod.FantasyBiome });
+		EntityRegistry.registerGlobalEntityID(EntityHomemAranha.class,"Spider Man", EntityRegistry.findGlobalUniqueEntityId(), 60807090, 152152);
+		EntityRegistry.addSpawn(EntityHomemAranha.class, 113, 1, 4,EnumCreatureType.creature, new BiomeGenBase[] {FunMod.FantasyBiome});
+		EntityRegistry.registerGlobalEntityID(EntityVenom.class, "Venom", EntityRegistry.findGlobalUniqueEntityId(),9090706, 152152);
+		EntityRegistry.addSpawn(EntityVenom.class, 114, 3, 5,EnumCreatureType.monster, new BiomeGenBase[] {	FunMod.FantasyBiome });
+		EntityRegistry.registerGlobalEntityID(EntityPikachu.class, "Pikachu",	EntityRegistry.findGlobalUniqueEntityId(), 80807060, 1515151);
+		EntityRegistry.addSpawn(EntityPikachu.class, 115, 1, 3,EnumCreatureType.creature, new BiomeGenBase[] {FunMod.FantasyBiome });
+		EntityRegistry.registerGlobalEntityID(EntityChaos.class, "Chaos", EntityRegistry.findGlobalUniqueEntityId(),3636363, 1515151);
+		EntityRegistry.addSpawn(EntityChaos.class, 116, 5, 5,EnumCreatureType.monster, new BiomeGenBase[] {FunMod.FantasyBiome});
+		EntityRegistry.registerGlobalEntityID(EntityMage.class, "Mage", EntityRegistry.findGlobalUniqueEntityId(),3636363, 66666666);
+		EntityRegistry.addSpawn(EntityMage.class, 117, 1, 2,EnumCreatureType.monster, new BiomeGenBase[] {	FunMod.FantasyBiome });
+		EntityRegistry.registerGlobalEntityID(EntityDarkLink.class,"DarkLink", EntityRegistry.findGlobalUniqueEntityId(), 77777777, 88888888);
+		EntityRegistry.addSpawn(EntityDarkLink.class, 119, 2, 4,EnumCreatureType.monster, new BiomeGenBase[] {FunMod.FantasyBiome});
+		EntityRegistry.registerGlobalEntityID(EntityGanondorf.class,"Ganondorf", EntityRegistry.findGlobalUniqueEntityId(), 10277912, 16161616);
+		EntityRegistry.addSpawn(EntityGanondorf.class, 120, 1, 3,EnumCreatureType.monster, new BiomeGenBase[] {FunMod.FantasyBiome});
+		EntityRegistry.registerGlobalEntityID(EntitySephiroth.class,"Sephiroth", EntityRegistry.findGlobalUniqueEntityId(), 10277912, 67676767);
+		EntityRegistry.addSpawn(EntitySephiroth.class, 121, 1, 3,EnumCreatureType.monster, new BiomeGenBase[] {FunMod.FantasyBiome });
+		EntityRegistry.registerGlobalEntityID(EntityKoopaTroopa.class,"KoopaTroopa", EntityRegistry.findGlobalUniqueEntityId(), 89898090, 67676767);
+		EntityRegistry.addSpawn(EntityKoopaTroopa.class, 122, 6, 7,EnumCreatureType.monster, new BiomeGenBase[] {FunMod.FantasyBiome });
+		EntityRegistry.registerGlobalEntityID(EntitySonic.class, "Sonic", EntityRegistry.findGlobalUniqueEntityId(),89898090, 49484047);
+		EntityRegistry.addSpawn(EntitySonic.class, 123, 2, 5,EnumCreatureType.creature, new BiomeGenBase[] {FunMod.FantasyBiome });
+		EntityRegistry.registerGlobalEntityID(EntityDoctorWilly.class,"DoctorWilly", EntityRegistry.findGlobalUniqueEntityId(), 129128918, 88888888);
+		EntityRegistry.addSpawn(EntityDoctorWilly.class, 125, 1, 3,EnumCreatureType.monster, new BiomeGenBase[] {FunMod.FantasyBiome });
+		EntityRegistry.registerGlobalEntityID(EntityHamtaro.class, "Hamtaro",EntityRegistry.findGlobalUniqueEntityId(), 129128918, 81726162);
+		EntityRegistry.addSpawn(EntityDoctorWilly.class, 125, 1, 3,EnumCreatureType.creature, new BiomeGenBase[] {FunMod.FantasyBiome});
 	 }
  }
 }

@@ -38,10 +38,7 @@ public class proxy implements IGuiHandler
         }
 	
 	public void loadUtilities() {}
-	public void loadTickHandler()
-	{
-		
-	}
+
 	
 	public void init() {
 }
