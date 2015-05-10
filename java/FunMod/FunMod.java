@@ -56,7 +56,6 @@ public class FunMod {
 		proxy.registerRenderThings();
 		proxy.renderMobs();
 		proxy.renderBlocoComModelo();
-		proxy.rendercontrole();
 
 		// Dimensao
 		//DimensionManager.registerProviderType(10, WorldProviderFantasy.class,

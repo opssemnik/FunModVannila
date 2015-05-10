@@ -1,6 +1,7 @@
 package FunMod.cliente.render;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
@@ -20,7 +21,7 @@ public void renderAModelAt(EntidadeSofa tileentity1, double d, double d1, double
 	if(tileentity1.getWorldObj() != null) 
 	{
 	}
-   // bindTextureByName("/FunMod/cliente/texturas/modelos/sofa.png");
+    bindTexture(new ResourceLocation("funmod:textures/models/sofa.png"));
     GL11.glPushMatrix();
     GL11.glTranslatef((float)d + 0.5F, (float)d1 + 1.5F, (float)d2 + 0.5F); //size
     GL11.glRotatef(90, 0.0F, 1.0F, 0.0F); 
